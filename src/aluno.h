@@ -23,5 +23,5 @@ class Aluno {
 public:
 	Aluno(int num, string nome, int ano, string data, string email, string estatuto); // falta o vetor de disciplinas e o tutor
 };
-
+///////////////////////////////////////
 vector<Aluno>GetAllAlunos();

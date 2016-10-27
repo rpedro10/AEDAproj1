@@ -60,7 +60,7 @@ vector<Aluno>GetAllAlunos(){
 
 		cout << year << endl << str4 << endl << "-----------------------------" << endl;
 
-		
+		//////////////////////////////////////////
 
 		//string email
 		//string estatuto
