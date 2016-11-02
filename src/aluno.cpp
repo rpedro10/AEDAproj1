@@ -96,7 +96,7 @@ vector<Aluno>GetAllAlunos(){
 	//getline(in, line);
 	while (getline(in, line)){
 		
-		cout << line << endl;
+		//cout << line << endl;
 
 		string str1 = line.substr(0, line.find(";") - 1); // numero
 		int id = atoi(str1.c_str());
@@ -118,25 +118,59 @@ vector<Aluno>GetAllAlunos(){
 		
 		string str4 = line.substr(0, line.find(";") - 1);          //data
 
-		cout << year << endl << str4 << endl << "-----------------------------" << endl;
+		cout << year << endl << str4 << endl ;
 
 		//////////////////////////////////////////
 
-		//string email
-		//string estatuto
-		//tutor
-		//cadeiras
+		line = line.substr(line.find(";") + 2, string::npos);
 
+		string str5 = line.substr(0, line.find(";") - 1); // email
+
+		line = line.substr(line.find(";") + 2, string::npos);
+
+		string str6 = line.substr(0, line.find(";") - 1); // estatuto
+
+		cout << str5 << endl << str6 << endl << "----------------------" << endl;
+
+		line = line.substr(line.find(";") + 2, string::npos);
+		vector<string> v1;
+	//	cout << line << endl;
+		
+			while ( line.find(",") != string::npos){
+
+				string uc = line.substr(0, line.find(","));
+
+				
+
+				v1.push_back(uc);
+
+				//cout << uc << endl;
+
+				line = line.substr(line.find(",") + 2);
+				//cout << line << endl;
+			}
+		
+		v1.push_back(line);
+		//Aluno novo_aluno(////////////);
+		//alunos.push_back(novo_aluno);
+
+	//}
+
+		for (int i = 0; i < v1.size(); i++){
+			cout << "_____________________" << endl << v1[i] << endl;
+		}
+		/*
 		if (!in.eof()){
 		//	Aluno novo_aluno();
 		//	alunos.push_back(novo_aluno);
-		}
+		}*/
 	}
 	in.close();
 
 	return alunos;
 
 }
+
 
 
 	

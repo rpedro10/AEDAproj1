@@ -37,8 +37,6 @@ public:
 	void setNome(const string& nome);
 	int getNumero() const;
 	void setNumero(int numero);
-
+};
 ///////////////////////////////////////
 	vector<Aluno> GetAllAlunos();
-
-
