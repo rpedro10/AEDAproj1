@@ -7,12 +7,14 @@
 //============================================================================
 #include "aluno.h"
 #include <iostream>
+
+
 using namespace std;
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	GetAllAlunos();
-	GetAllCadeiras();
+	//GetAllCadeiras();
 	////////////////////////////////
 	
 	return 0;

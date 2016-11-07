@@ -1,6 +1,9 @@
 #include "docente.h"
 
 
+#include <stdio.h>
+#include <stdlib.h>
+
 int Docente::getCodigo() const {
 	return codigo;
 }
@@ -24,23 +27,23 @@ Docente::Docente(int cod, string nome){
 }
 
 
-vector<Uc>GetAllDocentes(){
+vector<Docente>GetAllDocentes(){
 	ifstream in;
 	string filename;
-	vector<Uc>docentes;
+	vector<Docente>docentes;
 
 	cout << "nome do ficheiro ? ";			//ficheiro de alunos
 	cin >> filename;
 	filename += ".txt";
 
-	in.open(filename);
+	in.open("docente.txt");
 
 	while (in.fail()){							// testa se abriu o ficheiro
 		cerr << "Input file opening failed.\n";
 		cout << "nome do ficheiro de alunos? ";
 		cin >> filename;
 		filename += ".txt";
-		in.open(filename);
+		in.open("docente.txt");
 	}
 
 	string line;
