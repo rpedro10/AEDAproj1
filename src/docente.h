@@ -4,6 +4,11 @@
 
 using namespace std;
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include<vector>
+
 class Docente {
 	int codigo;
 	string nome;

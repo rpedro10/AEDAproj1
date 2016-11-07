@@ -1,6 +1,10 @@
 #include "aluno.h"
 
 
+
+#include <stdio.h>
+#include <stdlib.h>
+
 Aluno::Aluno(int num, string nome, int ano, string data, string email, string estatuto){
 
 
@@ -78,24 +82,24 @@ vector<Aluno>GetAllAlunos(){
 	string filename;
 	vector<Aluno>alunos;
 
-	cout << "nome do ficheiro ? ";			//ficheiro de alunos
-	cin >> filename;
-	filename += ".txt";
+	//cout << "nome do ficheiro ? ";			//ficheiro de alunos
+	//cin >> filename;
+	filename = "aa.txt";
 
-	in.open(filename);
-
+	in.open(filename.c_str(),ifstream::in);
+/**
 	while (in.fail()){							// testa se abriu o ficheiro
 		cerr << "Input file opening failed.\n";
 		cout << "nome do ficheiro de alunos? ";
 		cin >> filename;
 		filename += ".txt";
-		in.open(filename);
+		//in.open("aa.txt");
 	}
-
+*/
 	string line;
 	//getline(in, line);
 	while (getline(in, line)){
-		
+
 		//cout << line << endl;
 
 		string str1 = line.substr(0, line.find(";") - 1); // numero
@@ -103,22 +107,22 @@ vector<Aluno>GetAllAlunos(){
 		line = line.substr(line.find(";") + 2, string::npos);
 
 		cout << id << endl;
-		
+
 		string str2 = line.substr(0, line.find(";") - 1);  // nome
 
 		line = line.substr(line.find(";") + 2, string::npos);
 
 		cout << str2 << endl;
 
-		
-		string str3 = line.substr(0, line.find(";") - 1);  
+
+		string str3 = line.substr(0, line.find(";") - 1);
 		int year = atoi(str3.c_str());//ano  int
 
 		line = line.substr(line.find(";") + 2, string::npos);
-		
+
 		string str4 = line.substr(0, line.find(";") - 1);          //data
 
-		cout << year << endl << str4 << endl ;
+		cout << year << endl << str4 << endl;
 
 		//////////////////////////////////////////
 
@@ -130,34 +134,36 @@ vector<Aluno>GetAllAlunos(){
 
 		string str6 = line.substr(0, line.find(";") - 1); // estatuto
 
-		cout << str5 << endl << str6 << endl << "----------------------" << endl;
+		cout << str5 << endl << str6 << endl;
 
 		line = line.substr(line.find(";") + 2, string::npos);
 		vector<string> v1;
-	//	cout << line << endl;
-		
-			while ( line.find(",") != string::npos){
+		//	cout << line << endl;
 
-				string uc = line.substr(0, line.find(","));
 
-				
+		// TUTOR  
 
-				v1.push_back(uc);
+		while (line.find(",") != string::npos){
 
-				//cout << uc << endl;
+			string uc = line.substr(0, line.find(","));
 
-				line = line.substr(line.find(",") + 2);
-				//cout << line << endl;
-			}
-		
+
+
+			v1.push_back(uc);
+
+			//cout << uc << endl;
+
+			line = line.substr(line.find(",") + 2);
+			//cout << line << endl;
+		}
+
 		v1.push_back(line);
 		//Aluno novo_aluno(////////////);
 		//alunos.push_back(novo_aluno);
 
-	//}
-
+	
 		for (int i = 0; i < v1.size(); i++){
-			cout << "_____________________" << endl << v1[i] << endl;
+			cout << v1[i] << endl;
 		}
 		/*
 		if (!in.eof()){

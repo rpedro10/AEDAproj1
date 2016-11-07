@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+#include <stdio.h>
+#include <stdlib.h>
+
 Uc::Uc(string nome, string sigla, int semestre, int ano, float creditos){
 	this->nome = nome;
 	this->sigla = sigla;
@@ -9,15 +12,18 @@ Uc::Uc(string nome, string sigla, int semestre, int ano, float creditos){
 	this->ano = ano;
 	this->creditos = creditos;
 }
-
+/**
 Optativa::Optativa(string nome, string sigla, int semestre, int ano, float cred,
 		int vagas, string curso, string fac, string area) {
-}
+	this->area = area;
 
+}
+*/
+/**
 N_Optativa::N_Optativa(string nome, string sigla, int semestre, int ano,
 		float cred) {
 }
-
+*/
 // contrutor das subclasses
 
 
@@ -30,14 +36,14 @@ vector<Uc>GetAllCadeiras(){
 	cin >> filename;
 	filename += ".txt";
 
-	in.open(filename);
+	in.open("ucs.txt");
 
 	while (in.fail()){							// testa se abriu o ficheiro
 		cerr << "Input file opening failed.\n";
 		cout << "nome do ficheiro de alunos? ";
 		cin >> filename;
 		filename += ".txt";
-		in.open(filename);
+		in.open("ucs.txt");
 	}
 
 	string line;
@@ -45,7 +51,8 @@ vector<Uc>GetAllCadeiras(){
 	while (getline(in, line)){
 
 		string str1 = line.substr(0, line.find(";") - 1); // numero
-		int id = atoi(str1.c_str());
+		int id ;
+		//id= atoi(str1.c_str());
 		line = line.substr(line.find(";") + 2, string::npos);
 
 		//cout << id << endl;
@@ -73,7 +80,7 @@ vector<Uc>GetAllCadeiras(){
 		line = line.substr(line.find(";") + 2, string::npos);
 
 		string str4 = line.substr(0, line.find(";") - 1);          
-		int year = atoi(str4.c_str());//ano  int
+		 int year = atoi(str4.c_str());//ano  int
 
 		
 
