@@ -1,10 +1,5 @@
 #include "uc.h"
 
-#include <iostream>
-
-#include <stdio.h>
-#include <stdlib.h>
-
 Uc::Uc(string nome, string sigla, int semestre, int ano, float creditos){
 	this->nome = nome;
 	this->sigla = sigla;
@@ -25,86 +20,6 @@ N_Optativa::N_Optativa(string nome, string sigla, int semestre, int ano,
 }
 */
 // contrutor das subclasses
-
-
-vector<Uc>GetAllCadeiras(){
-	ifstream in;
-	string filename;
-	vector<Uc>cadeiras;
-
-	cout << "nome do ficheiro ? ";			//ficheiro de alunos
-	cin >> filename;
-	filename += ".txt";
-
-	in.open("ucs.txt");
-
-	while (in.fail()){							// testa se abriu o ficheiro
-		cerr << "Input file opening failed.\n";
-		cout << "nome do ficheiro de alunos? ";
-		cin >> filename;
-		filename += ".txt";
-		in.open("ucs.txt");
-	}
-
-	string line;
-	
-	while (getline(in, line)){
-
-		string str1 = line.substr(0, line.find(";") - 1); // numero
-		int id ;
-		//id= atoi(str1.c_str());
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		//cout << id << endl;
-
-		if (id == 1){
-
-			//no caso de ser optativa
-
-
-
-		}
-		else{
-
-
-		string nome = line.substr(0, line.find(";") - 1);  // nome
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		//cout << nome << endl;
-
-		string sigla = line.substr(0, line.find(";") - 1);  // sigla
-		
-		
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		string str4 = line.substr(0, line.find(";") - 1);          
-		 int year = atoi(str4.c_str());//ano  int
-
-		
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		string str5 = line.substr(0, line.find(";") - 1); 
-		int sem = atoi(str5.c_str());//semestre
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		string str6 = line.substr(0, line.find(";") - 1); 
-		int credit = atoi(str6.c_str());//creditos
-		
-		cout << nome << "...." << sigla << "...." << year << "...." << sem << "...." << credit << endl;
-	
-		// construtor de nao optativa
-		// cadeiras.push_back();
-	}
-	}
-	in.close();
-
-	return cadeiras;
-
-}
 
 const string& Optativa::getArea() const {
 	return area;

@@ -1,24 +1,15 @@
 #include "aluno.h"
 
-
-
-#include <stdio.h>
-#include <stdlib.h>
-
-Aluno::Aluno(int num, string nome, int ano, string data, string email, string estatuto){
-
-
-
-	this->numero = num;  // coloca o nº
-	this->nome = nome;                               // nome colocado
+Aluno::Aluno(int num, string nome, int ano, string data, string email, string estatuto, string tutor, vector<string> idCadeiras){
+	this->numero = num;  				// coloca o nï¿½
+	this->nome = nome;					// nome colocado
 	this->ano = ano;
 	this->data = data;
 	this->email = email;
 	this->estatuto = estatuto;
-
+	this->tutor = tutor;
+	this->idCadeiras = idCadeiras;
 }
-
-
 
 int Aluno::getAno() const {
 	return ano;
@@ -28,6 +19,7 @@ void Aluno::setAno(int ano) {
 	this->ano = ano;
 }
 
+/*
 const vector<Uc*>& Aluno::getCadeirasInscrito() const {
 	return cadeiras_inscrito;
 }
@@ -35,6 +27,7 @@ const vector<Uc*>& Aluno::getCadeirasInscrito() const {
 void Aluno::setCadeirasInscrito(const vector<Uc*>& cadeirasInscrito) {
 	cadeiras_inscrito = cadeirasInscrito;
 }
+*/
 
 const string& Aluno::getData() const {
 	return data;
@@ -76,107 +69,34 @@ void Aluno::setNumero(int numero) {
 	this->numero = numero;
 }
 
-
-vector<Aluno>GetAllAlunos(){
-	ifstream in;
-	string filename;
-	vector<Aluno>alunos;
-
-	//cout << "nome do ficheiro ? ";			//ficheiro de alunos
-	//cin >> filename;
-	filename = "aa.txt";
-
-	in.open(filename.c_str(),ifstream::in);
-/**
-	while (in.fail()){							// testa se abriu o ficheiro
-		cerr << "Input file opening failed.\n";
-		cout << "nome do ficheiro de alunos? ";
-		cin >> filename;
-		filename += ".txt";
-		//in.open("aa.txt");
-	}
-*/
-	string line;
-	//getline(in, line);
-	while (getline(in, line)){
-
-		//cout << line << endl;
-
-		string str1 = line.substr(0, line.find(";") - 1); // numero
-		int id = atoi(str1.c_str());
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		cout << id << endl;
-
-		string str2 = line.substr(0, line.find(";") - 1);  // nome
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		cout << str2 << endl;
-
-
-		string str3 = line.substr(0, line.find(";") - 1);
-		int year = atoi(str3.c_str());//ano  int
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		string str4 = line.substr(0, line.find(";") - 1);          //data
-
-		cout << year << endl << str4 << endl;
-
-		//////////////////////////////////////////
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		string str5 = line.substr(0, line.find(";") - 1); // email
-
-		line = line.substr(line.find(";") + 2, string::npos);
-
-		string str6 = line.substr(0, line.find(";") - 1); // estatuto
-
-		cout << str5 << endl << str6 << endl;
-
-		line = line.substr(line.find(";") + 2, string::npos);
-		vector<string> v1;
-		//	cout << line << endl;
-
-
-		// TUTOR  
-
-		while (line.find(",") != string::npos){
-
-			string uc = line.substr(0, line.find(","));
-
-
-
-			v1.push_back(uc);
-
-			//cout << uc << endl;
-
-			line = line.substr(line.find(",") + 2);
-			//cout << line << endl;
-		}
-
-		v1.push_back(line);
-		//Aluno novo_aluno(////////////);
-		//alunos.push_back(novo_aluno);
-
-	
-		for (int i = 0; i < v1.size(); i++){
-			cout << v1[i] << endl;
-		}
-		/*
-		if (!in.eof()){
-		//	Aluno novo_aluno();
-		//	alunos.push_back(novo_aluno);
-		}*/
-	}
-	in.close();
-
-	return alunos;
-
+vector<string> Aluno::getIDcadeiras(){
+	return this->idCadeiras;
 }
 
+void Aluno::setIDcadeiras(vector<string> idCadeiras){
+	this->idCadeiras = idCadeiras;
+}
 
+void Aluno::inscreverCadeira(string cadeira){
+	this->idCadeiras.push_back(cadeira);
+}
+
+void Aluno::displayAluno(){
+	cout << "Nome : " << this->nome << endl;
+	cout << "Numero de Estudante: " << this->numero << endl;
+	cout << "Ano Curricular: " << this->ano << endl;
+	cout << "Email: " << this->email << endl;
+	cout << "Data de inscricao: " << this->data << endl;
+	cout << "Estatuto: " << this->estatuto;
+	cout << "Tutor: " << this->tutor << endl;
+	cout << "Cadeiras que frequenta: " << endl;
+
+	for(unsigned int i = 0; i<this->idCadeiras.size(); i++){
+		cout << "	" << this->idCadeiras[i] << endl;
+	}
+
+	cout << "==============================" << endl;
+
+}
 
 	

@@ -1,12 +1,11 @@
-/*
- * Ucs.h
- */
-
-
+#ifndef __uc_h__
+#define __uc_h__
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include<vector>
+#include <vector>
 
 using namespace std;
 
@@ -55,8 +54,7 @@ public:
 	N_Optativa(string nome,string sigla,int semestre,int ano,float cred);
 
 };
-vector<Uc>GetAllCadeiras();
 
-
+#endif
 
 
