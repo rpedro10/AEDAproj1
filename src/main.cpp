@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : trabalho1.cpp
-// Author      : Rui Oliveira e Rui
+// Author      : Rui Oliveira e Rui Araujo
 // Version     :
 // Copyright   : Your copyright notice
 // Description :
