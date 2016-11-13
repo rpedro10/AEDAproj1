@@ -1,3 +1,0 @@
-201492758 ; Antonio Alberto ; 2; 12/12/2015; up201492758@fe.up.pt ; trabalhador-estudante ; PROG, PLOG
-201000619 ; Rui Oliveira ; 3 ; 12/12/2015; up201000619@fe.up.pt ; normal ; AEDA, LTW, RCOM, LCOM, ESOF
-201500392 ; Fabiano Soares ; 1; 12/12/2015; up201500392@fe.up.pt ; normal ;
