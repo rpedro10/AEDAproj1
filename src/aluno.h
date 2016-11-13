@@ -24,6 +24,7 @@ class Aluno {
 	//temporary variables
 public:
 	Aluno(int num, string nome, int ano, string data, string email, string estatuto, Docente* tutor, vector<Uc *> cadeiras_inscrito); // falta o vetor de disciplinas e o tutor
+	Aluno(int num, string nome, int ano, string data, string email, string estatuto);
 	//~Aluno();
 	int getAno() const;
 	void setAno(int ano);

@@ -18,11 +18,13 @@ class Mieic{
 
 public:
 	Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos);
+
+	int runProgram();
+
 	int inscreverAluno();
-	int novoAluno();
-	int buscarAluno(int i, unsigned int type);
-	int buscarAluno(string s, unsigned int type);
-	int buscarCadeira(string s, unsigned int type);
+	int inscreverNovoAluno();
+	int buscarAluno();
+	int buscarCadeira();
 	int consultarAluno(int id);
 	int consultarInscritosCadeira(string s);
 };
