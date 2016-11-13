@@ -1,8 +1,8 @@
 //============================================================================
 // Name        : trabalho1.cpp
 // Author      : Rui Oliveira e Rui Araujo
-// Version     :
-// Copyright   : Your copyright notice
+// Version     : 0.3
+// Copyright   : This is a University project, use at your own risk.
 // Description :
 //============================================================================
 #include "mieic.h"
@@ -11,10 +11,10 @@
 using namespace std;
 
 
-vector<Aluno> initAlunos(vector <Docente> docentes){
+vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 	ifstream in;
 	string filename;
-	vector<Aluno> alunos;
+	vector<Aluno*> alunos;
 
 	filename = "aa.txt";
 
@@ -32,60 +32,70 @@ vector<Aluno> initAlunos(vector <Docente> docentes){
 
 	string line;
 
+	int id;
+	string name;
+	int year;
+	string data;
+	string email;
+	Docente* tutor;
+
 	while (getline(in, line)){
-		int id;
-		string name;
-		int year;
-		string data;
-		string email;
-		string tutor;
 
 		string IDstr = line.substr(0, line.find(";") - 1); 				// numero
 		id = atoi(IDstr.c_str());
-		line = line.substr(line.find(";") + 2, string::npos);
 
+		line = line.substr(line.find(";") + 2, string::npos);
 		name = line.substr(0, line.find(";") - 1); 						// nome
-		line = line.substr(line.find(";") + 2, string::npos);
 
+		line = line.substr(line.find(";") + 2, string::npos);
 		string YEARstr = line.substr(0, line.find(";") - 1);			// ano
 		year = atoi(YEARstr.c_str());
-		line = line.substr(line.find(";") + 2, string::npos);
 
+		line = line.substr(line.find(";") + 2, string::npos);
 		data = line.substr(0, line.find(";") - 1);						// data
-		line = line.substr(line.find(";") + 2, string::npos);
 
+		line = line.substr(line.find(";") + 2, string::npos);
 		email = line.substr(0, line.find(";") - 1); 					// email
-		line = line.substr(line.find(";") + 2, string::npos);
 
+		line = line.substr(line.find(";") + 2, string::npos);
 		string estatuto = line.substr(0, line.find(";") - 1); 			// estatuto
-		line = line.substr(line.find(";") + 2, string::npos);
 
+		line = line.substr(line.find(";") + 2, string::npos);
 		int tutorID;
 		string tutorIDstr = line.substr(0, line.find(";") - 1); 		// tutor
 		tutorID = atoi(YEARstr.c_str());
 		for(unsigned int i = 0; i<docentes.size(); i++){
-			if(docentes[i].getCodigo() == tutorID){
-				tutor = docentes[i].getNome();
+			if((*docentes[i]).getCodigo() == tutorID){
+				tutor = docentes[i];
 			}
 		}
+
 		line = line.substr(line.find(";") + 2, string::npos);
+		string uc;
 
-		vector<string> cadeiras;										// cadeiras
-		//cout << line << endl;
+		vector<Uc*> ucsAluno;
 
-		while (line.find(",") != string::npos){
-			string uc = line.substr(0, line.find(","));
+		while (line.find(",") != string::npos){							// cadeiras
+			uc = line.substr(0, line.find(","));
 
-			cadeiras.push_back(uc);
-			//cout << uc << endl;
+			for(unsigned int i = 0; i<ucs.size(); i++){
+				if(uc.compare((*ucs[i]).getSigla()) == 0){
+					ucsAluno.push_back(ucs[i]);
+				}
+			}
 
 			line = line.substr(line.find(",") + 2);
-			//cout << line << endl;
 		}
 
-		cadeiras.push_back(line);
+		if(uc.compare(line) != 0)
+			for(unsigned int i = 0; i<ucs.size(); i++){
+				if(line.compare((*ucs[i]).getSigla()) == 0){
+					ucsAluno.push_back(ucs[i]);
+				}
+			}
 
-		Aluno aluno = Aluno(id, name, year, data, email, estatuto, tutor, cadeiras);
+
+		Aluno* aluno = new Aluno(id, name, year, data, email, estatuto, tutor, ucsAluno);
 		alunos.push_back(aluno);
 
 		/*
@@ -93,9 +103,9 @@ vector<Aluno> initAlunos(vector <Docente> docentes){
 		cout << name << endl;
 		cout << year << endl << data << endl;
 		cout << email << endl << estatuto << endl;
-		cout << tutor << endl;
-		for (unsigned int i = 0; i < cadeiras.size(); i++){
-			cout << cadeiras[i] << endl;
+		cout << (*tutor).getNome() << endl;
+		for (unsigned int i = 0; i < ucsAluno.size(); i++){
+			cout << (*ucsAluno[i]).getSigla() << endl;
 		}
 		cout << "==============================" << endl;
 		*/
@@ -107,19 +117,14 @@ vector<Aluno> initAlunos(vector <Docente> docentes){
 }
 
 
-vector<Uc> initUCs(){
+vector<Uc*> initUCs(){
 	ifstream in;
 	string filename;
-	vector<Uc>cadeiras;
-
-	/*
-	cout << "nome do ficheiro ? ";			//ficheiro de alunos
-	cin >> filename;
-	filename += ".txt";
-	*/
+	vector<Uc*> cadeiras;
 
 	in.open("ucs.txt");
 
+	/*
 	while (in.fail()){							// testa se abriu o ficheiro
 		cerr << "Input file opening failed.\n";
 		cout << "nome do ficheiro de alunos? ";
@@ -127,58 +132,60 @@ vector<Uc> initUCs(){
 		filename += ".txt";
 		in.open("ucs.txt");
 	}
+	*/
+
+	string nome;
+	string sigla;
+	int ano;
+	int semestre;
+	float creditos;
 
 	string line;
 
-	while (getline(in, line)){
+	while(getline(in, line)) {
 
-		string str1 = line.substr(0, line.find(";") - 1); // numero
-		int id ;
-		//id= atoi(str1.c_str());
+		string optStr = line.substr(0, line.find(";") - 1);				// optatividade
+		int opt = atoi(optStr.c_str());
+
 		line = line.substr(line.find(";") + 2, string::npos);
+		nome = line.substr(0, line.find(";") - 1);						// nome
 
-		//cout << id << endl;
+		line = line.substr(line.find(";") + 2, string::npos);
+		sigla = line.substr(0, line.find(";") - 1);						// sigla
 
-		if (id == 1){
+		line = line.substr(line.find(";") + 2, string::npos);
+		string anoStr = line.substr(0, line.find(";") - 1);				// ano
+		ano = atoi(anoStr.c_str());
 
-			//no caso de ser optativa
+		line = line.substr(line.find(";") + 2, string::npos);
+		string semestreStr = line.substr(0, line.find(";") - 1);		// semestre
+		semestre = atoi(semestreStr.c_str());//semestre
 
+		line = line.substr(line.find(";") + 2, string::npos);
+		string creditosStr = line.substr(0, line.find(";") - 1);		// creditos
+		creditos = atoi(creditosStr.c_str());
 
-
-		}
-		else{
-
-			string nome = line.substr(0, line.find(";") - 1);  // nome
+		if(opt == 1) {
+			line = line.substr(line.find(";") + 2, string::npos);
+			string area = line.substr(0, line.find(";") - 1);			// area
 
 			line = line.substr(line.find(";") + 2, string::npos);
-
-			//cout << nome << endl;
-
-			string sigla = line.substr(0, line.find(";") - 1);  // sigla
-
-
+			string curso = line.substr(0, line.find(";") - 1);			// curso
 
 			line = line.substr(line.find(";") + 2, string::npos);
-
-			string str4 = line.substr(0, line.find(";") - 1);
-			 int year = atoi(str4.c_str());//ano  int
-
-
+			string faculdade = line.substr(0, line.find(";") - 1);		// faculdade
 
 			line = line.substr(line.find(";") + 2, string::npos);
+			string vagasStr = line.substr(0, line.find(";") - 1);		// vagas
+			int vagas = atoi(vagasStr.c_str());
 
-			string str5 = line.substr(0, line.find(";") - 1);
-			int sem = atoi(str5.c_str());//semestre
+			Optativa* uc = new Optativa(nome, sigla, semestre, ano, creditos, vagas, curso, faculdade, area);
+			cadeiras.push_back(uc);
 
-			line = line.substr(line.find(";") + 2, string::npos);
+		} else {
 
-			string str6 = line.substr(0, line.find(";") - 1);
-			int credit = atoi(str6.c_str());//creditos
-
-			//cout << nome << "...." << sigla << "...." << year << "...." << sem << "...." << credit << endl;
-
-			// construtor de nao optativa
-			// cadeiras.push_back();
+			N_Optativa* uc = new N_Optativa(nome, sigla, semestre, ano, creditos);
+			cadeiras.push_back(uc);
 		}
 	}
 	in.close();
@@ -187,11 +194,11 @@ vector<Uc> initUCs(){
 
 }
 
-vector<Docente> initDocentes() {
+vector<Docente*> initDocentes() {
 
 	ifstream in;
 	string filename;
-	vector<Docente> docentes;
+	vector<Docente*> docentes;
 
 	filename = "docentes.txt";
 
@@ -225,14 +232,7 @@ vector<Docente> initDocentes() {
 		qtt = atoi(qttstr.c_str());
 		line = line.substr(line.find(";") + 2, string::npos);
 
-		/*
-		cout << id << endl;
-		cout << name << endl;
-		cout << qtt << endl;
-		cout << "==============================" << endl;
-		*/
-
-		Docente docente = Docente(id, name, qtt);
+		Docente *docente = new Docente(id, name, qtt);
 		docentes.push_back(docente);
 	}
 
@@ -242,19 +242,52 @@ vector<Docente> initDocentes() {
 	return docentes;
 }
 
+int loadDependencies(vector<Aluno*> alunos){
+	for(unsigned int i = 0; i<alunos.size(); i++){
+		vector<Uc*> ucsAluno = (*alunos[i]).getCadeirasInscrito();
+
+		for(unsigned int j = 0; j<ucsAluno.size(); j++){
+			(*ucsAluno[j]).addAluno(alunos[i]);
+		}
+	}
+
+	return 0;
+}
+
 int main() {
 	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl;
 
-	vector<Docente> docentes = initDocentes();
-	vector<Aluno> alunos = initAlunos(docentes);
-	vector<Uc> ucs = initUCs();
+	//file loading
 
-	for(unsigned int i = 0; i<alunos.size(); i++){
-		alunos[i].displayAluno();
+	vector<Docente*> docentes = initDocentes();
+	vector<Uc*> ucs = initUCs();
+	vector<Aluno*> alunos = initAlunos(docentes, ucs);
+
+	if(loadDependencies(alunos)<0){
+		printf("Erro a carregar dependencias. Saindo...");
+		return -1;
 	}
-	//Mieic mieic = Mieic(ucs, alunos, docentes);
 
 
+
+	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
+	for(unsigned int i = 0; i<alunos.size(); i++){
+		(*alunos[i]).displayAluno();
+	}
+	printf("-=-=-=-=-Docentes=-=-=-=-\n");
+	for(unsigned int i = 0; i<docentes.size(); i++){
+		(*docentes[i]).displayDocente();
+	}
+	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
+	for(unsigned int i = 0; i<ucs.size(); i++){
+		(*ucs[i]).displayUC();
+	}
+
+
+
+	Mieic mieic = Mieic(ucs, docentes, alunos);
 	
+
+
 	return 0;
 }

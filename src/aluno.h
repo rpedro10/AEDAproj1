@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "uc.h"
+#include "docente.h"
 
 using namespace std;
 
@@ -18,12 +19,11 @@ class Aluno {
 	string data;
 	string estatuto;
 	string email;
-	string tutor;
-	//const Docente* tutor;
-	//vector<Uc *> cadeiras_inscrito;
-	vector<string> idCadeiras;
+	const Docente* tutor;
+	vector<Uc *> cadeiras_inscrito;
+	//temporary variables
 public:
-	Aluno(int num, string nome, int ano, string data, string email, string estatuto, string tutor, vector<string> idCadeiras); // falta o vetor de disciplinas e o tutor
+	Aluno(int num, string nome, int ano, string data, string email, string estatuto, Docente* tutor, vector<Uc *> cadeiras_inscrito); // falta o vetor de disciplinas e o tutor
 	//~Aluno();
 	int getAno() const;
 	void setAno(int ano);
@@ -39,14 +39,12 @@ public:
 	void setNumero(int numero);
 	//const Docente* getTutor() const;
 
-	//const vector<Uc*>& getCadeirasInscrito() const;
-	//void setCadeirasInscrito(const vector<Uc*>& cadeinewrasInscrito);
+	vector<Uc*> getCadeirasInscrito() const;
+	void setCadeirasInscrito(vector<Uc*> cadeirasInscrito);
 
 	void displayAluno();
 
-	vector<string> getIDcadeiras();
-	void setIDcadeiras(vector<string> idCadeiras);
-	void inscreverCadeira(string cadeira);
+	void inscreverCadeira(Uc *uc);
 };
 
 #endif

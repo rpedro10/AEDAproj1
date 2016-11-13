@@ -7,18 +7,23 @@
 #include <string>
 #include <vector>
 
+
 using namespace std;
 
+class Aluno;
+
 class Uc {
+protected:
 	string nome;
 	string sigla;
 	int semestre;
 	int ano;
 	float creditos;
-//	vector<Aluno> inscritos;
+	vector<Aluno*> alunos;
 
 public:
 	Uc(string nome,string sigla,int semestre,int ano,float creditos);
+	virtual ~Uc(){};
 	int getAno() const;
 	void setAno(int ano);
 	float getCreditos() const;
@@ -29,6 +34,11 @@ public:
 	void setSemestre(int semestre);
 	const string& getSigla() const;
 	void setSigla(const string& sigla);
+	vector<Aluno*> getAlunos() const;
+	void setAlunos(vector<Aluno*> alunos);
+
+	virtual int addAluno(Aluno* aluno) = 0;
+	virtual void displayUC() = 0;
 };
 
 class Optativa: public Uc {
@@ -38,6 +48,7 @@ class Optativa: public Uc {
 	string area;
 public:
 	Optativa(string nome,string sigla,int semestre,int ano,float cred,int vagas,string curso,string fac,string area);
+	~Optativa(){};
 	const string& getArea() const;
 	void setArea(const string& area);
 	const string& getCurso() const;
@@ -46,13 +57,17 @@ public:
 	void setFaculdade(const string& faculdade);
 	int getVagas() const;
 	void setVagas(int vagas);
+	void displayUC();
+	int addAluno(Aluno* aluno);
 };
 
 class N_Optativa: public Uc {
 
 public:
 	N_Optativa(string nome,string sigla,int semestre,int ano,float cred);
-
+	~N_Optativa(){};
+	void displayUC();
+	int addAluno(Aluno* aluno);
 };
 
 #endif

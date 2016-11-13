@@ -5,13 +5,10 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include<vector>
 
 class Docente {
 	int codigo;
@@ -24,6 +21,7 @@ public:
 	int getCodigo() const;
 	const string& getNome() const;
 	void setNome(const string& nome);
+	void displayDocente();
 };
 
 #endif

@@ -18,4 +18,11 @@ Docente::Docente(int cod, string nome, int qtt){
 	this->qtt = qtt;
 }
 
+void Docente::displayDocente(){
+	cout << "Nome : " << this->nome << endl;
+	cout << "Codigo: " << this->codigo << endl;
+	cout << "Quantidade de alunos a tutorar: " << this->qtt << endl;
+	cout << "==============================" << endl;
+}
+
 

@@ -1,6 +1,6 @@
 #include "aluno.h"
 
-Aluno::Aluno(int num, string nome, int ano, string data, string email, string estatuto, string tutor, vector<string> idCadeiras){
+Aluno::Aluno(int num, string nome, int ano, string data, string email, string estatuto, Docente* tutor, vector<Uc *> cadeiras_inscrito){
 	this->numero = num;  				// coloca o n�
 	this->nome = nome;					// nome colocado
 	this->ano = ano;
@@ -8,7 +8,7 @@ Aluno::Aluno(int num, string nome, int ano, string data, string email, string es
 	this->email = email;
 	this->estatuto = estatuto;
 	this->tutor = tutor;
-	this->idCadeiras = idCadeiras;
+	this->cadeiras_inscrito = cadeiras_inscrito;
 }
 
 int Aluno::getAno() const {
@@ -19,15 +19,14 @@ void Aluno::setAno(int ano) {
 	this->ano = ano;
 }
 
-/*
-const vector<Uc*>& Aluno::getCadeirasInscrito() const {
+vector<Uc*> Aluno::getCadeirasInscrito() const {
 	return cadeiras_inscrito;
 }
 
-void Aluno::setCadeirasInscrito(const vector<Uc*>& cadeirasInscrito) {
+void Aluno::setCadeirasInscrito(vector<Uc*> cadeirasInscrito) {
 	cadeiras_inscrito = cadeirasInscrito;
 }
-*/
+
 
 const string& Aluno::getData() const {
 	return data;
@@ -69,30 +68,18 @@ void Aluno::setNumero(int numero) {
 	this->numero = numero;
 }
 
-vector<string> Aluno::getIDcadeiras(){
-	return this->idCadeiras;
-}
-
-void Aluno::setIDcadeiras(vector<string> idCadeiras){
-	this->idCadeiras = idCadeiras;
-}
-
-void Aluno::inscreverCadeira(string cadeira){
-	this->idCadeiras.push_back(cadeira);
-}
-
 void Aluno::displayAluno(){
 	cout << "Nome : " << this->nome << endl;
 	cout << "Numero de Estudante: " << this->numero << endl;
 	cout << "Ano Curricular: " << this->ano << endl;
 	cout << "Email: " << this->email << endl;
 	cout << "Data de inscricao: " << this->data << endl;
-	cout << "Estatuto: " << this->estatuto;
-	cout << "Tutor: " << this->tutor << endl;
-	cout << "Cadeiras que frequenta: " << endl;
+	cout << "Estatuto: " << this->estatuto << endl;
+	cout << "Tutor: " << (*tutor).getNome() << endl;
+	cout << "Cadeiras que frequenta: " << "(" << this->cadeiras_inscrito.size() << ")" << endl;
 
-	for(unsigned int i = 0; i<this->idCadeiras.size(); i++){
-		cout << "	" << this->idCadeiras[i] << endl;
+	for(unsigned int i = 0; i<this->cadeiras_inscrito.size(); i++){
+		cout << "	" << (*cadeiras_inscrito[i]).getSigla() << "	" << (*cadeiras_inscrito[i]).getNome() << endl;
 	}
 
 	cout << "==============================" << endl;
