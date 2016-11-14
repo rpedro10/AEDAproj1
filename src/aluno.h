@@ -43,6 +43,7 @@ public:
 	vector<Uc*> getCadeirasInscrito() const;
 	void setCadeirasInscrito(vector<Uc*> cadeirasInscrito);
 
+	void displayAlunoInfo();
 	void displayAluno();
 
 	void inscreverCadeira(Uc *uc);

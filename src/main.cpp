@@ -163,7 +163,7 @@ vector<Uc*> initUCs(){
 
 		line = line.substr(line.find(";") + 2, string::npos);
 		string creditosStr = line.substr(0, line.find(";") - 1);		// creditos
-		creditos = atoi(creditosStr.c_str());
+		creditos = strtof(creditosStr.c_str());
 
 		if(opt == 1) {
 			line = line.substr(line.find(";") + 2, string::npos);
@@ -268,10 +268,10 @@ int main() {
 		return -1;
 	}
 
-	/*
+
 	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<alunos.size(); i++){
-		(*alunos[i]).displayAluno();
+		(*alunos[i]).displayAlunoInfo();
 	}
 	printf("-=-=-=-=-Docentes=-=-=-=-\n");
 	for(unsigned int i = 0; i<docentes.size(); i++){
@@ -280,14 +280,14 @@ int main() {
 	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<ucs.size(); i++){
 		(*ucs[i]).displayUC();
-	}*/
+	}
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
-	
+	/*
 	int running = 1;
 	while(running){
 		running = mieic.runProgram();
-	}
+	}*/
 
 	return 0;
 }

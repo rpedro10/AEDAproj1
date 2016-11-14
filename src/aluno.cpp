@@ -68,7 +68,7 @@ void Aluno::setNumero(int numero) {
 	this->numero = numero;
 }
 
-void Aluno::displayAluno(){
+void Aluno::displayAlunoInfo(){
 	cout << "Nome : " << this->nome << endl;
 	cout << "Numero de Estudante: " << this->numero << endl;
 	cout << "Ano Curricular: " << this->ano << endl;
@@ -84,6 +84,10 @@ void Aluno::displayAluno(){
 
 	cout << "==============================" << endl;
 
+}
+
+void Aluno::displayAluno(){
+	cout << this->numero << "	" << this->nome << "	" << endl;
 }
 
 	
