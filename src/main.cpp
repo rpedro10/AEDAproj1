@@ -20,15 +20,7 @@ vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 
 	in.open(filename.c_str(),ifstream::in);
 
-	/**
-	while (in.fail()){									// testa se abriu o ficheiro
-		cerr << "Input file opening failed.\n";
-		cout << "nome do ficheiro de alunos? ";
-		cin >> filename;
-		filename += ".txt";
-		//in.open("aa.txt");
-	}
-	*/
+	//TODO por excepcao de nao conseguir abrir o ficheiro
 
 	string line;
 
@@ -94,21 +86,8 @@ vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 				}
 			}
 
-
 		Aluno* aluno = new Aluno(id, name, year, data, email, estatuto, tutor, ucsAluno);
 		alunos.push_back(aluno);
-
-		/*
-		cout << id << endl;
-		cout << name << endl;
-		cout << year << endl << data << endl;
-		cout << email << endl << estatuto << endl;
-		cout << (*tutor).getNome() << endl;
-		for (unsigned int i = 0; i < ucsAluno.size(); i++){
-			cout << (*ucsAluno[i]).getSigla() << endl;
-		}
-		cout << "==============================" << endl;
-		*/
 	}
 	in.close();
 
@@ -124,15 +103,7 @@ vector<Uc*> initUCs(){
 
 	in.open("ucs.txt");
 
-	/*
-	while (in.fail()){							// testa se abriu o ficheiro
-		cerr << "Input file opening failed.\n";
-		cout << "nome do ficheiro de alunos? ";
-		cin >> filename;
-		filename += ".txt";
-		in.open("ucs.txt");
-	}
-	*/
+	//TODO por excepcao de nao conseguir abrir o ficheiro
 
 	string nome;
 	string sigla;
@@ -163,7 +134,7 @@ vector<Uc*> initUCs(){
 
 		line = line.substr(line.find(";") + 2, string::npos);
 		string creditosStr = line.substr(0, line.find(";") - 1);		// creditos
-		creditos = strtof(creditosStr.c_str());
+		creditos = atoi(creditosStr.c_str());
 
 		if(opt == 1) {
 			line = line.substr(line.find(";") + 2, string::npos);
@@ -181,12 +152,12 @@ vector<Uc*> initUCs(){
 
 			Optativa* uc = new Optativa(nome, sigla, semestre, ano, creditos, vagas, curso, faculdade, area);
 			cadeiras.push_back(uc);
-
 		} else {
 
 			N_Optativa* uc = new N_Optativa(nome, sigla, semestre, ano, creditos);
 			cadeiras.push_back(uc);
 		}
+
 	}
 	in.close();
 
@@ -204,15 +175,7 @@ vector<Docente*> initDocentes() {
 
 	in.open(filename.c_str(),ifstream::in);
 
-	/**
-	while (in.fail()){							// testa se abriu o ficheiro
-		cerr << "Input file opening failed.\n";
-		cout << "nome do ficheiro de alunos? ";
-		cin >> filename;
-		filename += ".txt";
-		//in.open("aa.txt");
-	}
-	 */
+	//TODO por excepcao de nao conseguir abrir o ficheiro
 
 	string line;
 
@@ -257,7 +220,7 @@ int loadDependencies(vector<Aluno*> alunos){
 int main() {
 	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl;
 
-	//file loading
+	//TODO move to mieic?
 
 	vector<Docente*> docentes = initDocentes();
 	vector<Uc*> ucs = initUCs();
@@ -268,7 +231,7 @@ int main() {
 		return -1;
 	}
 
-
+/*
 	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		(*alunos[i]).displayAlunoInfo();
@@ -280,14 +243,14 @@ int main() {
 	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<ucs.size(); i++){
 		(*ucs[i]).displayUC();
-	}
+	}*/
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
-	/*
+
 	int running = 1;
 	while(running){
 		running = mieic.runProgram();
-	}*/
+	}
 
 	return 0;
 }

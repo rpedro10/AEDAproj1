@@ -61,7 +61,7 @@ void Uc::setAlunos(vector<Aluno*> alunos){
  * UC Optativa
  */
 Optativa::Optativa(string nome, string sigla, int semestre, int ano, float cred, int vagas, string curso, string fac, string area) :
-	Uc(nome, sigla, semestre, ano, creditos){
+	Uc(nome, sigla, semestre, ano, cred){
 	this->area = area;
 	this->vagas = vagas;
 }
@@ -134,7 +134,7 @@ int Optativa::addAluno(Aluno* aluno){
  * UC Nao Optativa
  */
 N_Optativa::N_Optativa(string nome, string sigla, int semestre, int ano, float cred) :
-	Uc(nome, sigla, semestre, ano, creditos){
+	Uc(nome, sigla, semestre, ano, cred){
 }
 
 void N_Optativa::displayUC(){
