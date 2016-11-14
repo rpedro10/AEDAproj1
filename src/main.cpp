@@ -124,7 +124,7 @@ vector<Uc*> initUCs(){
 	string sigla;
 	int ano;
 	int semestre;
-	float creditos;
+	double creditos;
 
 	string line;
 
@@ -149,7 +149,7 @@ vector<Uc*> initUCs(){
 
 		line = line.substr(line.find(";") + 2, string::npos);
 		string creditosStr = line.substr(0, line.find(";") - 1);		// creditos
-		creditos = atoi(creditosStr.c_str());
+		creditos = strtod(creditosStr.c_str(),NULL);
 
 		if(opt == 1) {
 			line = line.substr(line.find(";") + 2, string::npos);
