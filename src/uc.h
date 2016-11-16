@@ -79,7 +79,6 @@ public:
 
 	//void display_incomplete(int year);
 
-
 };
 
 vector<Uc*> initUCs();
