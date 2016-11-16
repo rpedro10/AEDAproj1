@@ -104,7 +104,7 @@ void Optativa::displayUC(){
 	cout << "Ano Curricular: " << this->ano << endl;
 	cout << "Semestre : " << this->semestre << endl;
 	cout << "Creditos: " << this->creditos << endl;
-	cout << "Alunos a frequentar: " << endl;
+	cout << "Alunos a frequentar: (" << this->alunos.size() << ")" << endl;
 
 	for(unsigned int i = 0; i<this->alunos.size(); i++){
 		cout << "	" << this->alunos[i]->getNumero() << "	" << this->alunos[i]->getNome() << endl;

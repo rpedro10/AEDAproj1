@@ -63,19 +63,28 @@ vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 		}
 
 		line = line.substr(line.find(";") + 2, string::npos);
+		string data;
+		vector<string> dataUCs;											// datas de inscricao
+		data = line.substr(0, line.find(","));
+		while(line.find(';') > line.find(',')){
+			dataUCs.push_back(data);
+			line = line.substr(line.find(",") + 2, string::npos);
+			data = line.substr(0, line.find(","));
+		}
+
+		data = line.substr(0, line.find(";"));
+		dataUCs.push_back(data);
+
+		line = line.substr(line.find(";") + 2);
 		string uc;
-
 		vector<Uc*> ucsAluno;
-
 		while (line.find(",") != string::npos){							// cadeiras
 			uc = line.substr(0, line.find(","));
-
 			for(unsigned int i = 0; i<ucs.size(); i++){
 				if(uc.compare((*ucs[i]).getSigla()) == 0){
 					ucsAluno.push_back(ucs[i]);
 				}
 			}
-
 			line = line.substr(line.find(",") + 2);
 		}
 
@@ -86,7 +95,13 @@ vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 				}
 			}
 
-		Aluno* aluno = new Aluno(id, name, year, data, email, estatuto, tutor, ucsAluno);
+		printf("++add++\n");
+		vector< pair<string, Uc *> > cadeiras;
+		for(unsigned int i = 0; i<ucsAluno.size(); i++){
+			cadeiras.push_back({dataUCs[i],ucsAluno[i]});
+		}
+
+		Aluno* aluno = new Aluno(id, name, year, email, estatuto, tutor, cadeiras);
 		alunos.push_back(aluno);
 	}
 	in.close();
@@ -207,10 +222,10 @@ vector<Docente*> initDocentes() {
 
 int loadDependencies(vector<Aluno*> alunos){
 	for(unsigned int i = 0; i<alunos.size(); i++){
-		vector<Uc*> ucsAluno = (*alunos[i]).getCadeirasInscrito();
+		vector< pair<string, Uc *> > ucsAluno = (*alunos[i]).getCadeirasInscrito();
 
 		for(unsigned int j = 0; j<ucsAluno.size(); j++){
-			(*ucsAluno[j]).addAluno(alunos[i]);
+			ucsAluno[j].second->addAluno(alunos[i]);
 		}
 	}
 
@@ -231,7 +246,7 @@ int main() {
 		return -1;
 	}
 
-/*
+
 	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		(*alunos[i]).displayAlunoInfo();
@@ -243,7 +258,7 @@ int main() {
 	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<ucs.size(); i++){
 		(*ucs[i]).displayUC();
-	}*/
+	}
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
 
