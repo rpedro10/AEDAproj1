@@ -16,12 +16,10 @@ class Aluno {
 	int numero;
 	int ano;
 	string nome;
-	//string data;
 	string estatuto;
 	string email;
 	const Docente* tutor;
 	vector< pair<string, Uc *> > cadeiras_inscrito;
-	//temporary variables
 public:
 	Aluno(int num, string nome, int ano, string email, string estatuto, Docente* tutor, vector< pair<string, Uc *> > cadeiras_inscrito); // falta o vetor de disciplinas e o tutor
 	Aluno(int num, string nome, int ano, string email, string estatuto);

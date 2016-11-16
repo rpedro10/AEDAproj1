@@ -14,8 +14,8 @@ class Docente {
 	int codigo;
 	string nome;
 	int qtt;
-	//	vector<Aluno> inscritos;
 	
+
 public:
 	Docente(int cod, string nome, int qtt);
 	int getCodigo() const;
@@ -25,7 +25,6 @@ public:
 	int getQtt() const;
 	void setQtt();
 };
-
 
 vector<Docente*> initDocentes();
 

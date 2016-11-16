@@ -88,7 +88,7 @@ void Aluno::displayAluno(){
 	cout << numero << "	" << nome << "	" << endl;
 }
 
-//_________________________________________________________________
+//__________________________________________________________________
 
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 	ifstream in;
