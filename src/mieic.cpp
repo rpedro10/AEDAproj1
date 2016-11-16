@@ -83,16 +83,58 @@ int Mieic::runProgram(){
 //TODO funcao que inscreve aluno existente
 int Mieic::inscreverAluno(){
 	cout << "Inscrever aluno: " << endl;
+	cout << "1. Procurar aluno a inscrever por nome" << endl;
+	cout << "2. Procurar aluno a inscrever por numero" << endl;
+	cout << "3. Ver todos os alunos" << endl;
+	cout << "Introduza um numero para escolher a accao: ";
+
+	unsigned int a;
+	cin >> a;
+
+	switch(a){
+	case 1:
+
+		break;
+	case 2:
+
+		break;
+	case 3:
+		for(unsigned int i = 0; i<alunos.size(); i++){
+			(*alunos[i]).displayAluno();
+		}
+
+		break;
+	case 4:
+		return 1;
+		break;
+	default:
+		cout << "Introduza um numero valido." << endl;
+		break;
+	}
+
+	char c;
+	cout << "Insira qualquer coisa para continuar";
+	cin >> c;
+
 	return 0;
 }
 
 //TODO funcao que cria um novo aluno e o inscreve
 int Mieic::inscreverNovoAluno(){
-	cout << "Inscrever novo aluno: ";
+	cout << "Inscrever novo aluno: " << endl;
+
+	string nome;
+	cout << "Introduza o nome:";
+	cin >> nome;
+/*
+	cout >>
+
+	Aluno(int num, string nome, int ano, string data, string email, string estatuto, Docente* tutor, vector<Uc *> cadeiras_inscrito); // falta o vetor de disciplinas e o tutor
+*/
 	return 0;
 }
 
-//TODO funçao que procura alunos
+//TODO funcao que procura alunos
 int Mieic::buscarAluno(){
 	cout << "Procurar aluno: " << endl;
 	cout << "1. por nome" << endl;
