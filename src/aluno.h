@@ -10,7 +10,7 @@
 #include "uc.h"
 #include "docente.h"
 
-using namespace std;
+
 
 class Aluno {
 	int numero;
@@ -47,6 +47,8 @@ public:
 	void displayAluno();
 
 	void inscreverCadeira(Uc *uc);
+
 };
+vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs);
 
 #endif

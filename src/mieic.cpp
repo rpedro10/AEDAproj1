@@ -1,5 +1,5 @@
 #include "mieic.h"
-
+#include <ctime>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -35,7 +35,8 @@ int Mieic::runProgram(){
 		break;
 	case 2:
 		while(running) {
-			int i = inscreverNovoAluno();
+			int i = 33;
+					//inscreverNovoAluno();
 			if(i<0){
 				printf("Erro a inscrever novo aluno.\n");
 				return -1;
@@ -82,12 +83,15 @@ int Mieic::runProgram(){
 
 //TODO funcao que inscreve aluno existente
 int Mieic::inscreverAluno(){
+
+
+
 	cout << "Inscrever aluno: " << endl;
 	cout << "1. Procurar aluno a inscrever por nome" << endl;
 	cout << "2. Procurar aluno a inscrever por numero" << endl;
 	cout << "3. Ver todos os alunos" << endl;
 	cout << "Introduza um numero para escolher a accao: ";
-
+/**
 	unsigned int a;
 	cin >> a;
 
@@ -115,26 +119,133 @@ int Mieic::inscreverAluno(){
 	char c;
 	cout << "Insira qualquer coisa para continuar";
 	cin >> c;
-
-	return 0;
-}
-
-//TODO funcao que cria um novo aluno e o inscreve
-int Mieic::inscreverNovoAluno(){
-	cout << "Inscrever novo aluno: " << endl;
-
-	string nome;
-	cout << "Introduza o nome:";
-	cin >> nome;
-/*
-	cout >>
-
-	Aluno(int num, string nome, int ano, string data, string email, string estatuto, Docente* tutor, vector<Uc *> cadeiras_inscrito); // falta o vetor de disciplinas e o tutor
 */
 	return 0;
+
 }
 
-//TODO funcao que procura alunos
+
+int Mieic::getAluno_byNome(string s ){
+	for(unsigned int i=0;i<alunos.size();i++){
+		if(alunos[i]->getNome()==s)
+			return i;
+
+	}
+	return -1;
+}
+
+int Mieic::getAluno_byNumero(int n){
+	for(unsigned int i=0;i<alunos.size();i++){
+			if(alunos[i]->getNumero()==n)
+				return i;
+
+	}
+	return -1;
+}
+
+
+
+void  Mieic::inscreverNovoAluno(){
+	// TODO     -- testar ano
+	//     -- colocar data automaticamente
+	//     -- mostrar apenas as ucs em que se pode inscrever
+	//     -- testar as vagas
+	//     -- acrescentar o aluno nas cadeiras
+
+	int numero,ano;
+	string nome,email,estatuto,data;
+	cout << "Inscrever novo aluno: "<<endl<<"Numero? ";
+	cin>>numero;
+	int index= getAluno_byNumero(numero);
+
+	if(index==-1){
+
+		cin.clear();
+		cin.ignore(1000,'\n');
+
+		cout<<"Nome? ";
+		getline(cin,nome);
+		cout<<"Ano? ";
+		cin>>ano;
+
+		/// colocar data automaticamente
+
+		cout<<"email? ";
+		 cin.clear();
+			cin.ignore(1000,'\n');
+		getline(cin,email);
+
+		cout<<"estatuto? ";
+		getline(cin,estatuto);
+
+		data=getCurrentDate();
+
+		Docente* tutor= assignTutor();
+
+		// cout<<numero<<"---"<<nome<<"---"<<email<<"..."<<estatuto<<"---"<<ano<<endl;
+
+
+		float cred=0;
+		unsigned int number;
+
+		for(unsigned int i=0;i<cadeiras.size();i++){
+			cout<<i+1<<endl;cadeiras[i]->displayUC();
+		}
+
+			vector<string>datas;
+			vector<Uc* > uc;
+			vector< pair<string, Uc *> > cad;
+
+
+			while(cred<75){
+				cout<<"inserir numero da cadeira: (zero para terminar)";
+				cin >> number;
+
+				if(number==0)
+					break;
+				else
+				{
+				cout <<number<<endl;
+				if (number <=cadeiras.size()){
+
+					if(cadeiras[number-1]->getAno()<= ano){
+						//if(1){
+						//	cadeiras[number-1]->getVagas()>0
+							cout<<cadeiras[number-1]->getSigla()<<endl;
+							cred+=cadeiras[number-1]->getCreditos();
+							datas.push_back(data);
+							uc.push_back(cadeiras[number-1]);
+						//}
+					}
+				}
+			}
+
+			}
+			for(unsigned int j=0;j<uc.size();j++){
+				cad.push_back({datas[j],uc[j]});
+			}
+
+
+			Aluno* aluno = new Aluno(numero, nome, ano, email, estatuto, tutor, cad);
+			aluno->displayAlunoInfo();
+			alunos.push_back(aluno);
+	}
+
+	else
+		cout<<"erro"<<endl;
+
+
+
+	 // cout<<numero<<"---"<<nome<<"---"<<email<<"..."<<estatuto<<"---"<<ano<<endl;
+
+
+}
+
+
+
+
+
+
 int Mieic::buscarAluno(){
 	cout << "Procurar aluno: " << endl;
 	cout << "1. por nome" << endl;
@@ -219,4 +330,35 @@ int Mieic::consultarAluno(int id){
 //TODO funcao que imprime cadeira. pode ser substituida por displayCadeira()
 int Mieic::consultarInscritosCadeira(string s){
 	return 0;
+}
+
+Docente* Mieic::assignTutor(){
+
+	int maior=99;
+	Docente* tutor;
+	for (unsigned int i=0;i<docentes.size();i++){
+		if(docentes[i]->getQtt()<maior)
+		{
+			maior=docentes[i]->getQtt();
+			tutor=docentes[i];
+		}
+	}
+
+	return tutor;
+}
+
+string Mieic::getCurrentDate(){
+	time_t rawtime;
+		struct tm * timeinfo;
+		char buffer[80];
+
+		time(&rawtime);
+		timeinfo = localtime(&rawtime);
+
+		strftime(buffer, 14, "%d/%m/%Y", timeinfo);
+		string str(buffer);
+
+		//cout << str;
+
+		return str.c_str();
 }

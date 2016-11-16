@@ -9,7 +9,6 @@
 
 using namespace std;
 
-#define MAX_CREDITOS 75
 
 class Mieic{
 	vector<Uc*> cadeiras;
@@ -22,11 +21,16 @@ public:
 	int runProgram();
 
 	int inscreverAluno();
-	int inscreverNovoAluno();
+	void inscreverNovoAluno();
 	int buscarAluno();
 	int buscarCadeira();
 	int consultarAluno(int id);
 	int consultarInscritosCadeira(string s);
+	int getAluno_byNumero(int n);
+	int getAluno_byNome(string s);
+	Docente* assignTutor();
+	string getCurrentDate();
+
 };
 
 #endif

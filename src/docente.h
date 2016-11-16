@@ -22,6 +22,10 @@ public:
 	const string& getNome() const;
 	void setNome(const string& nome);
 	void displayDocente();
+	int getQtt() const;
+	void setQtt();
 };
+
+vector<Docente*> initDocentes();
 
 #endif

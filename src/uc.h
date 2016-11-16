@@ -38,7 +38,12 @@ public:
 	void setAlunos(vector<Aluno*> alunos);
 
 	virtual int addAluno(Aluno* aluno) = 0;
-	virtual void displayUC() = 0;
+	virtual void displayUC()=0;
+
+	//virtual int getVagas();
+	//virtual void setVagas(int vagas);
+
+	//virtual void display_incomplete(int ano);
 };
 
 class Optativa: public Uc {
@@ -59,6 +64,9 @@ public:
 	void setVagas(int vagas);
 	void displayUC();
 	int addAluno(Aluno* aluno);
+	//void display_incomplete(int ano);
+
+
 };
 
 class N_Optativa: public Uc {
@@ -68,7 +76,13 @@ public:
 	~N_Optativa(){};
 	void displayUC();
 	int addAluno(Aluno* aluno);
+
+	//void display_incomplete(int year);
+
+
 };
+
+vector<Uc*> initUCs();
 
 #endif
 
