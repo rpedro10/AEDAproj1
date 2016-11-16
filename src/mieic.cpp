@@ -358,7 +358,5 @@ string Mieic::getCurrentDate(){
 		strftime(buffer, 14, "%d/%m/%Y", timeinfo);
 		string str(buffer);
 
-		//cout << str;
-
 		return str.c_str();
 }

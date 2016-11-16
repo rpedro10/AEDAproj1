@@ -64,13 +64,13 @@ int main() {
 	Mieic mieic = Mieic(ucs, docentes, alunos);
 
 	mieic.inscreverNovoAluno();
-/**
+/*
 	int running = 1;
 	while(running){
 		running = mieic.runProgram();
 	}
-*/
+
 	return 0;
 
-
+*/
 }

@@ -188,6 +188,7 @@ int N_Optativa::addAluno(Aluno* aluno){
 	this->alunos.push_back(aluno);
 	return 0;
 }
+//_________________________________________________________________________
 
 vector<Uc*> initUCs(){
 	ifstream in;

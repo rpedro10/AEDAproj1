@@ -26,6 +26,7 @@ public:
 	void setQtt();
 };
 
+
 vector<Docente*> initDocentes();
 
 #endif

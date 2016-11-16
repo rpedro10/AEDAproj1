@@ -88,6 +88,7 @@ void Aluno::displayAluno(){
 	cout << numero << "	" << nome << "	" << endl;
 }
 
+//_________________________________________________________________
 
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 	ifstream in;
@@ -177,7 +178,6 @@ vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 			cadeiras.push_back({dataUCs[i],ucsAluno[i]});
 		}
 
-		cout<< id<<name<<year<<email<<estatuto;
 
 		Aluno* aluno = new Aluno(id, name, year, email, estatuto, tutor, cadeiras);
 		alunos.push_back(aluno);
