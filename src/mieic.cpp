@@ -82,7 +82,7 @@ int Mieic::runProgram(){
 	return 1;
 }
 
-//TODO funcao que inscreve aluno existente
+
 void Mieic::inscreverAluno(){
 
 		string name;
@@ -96,11 +96,11 @@ void Mieic::inscreverAluno(){
 		// cin.ignore(1000,'\n');
 
 		int index= getAluno_byNome(name);
-		cout<<"Index:::"<<index<<endl;
+		//cout<<"Index:::"<<index<<endl;
 
 
 		if(index!=-1){
-			cout<<"entrou no if"<<endl;
+		//	cout<<"entrou no if"<<endl;
 			int creditos=0;
 			vector< pair<string, Uc *> > disciplinas =alunos[index]->getCadeirasInscrito();
 			int ano= alunos[index]->getAno();
@@ -115,11 +115,11 @@ void Mieic::inscreverAluno(){
 				cout<<creditos<<endl;
 				cout<<cadeiras.size()<<endl;
 				for(unsigned int i=0;i<cadeiras.size();i++){
-							cout<<i+1<<endl;cadeiras[i]->displayUC();
+							cout<<i+1<<endl;cadeiras[i]->display_incomplete();
 						}
 							int number;
 							while(creditos<75){
-								cout<<"entrou no while"<<endl;
+							//	cout<<"entrou no while"<<endl;
 
 								int number;
 								cout<<"inserir numero da cadeira: (zero para terminar)";
@@ -244,8 +244,8 @@ int Mieic::getAluno_byNumero(int n){
 
 
 void  Mieic::inscreverNovoAluno(){
-	// TODO     -- testar ano
-	//     -- mostrar apenas as ucs em que se pode inscrever ???
+
+
 
 	int numero,ano;
 	string nome,email,estatuto,data;
@@ -288,7 +288,7 @@ void  Mieic::inscreverNovoAluno(){
 		unsigned int number;
 
 		for(unsigned int i=0;i<cadeiras.size();i++){
-			cout<<i+1<<endl;cadeiras[i]->displayUC();
+			cout<<i+1<<endl;cadeiras[i]->display_incomplete();
 		}
 
 			vector<string>datas;
@@ -454,13 +454,50 @@ int Mieic::buscarCadeira(){
 	return 0;
 }
 
-//TODO funcao que imprime aluno. pode ser substituida por displayAluno()
-int Mieic::consultarAluno(int id){
+// funcao que imprime aluno. pode ser substituida por displayAluno()
+int Mieic::consultarAluno(){
+	cout<<"Nome? ";
+	string name;
+	getline(cin, name);
+
+	int index=getAluno_byNome(name);
+
+	if(index!=-1){
+		alunos[index]->displayAlunoInfo();
+	}
+	else cout<<"Aluno Nao Existe!"<<endl;
+
+
 	return 0;
 }
 
-//TODO funcao que imprime cadeira. pode ser substituida por displayCadeira()
-int Mieic::consultarInscritosCadeira(string s){
+
+int Mieic::getUc_bySigla(string s){
+	for(unsigned int i=0;i<cadeiras.size();i++){
+			if(cadeiras[i]->getSigla()==s)
+				return i;
+
+		}
+		return -1;
+
+}
+
+// funcao que imprime cadeira. pode ser substituida por displayCadeira()
+int Mieic::consultarCadeira(){
+	cout<<"Sigla da Uc? ";
+		string sigla;
+		getline(cin, sigla);
+
+		int index= getUc_bySigla(sigla);
+
+		if (index!=-1){
+			cadeiras[index]->displayUC();
+
+		}
+		else
+			cout<<"Uc nao existe"<<endl;
+
+
 	return 0;
 }
 

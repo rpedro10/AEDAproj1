@@ -24,12 +24,15 @@ public:
 	void inscreverNovoAluno();
 	int buscarAluno();
 	int buscarCadeira();
-	int consultarAluno(int id);
-	int consultarInscritosCadeira(string s);
+	int consultarAluno();
+	int consultarCadeira();
 	int getAluno_byNumero(int n);
 	int getAluno_byNome(string s);
+	int getUc_bySigla(string s);
 	Docente* assignTutor();
 	string getCurrentDate();
+
+	//void test_uc(Aluno* aluno);
 
 
 };

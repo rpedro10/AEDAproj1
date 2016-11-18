@@ -7,12 +7,30 @@ Uc::Uc(string nome, string sigla, int semestre, int ano, float creditos){
 	this->semestre = semestre;
 	this->ano = ano;
 	this->creditos = creditos;
+
+
+
 }
-/**
+
 int Uc::getVagas(){
-	return 100;
 }
-*/
+
+string Uc::getFaculdade(){
+
+}
+
+string Uc::getArea(){
+
+}
+
+string Uc::getCurso(){
+
+}
+
+void Uc::setVagas(int i){
+
+}
+
 int Uc::getAno() const {
 	return ano;
 }
@@ -54,26 +72,28 @@ void Uc::setSigla(const string& sigla) {
 }
 
 vector<Aluno*> Uc::getAlunos() const{
-	return this->alunos;
+	return alunos;
 }
 
 void Uc::setAlunos(vector<Aluno*> alunos){
 	this->alunos = alunos;
 }
 
-//void Uc::display_incomplete(int year){
-//}
+void Uc::display_incomplete( ){
+}
 
 /**
  * UC Optativa
  */
-Optativa::Optativa(string nome, string sigla, int semestre, int ano, float cred, int vagas, string curso, string fac, string area) :
+Optativa::Optativa(string nome, string sigla, int semestre, int ano, float cred, int vagas, string curso, string faculdade, string area) :
 	Uc(nome, sigla, semestre, ano, cred){
+	this->curso=curso;
+	this->faculdade=faculdade;
 	this->area = area;
 	this->vagas = vagas;
 }
 
-const string& Optativa::getArea() const {
+ string Optativa::getArea()  {
 	return area;
 }
 
@@ -81,7 +101,7 @@ void Optativa::setArea(const string& area) {
 	this->area = area;
 }
 
-const string& Optativa::getCurso() const {
+ string Optativa::getCurso()  {
 	return curso;
 }
 
@@ -89,15 +109,15 @@ void Optativa::setCurso(const string& curso) {
 	this->curso = curso;
 }
 
-const string& Optativa::getFaculdade() const {
+ string Optativa::getFaculdade()  {
 	return faculdade;
 }
 
-void Optativa::setFaculdade(const string& faculdade) {
+void Optativa::setFaculdade( string faculdade) {
 	this->faculdade = faculdade;
 }
 
-int Optativa::getVagas() const {
+int Optativa::getVagas() {
 	return vagas;
 }
 
@@ -106,47 +126,35 @@ void Optativa::setVagas(int vagas) {
 }
 
 void Optativa::displayUC(){
-	cout << "Unidade Curricular : " <<nome << endl;
-	cout << "Sigla: " << sigla << endl;
-	cout << "Ano Curricular: " << ano << endl;
-	cout << "Semestre : " << semestre << endl;
+	cout << "Unidade Curricular : " <<nome <<"     Sigla: " << sigla << endl;
+	cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
 	cout << "Creditos: " << creditos << endl;
+	cout<<"Faculdade:"<<faculdade<<"     Curso:"<<curso<<endl;
 	cout << "Alunos a frequentar: (" << alunos.size() << ")" << endl;
 
 	for(unsigned int i = 0; i<this->alunos.size(); i++){
-		cout << "	" << alunos[i]->getNumero() << "	" << alunos[i]->getNome() << endl;
+		cout << "	" << this->alunos[i]->getNumero() << "	" <<this-> alunos[i]->getNome() << endl;
 	}
 
 	cout << "Vagas: " << vagas << endl;
 
 	cout << "==============================" << endl;
 }
-/**
-void Optativa::display_incomplete(int year){
-	if(year <=ano){
-		cout << "Unidade Curricular : " <<nome << endl;
-		cout << "Sigla: " << sigla << endl;
-		cout << "Ano Curricular: " << ano << endl;
-		cout << "Semestre : " << semestre << endl;
+
+void Optativa::display_incomplete( ){
+	cout << "Unidade Curricular : " <<nome << "    Sigla: "<<sigla<<endl;
+		cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
 		cout << "Creditos: " << creditos << endl;
+		cout<<"Faculdade:"<<getFaculdade()<<"       Curso:"<<curso<<endl;;
 		cout << "Vagas: " << vagas << endl;
+		cout << "==============================" << endl;
+
 	}
 
-}
-*/
-int Optativa::addAluno(Aluno* aluno){
-	if(this->getVagas() < 1){
-		this->alunos.push_back(aluno);
-		return 1;
-	} else {
-		printf("Nao existem vagas suficientes\n");
 
-		//TODO codigo que procura cadeiras da mesma area e sugere ao aluno
 
-		return 0;
-	}
-
-	return -1;
+void Optativa::addAluno(Aluno* aluno){
+	alunos.push_back(aluno);
 }
 
 /**
@@ -160,34 +168,54 @@ N_Optativa::N_Optativa(string nome, string sigla, int semestre, int ano, float c
 
 
 void N_Optativa::displayUC(){
-	cout << "Unidade Curricular : " << this->nome << endl;
-	cout << "Sigla: " << this->sigla << endl;
-	cout << "Ano Curricular: " << this->ano << endl;
-	cout << "Semestre : " << this->semestre << endl;
-	cout << "Creditos: " << this->creditos << endl;
+	cout << "Unidade Curricular : " << nome << endl;
+	cout << "Sigla: " <<sigla << endl;
+	cout << "Ano Curricular: " << ano << endl;
+	cout << "Semestre : " << semestre << endl;
+	cout << "Creditos: " << creditos << endl;
 	cout << "Alunos a frequentar: " << endl;
 
-	for(unsigned int i = 0; i<this->alunos.size(); i++){
-		cout << "	" << this->alunos[i]->getNumero() << "	" << this->alunos[i]->getNome() << endl;
+	for(unsigned int i = 0; i<alunos.size(); i++){
+		cout << "	" << alunos[i]->getNumero() << "	" << alunos[i]->getNome() << endl;
 	}
 
 	cout << "==============================" << endl;
 }
-/**
-void N_Optativa::display_incomplete(int year){
-	cout << "Unidade Curricular : " <<nome << endl;
-		cout << "Sigla: " << sigla << endl;
-		cout << "Ano Curricular: " << ano << endl;
-		cout << "Semestre : " << semestre << endl;
-		cout << "Creditos: " << creditos << endl;
+
+void N_Optativa::display_incomplete( ){
+	cout << "Unidade Curricular : " <<nome << "    Sigla: "<<sigla<<endl;
+	cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
+	cout << "Creditos: " << creditos << endl;
+	cout << "==============================" << endl;
 
 }
 
-*/
-int N_Optativa::addAluno(Aluno* aluno){
-	this->alunos.push_back(aluno);
-	return 0;
+
+void N_Optativa::addAluno(Aluno* aluno){
+	alunos.push_back(aluno);
 }
+
+int N_Optativa::getVagas(){
+	return -1;
+}
+
+void  N_Optativa::setVagas(int i){
+
+}
+
+string N_Optativa::getFaculdade(){
+	return "FEUP";
+}
+
+string N_Optativa::getArea(){
+	return "nao optativa";
+}
+string N_Optativa::getCurso(){
+	return "MIEIC";
+}
+
+
+
 //_____________________________________________________________________________
 
 vector<Uc*> initUCs(){
@@ -237,8 +265,11 @@ vector<Uc*> initUCs(){
 			line = line.substr(line.find(";") + 2, string::npos);
 			string curso = line.substr(0, line.find(";") - 1);			// curso
 
+		//	cout<<curso<<endl;
+
 			line = line.substr(line.find(";") + 2, string::npos);
 			string faculdade = line.substr(0, line.find(";") - 1);		// faculdade
+		//	cout<<faculdade<<endl;
 
 			line = line.substr(line.find(";") + 2, string::npos);
 			string vagasStr = line.substr(0, line.find(";") - 1);		// vagas
@@ -246,6 +277,9 @@ vector<Uc*> initUCs(){
 
 			Optativa* uc = new Optativa(nome, sigla, semestre, ano, creditos, vagas, curso, faculdade, area);
 			cadeiras.push_back(uc);
+
+			//uc->display_incomplete();
+
 		} else {
 
 			N_Optativa* uc = new N_Optativa(nome, sigla, semestre, ano, creditos);
