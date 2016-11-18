@@ -31,6 +31,8 @@ public:
 	int getUc_bySigla(string s);
 	Docente* assignTutor();
 	string getCurrentDate();
+	void ConsultarAllUcs();
+	void ConsultarAllAlunos();
 
 	//void test_uc(Aluno* aluno);
 

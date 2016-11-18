@@ -9,9 +9,7 @@
 #include <iostream>
 
 using namespace std;
-// todo  funcoes de visualizaçao de todos os alunos e todas as cadeiras
 // TODO  TESTAR SE JA ESTA INSCRITO À CADEIRA, SE ESTIVER NAO DEIXA INSCREVER OUTRA VEZ
-// TODO  CORRIGIR A FUNCAO DISPLAY_INCOMPLETE() ( NAO ESTA A MOSTRAR A FACULDADE NEM O CURSO)
 // TODO  FUNCOES PARA ESCREVER PARA FICHEIRO (GUARDAR INFO)
 // TODO  SEQUENTIAL SEARCH
 // TODO  QUICK SORT
@@ -67,7 +65,9 @@ int main() {
 	//mieic.inscreverNovoAluno();
 	// mieic.inscreverAluno();
 	//mieic.consultarAluno();
-	mieic.consultarCadeira();
+	//mieic.consultarCadeira();
+	mieic.ConsultarAllAlunos();
+	mieic.ConsultarAllUcs();
 /**
 	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
 		for(unsigned int i = 0; i<ucs.size(); i++){
