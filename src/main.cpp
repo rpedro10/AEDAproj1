@@ -9,12 +9,12 @@
 #include <iostream>
 
 using namespace std;
-// TODO  TESTAR SE JA ESTA INSCRITO À CADEIRA, SE ESTIVER NAO DEIXA INSCREVER OUTRA VEZ
+// TODO  TESTAR SE JA ESTA INSCRITO ï¿½ CADEIRA, SE ESTIVER NAO DEIXA INSCREVER OUTRA VEZ
 // TODO  FUNCOES PARA ESCREVER PARA FICHEIRO (GUARDAR INFO)
 // TODO  SEQUENTIAL SEARCH
 // TODO  QUICK SORT
 // TODO  OVERLOAD ??
-// TODO  EXCEPÇOES
+// TODO  EXCEPï¿½OES
 
 
 int loadDependencies(vector<Aluno*> alunos){
@@ -36,47 +36,32 @@ int main() {
 	vector<Docente*> docentes = initDocentes();
 	vector<Uc*> ucs = initUCs();
 	vector<Aluno*> alunos = initAlunos(docentes, ucs);
-/**
+
 	if(loadDependencies(alunos)<0){
 		printf("Erro a carregar dependencias. Saindo...");
 		return -1;
 	}
 
-*/
-/**
-	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
-	for(unsigned int i = 0; i<alunos.size(); i++){
-		(*alunos[i]).displayAlunoInfo();
-	}
-
-	printf("-=-=-=-=-Docentes=-=-=-=-\n");
-	for(unsigned int i = 0; i<docentes.size(); i++){
-		(*docentes[i]).displayDocente();
-	}
-
-	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
-	for(unsigned int i = 0; i<ucs.size(); i++){
-		(*ucs[i]).displayUC();
-	}
-*/
-
 	Mieic mieic = Mieic(ucs, docentes, alunos);
-
+/*
+	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
+	mieic.ConsultarAllAlunos();
+	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
+	mieic.ConsultarAllUcs();
+	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
+	mieic.ConsultarAllDocentes();
+*/
 	//mieic.inscreverNovoAluno();
-	// mieic.inscreverAluno();
+	//mieic.inscreverAluno();
 	//mieic.consultarAluno();
 	//mieic.consultarCadeira();
+/*
+	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
 	mieic.ConsultarAllAlunos();
-	mieic.ConsultarAllUcs();
-/**
 	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
-		for(unsigned int i = 0; i<ucs.size(); i++){
-		(*ucs[i]).display_incomplete();
-		}
-*/
-
-
-
+	mieic.ConsultarAllUcs();
+	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
+	mieic.ConsultarAllDocentes();
 
 /*
 	int running = 1;

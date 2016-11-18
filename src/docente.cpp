@@ -30,7 +30,7 @@ int Docente::getQtt() const {
 }
 
 void Docente::setQtt() {
-	this->qtt = qtt++;
+	this->qtt = ++qtt;
 }
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

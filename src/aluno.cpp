@@ -4,7 +4,6 @@ Aluno::Aluno(int num, string nome, int ano, string email, string estatuto, Docen
 	this->numero = num;  				// coloca o n�
 	this->nome = nome;					// nome colocado
 	this->ano = ano;
-	//this->data = data;
 	this->email = email;
 	this->estatuto = estatuto;
 	this->tutor = tutor;
@@ -86,6 +85,15 @@ void Aluno::displayAlunoInfo(){
 
 void Aluno::displayAluno(){
 	cout << numero << "	" << nome << "	" << endl;
+}
+
+bool Aluno::estaInscrito(Uc* uc){
+	for(unsigned int i = 0; i < cadeiras_inscrito.size(); i++){
+		if(uc->getSigla().compare(cadeiras_inscrito[i].second->getSigla()) == 0){
+			return true;
+		}
+	}
+	return false;
 }
 
 //__________________________________________________________________

@@ -7,6 +7,8 @@
 #include "uc.h"
 #include "docente.h"
 
+#define MAX_CREDITOS 75
+
 using namespace std;
 
 
@@ -33,6 +35,7 @@ public:
 	string getCurrentDate();
 	void ConsultarAllUcs();
 	void ConsultarAllAlunos();
+	void ConsultarAllDocentes();
 
 	//void test_uc(Aluno* aluno);
 
