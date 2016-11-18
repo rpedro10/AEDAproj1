@@ -453,6 +453,18 @@ int Mieic::buscarCadeira(){
 
 	return 0;
 }
+void Mieic::ConsultarAllUcs(){
+	for(unsigned int i=0;i<cadeiras.size();i++){
+		cadeiras[i]->displayUC();
+	}
+}
+
+void Mieic::ConsultarAllAlunos(){
+	for(unsigned int i=0;i<alunos.size();i++){
+		alunos[i]->displayAlunoInfo();
+	}
+}
+
 
 // funcao que imprime aluno. pode ser substituida por displayAluno()
 int Mieic::consultarAluno(){
