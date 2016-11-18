@@ -11,12 +11,6 @@
 using namespace std;
 
 
-
-
-
-
-
-
 int loadDependencies(vector<Aluno*> alunos){
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		vector< pair<string, Uc *> > ucsAluno = (*alunos[i]).getCadeirasInscrito();
@@ -32,7 +26,6 @@ int loadDependencies(vector<Aluno*> alunos){
 int main() {
 	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl;
 
-	//TODO move to mieic?
 
 	vector<Docente*> docentes = initDocentes();
 	vector<Uc*> ucs = initUCs();
@@ -43,8 +36,8 @@ int main() {
 		return -1;
 	}
 
-
-
+*/
+/**
 	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		(*alunos[i]).displayAlunoInfo();
@@ -59,11 +52,22 @@ int main() {
 	for(unsigned int i = 0; i<ucs.size(); i++){
 		(*ucs[i]).displayUC();
 	}
-
 */
+
 	Mieic mieic = Mieic(ucs, docentes, alunos);
 
-	mieic.inscreverNovoAluno();
+	//mieic.inscreverNovoAluno();
+	 mieic.inscreverAluno();
+
+	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
+		for(unsigned int i = 0; i<ucs.size(); i++){
+			(*ucs[i]).displayUC();
+		}
+
+
+
+
+
 /*
 	int running = 1;
 	while(running){

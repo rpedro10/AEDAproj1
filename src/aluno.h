@@ -26,8 +26,7 @@ public:
 	//~Aluno();
 	int getAno() const;
 	void setAno(int ano);
-	//const string& getData() const;
-	//void setData(const string& data);
+
 	const string& getEmail() const;
 	void setEmail(const string& email);
 	const string& getEstatuto() const;

@@ -37,11 +37,13 @@ public:
 	vector<Aluno*> getAlunos() const;
 	void setAlunos(vector<Aluno*> alunos);
 
-	virtual int addAluno(Aluno* aluno) = 0;
+	virtual void addAluno(Aluno* aluno) = 0;
 	virtual void displayUC()=0;
+	virtual string getFaculdade() ;
+	virtual string getArea() ;
 
-	//virtual int getVagas();
-	//virtual void setVagas(int vagas);
+	virtual int getVagas();
+	virtual void setVagas(int vagas);
 
 	//virtual void display_incomplete(int ano);
 };
@@ -54,16 +56,16 @@ class Optativa: public Uc {
 public:
 	Optativa(string nome,string sigla,int semestre,int ano,float cred,int vagas,string curso,string fac,string area);
 	~Optativa(){};
-	const string& getArea() const;
+	string getArea();
 	void setArea(const string& area);
 	const string& getCurso() const;
 	void setCurso(const string& curso);
-	const string& getFaculdade() const;
+	string getFaculdade();
 	void setFaculdade(const string& faculdade);
-	int getVagas() const;
+	int getVagas();
 	void setVagas(int vagas);
 	void displayUC();
-	int addAluno(Aluno* aluno);
+	void addAluno(Aluno* aluno);
 	//void display_incomplete(int ano);
 
 
@@ -75,7 +77,13 @@ public:
 	N_Optativa(string nome,string sigla,int semestre,int ano,float cred);
 	~N_Optativa(){};
 	void displayUC();
-	int addAluno(Aluno* aluno);
+	void addAluno(Aluno* aluno);
+
+	int getVagas();
+	void setVagas(int vagas);
+	string getFaculdade() ;
+	 string getArea() ;
+
 
 	//void display_incomplete(int year);
 
