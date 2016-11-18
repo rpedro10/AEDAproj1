@@ -37,7 +37,7 @@ int main() {
 	}
 
 */
-
+/**
 	printf("-=-=-=-=-Alunos=-=-=-=-=-\n");
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		(*alunos[i]).displayAlunoInfo();
@@ -52,13 +52,17 @@ int main() {
 	for(unsigned int i = 0; i<ucs.size(); i++){
 		(*ucs[i]).displayUC();
 	}
-
+*/
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
 
 	//mieic.inscreverNovoAluno();
-	// mieic.inscreverAluno();
+	 mieic.inscreverAluno();
 
+	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
+		for(unsigned int i = 0; i<ucs.size(); i++){
+			(*ucs[i]).displayUC();
+		}
 
 
 

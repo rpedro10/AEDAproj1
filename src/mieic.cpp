@@ -173,6 +173,9 @@ void Mieic::inscreverAluno(){
 
 							alunos[index]->displayAlunoInfo();
 
+							for(unsigned int j = 0; j<disciplinas.size(); j++){
+															disciplinas[j].second->addAluno(alunos[index]);
+														}
 
 		}
 		else
@@ -318,6 +321,8 @@ void  Mieic::inscreverNovoAluno(){
 							//cout<<cadeiras[number-1]->getVagas()<<endl;
 							datas.push_back(data);
 							uc.push_back(cadeiras[number-1]);
+
+							/// acresc
 
 						}
 						else if(cadeiras [number-1]->getVagas()==0)
