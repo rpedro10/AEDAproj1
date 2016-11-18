@@ -4,4 +4,4 @@
 1 ; Sinais e Sensores ; SSEN ; 4 ; 2 ; 6 ; Automacao Industrial ; MIEIC ; FEUP ; 5
 1 ; Robotica ; ROBO ; 5 ; 1 ; 6 ; Inteligencia Artificial ; MIEIC ; FEUP ; 0
 0 ; Dissertacao ; DISS ; 5 ; 2 ; 30
-1 ; Fundamentos da Robotica ; FROB ; 4 ; 1 ; 6 ; Robotica ; FCUP ; Inteligencia Artificial ; 3
+1 ; Fundamentos da Robotica ; FROB ; 4 ; 1 ; 6 ; Inteligencia Artificial ; CCOM ; FCUP ; 3

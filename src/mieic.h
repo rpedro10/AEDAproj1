@@ -20,7 +20,7 @@ public:
 
 	int runProgram();
 
-	int inscreverAluno();
+	void inscreverAluno();
 	void inscreverNovoAluno();
 	int buscarAluno();
 	int buscarCadeira();
