@@ -39,13 +39,16 @@ public:
 
 	virtual void addAluno(Aluno* aluno) = 0;
 	virtual void displayUC()=0;
+
 	virtual string getFaculdade() ;
+	virtual string getCurso();
 	virtual string getArea() ;
 
 	virtual int getVagas();
 	virtual void setVagas(int vagas);
 
-	//virtual void display_incomplete(int ano);
+	virtual void display_incomplete();
+
 };
 
 class Optativa: public Uc {
@@ -58,15 +61,15 @@ public:
 	~Optativa(){};
 	string getArea();
 	void setArea(const string& area);
-	const string& getCurso() const;
+	string getCurso() ;
 	void setCurso(const string& curso);
 	string getFaculdade();
-	void setFaculdade(const string& faculdade);
+	void setFaculdade( string faculdade);
 	int getVagas();
 	void setVagas(int vagas);
 	void displayUC();
 	void addAluno(Aluno* aluno);
-	//void display_incomplete(int ano);
+	void display_incomplete();
 
 
 };
@@ -82,10 +85,12 @@ public:
 	int getVagas();
 	void setVagas(int vagas);
 	string getFaculdade() ;
+	string getCurso();
+
 	 string getArea() ;
 
 
-	//void display_incomplete(int year);
+	 void display_incomplete();
 
 };
 

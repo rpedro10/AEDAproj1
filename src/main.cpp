@@ -9,6 +9,14 @@
 #include <iostream>
 
 using namespace std;
+// todo  funcoes de visualizaçao de todos os alunos e todas as cadeiras
+// TODO  TESTAR SE JA ESTA INSCRITO À CADEIRA, SE ESTIVER NAO DEIXA INSCREVER OUTRA VEZ
+// TODO  CORRIGIR A FUNCAO DISPLAY_INCOMPLETE() ( NAO ESTA A MOSTRAR A FACULDADE NEM O CURSO)
+// TODO  FUNCOES PARA ESCREVER PARA FICHEIRO (GUARDAR INFO)
+// TODO  SEQUENTIAL SEARCH
+// TODO  QUICK SORT
+// TODO  OVERLOAD ??
+// TODO  EXCEPÇOES
 
 
 int loadDependencies(vector<Aluno*> alunos){
@@ -57,13 +65,15 @@ int main() {
 	Mieic mieic = Mieic(ucs, docentes, alunos);
 
 	//mieic.inscreverNovoAluno();
-	 mieic.inscreverAluno();
-
+	// mieic.inscreverAluno();
+	//mieic.consultarAluno();
+	mieic.consultarCadeira();
+/**
 	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
 		for(unsigned int i = 0; i<ucs.size(); i++){
-			(*ucs[i]).displayUC();
+		(*ucs[i]).display_incomplete();
 		}
-
+*/
 
 
 
