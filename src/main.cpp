@@ -43,6 +43,9 @@ int main() {
 	}
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
+
+
+
 /*
 	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
 	mieic.ConsultarAllAlunos();

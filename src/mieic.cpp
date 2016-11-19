@@ -2,6 +2,11 @@
 #include <ctime>
 #include <stdio.h>
 #include <stdlib.h>
+#include "sequentialSearch.h"
+#include <algorithm>
+#include <iterator>
+#include <exception>
+#include <stdexcept>
 
 Mieic::Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos){
 	this->cadeiras = cadeiras;
@@ -86,8 +91,10 @@ int Mieic::runProgram(){
 
 int Mieic::inscreverAluno(){
 	string name;
-	cout <<name<<endl;
+	//cout <<name<<endl;
 	cout << "Nome? ";
+	cin.clear();
+	cin.ignore(1000,'\n');
 
 	// Ricardo Astro
 	getline(cin,name);
@@ -189,6 +196,8 @@ int Mieic::inscreverAluno(){
 
 	} else {
 		cout<<"Aluno nao existe";
+		throw AlunoNaoExiste(name);
+
 		return 0;
 	}
 
@@ -239,13 +248,24 @@ int Mieic::inscreverAluno(){
 }
 
 
-int Mieic::getAluno_byNome(string s ){
+
+int Mieic::getAluno_byNome(const string &s ){
+
+		Aluno* aluno = new Aluno();
+		aluno->setNome(s);
+		//cout<<s<<endl;
+		int p = sequentialSearch(alunos, aluno);
+		//cout<<p;
+		return p;
+
+/**
 	for(unsigned int i=0;i<alunos.size();i++){
 		if(alunos[i]->getNome()==s)
 			return i;
 
 	}
 	return -1;
+	*/
 }
 
 int Mieic::getAluno_byNumero(int n){
@@ -265,6 +285,7 @@ int Mieic::inscreverNovoAluno(){
 	string nome,email,estatuto,data;
 	cout << "Inscrever novo aluno: "<<endl<<"Numero? ";
 	cin >> numero;
+
 	int index= getAluno_byNumero(numero);
 
 	if(index==-1){
@@ -326,7 +347,7 @@ int Mieic::inscreverNovoAluno(){
 			else
 			{
 				//cout <<number<<endl;
-				if (number <= ucsPossiveis.size()){
+				if (number <= ucsPossiveis.size()&& ucsPossiveis[number-1] != NULL){
 
 					//cout<<"number:"<<number<<"   size:"<<cadeiras.size()<<"....";
 					//cout<<cadeiras[number-1]->getVagas()<<endl;
@@ -341,6 +362,7 @@ int Mieic::inscreverNovoAluno(){
 							ucsPossiveis[number-1]->setVagas(new_vagas);
 							//cout<<cadeiras[number-1]->getVagas()<<endl;
 							uc.push_back(ucsPossiveis[number-1]);
+							ucsPossiveis[number-1] = NULL;
 							--aux;
 							/// acresc
 
@@ -385,6 +407,13 @@ int Mieic::inscreverNovoAluno(){
 	}
 	else {
 		cout<<"erro"<<endl;
+		try{
+			getAluno_byNumero(numero);
+		}
+		catch{
+
+		}
+
 		return 0;
 	}
 
@@ -401,7 +430,14 @@ int Mieic::inscreverNovoAluno(){
 }
 
 
-
+void Mieic::handler(){
+	try {
+		 getAluno_byNumero(-1);
+	}
+	catch( const std::invalid_argument& e ) {
+	    // do stuff with exception...
+	}
+}
 
 
 

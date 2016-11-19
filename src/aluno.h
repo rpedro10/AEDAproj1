@@ -22,7 +22,7 @@ class Aluno {
 	vector< pair<string, Uc *> > cadeiras_inscrito;
 public:
 	Aluno(int num, string nome, int ano, string email, string estatuto, Docente* tutor, vector< pair<string, Uc *> > cadeiras_inscrito); // falta o vetor de disciplinas e o tutor
-	Aluno(int num, string nome, int ano, string email, string estatuto);
+	Aluno();
 	//~Aluno();
 	int getAno() const;
 	void setAno(int ano);
@@ -45,10 +45,25 @@ public:
 
 	void inscreverCadeira(Uc *uc);
 	bool estaInscrito(Uc* uc);
-
 	void save(ofstream* output);
 
+	 bool operator == (const Aluno* & p2) const;
+
+
+
 };
+
+class AlunoNaoExiste {
+	string nome;
+public:
+
+	AlunoNaoExiste(string nm): nome(nm) {
+
+	}
+	string getNome() const { return nome; }
+
+};
+
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs);
 
 #endif

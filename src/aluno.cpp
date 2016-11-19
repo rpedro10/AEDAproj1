@@ -10,6 +10,17 @@ Aluno::Aluno(int num, string nome, int ano, string email, string estatuto, Docen
 	this->cadeiras_inscrito = cadeiras_inscrito;
 }
 
+Aluno::Aluno(){
+}
+
+bool Aluno::operator == (const Aluno* & p2) const
+{	cout<<"1";
+cout<<p2->getNome();
+	return nome == p2->getNome(); }
+
+
+
+
 int Aluno::getAno() const {
 	return ano;
 }

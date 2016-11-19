@@ -31,7 +31,7 @@ public:
 	int consultarAluno();
 	int consultarCadeira();
 	int getAluno_byNumero(int n);
-	int getAluno_byNome(string s);
+	int getAluno_byNome(const string &s);
 	int getUc_bySigla(string s);
 	Docente* assignTutor();
 	string getCurrentDate();
@@ -39,6 +39,7 @@ public:
 	void ConsultarAllAlunos();
 	void ConsultarAllDocentes();
 	void SaveFiles();
+	void handler();
 
 	//void test_uc(Aluno* aluno);
 
