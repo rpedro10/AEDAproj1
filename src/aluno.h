@@ -46,6 +46,8 @@ public:
 	void inscreverCadeira(Uc *uc);
 	bool estaInscrito(Uc* uc);
 
+	void save(ofstream* output);
+
 };
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs);
 

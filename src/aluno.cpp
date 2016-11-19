@@ -96,6 +96,29 @@ bool Aluno::estaInscrito(Uc* uc){
 	return false;
 }
 
+
+void Aluno::save(ofstream* output){
+	(*output) << this->numero << " ; " << this->nome << " ; " << this->ano << " ; " << this->email << " ; " << this->estatuto
+	 	 	  << " ; " << this->tutor->getCodigo() << " ; ";
+
+	for(unsigned int i=0; i<this->cadeiras_inscrito.size(); i++){
+		(*output) << this->cadeiras_inscrito[i].first;
+		if(i != this->cadeiras_inscrito.size()-1){
+			(*output) << ", ";
+		}
+	}
+
+	(*output) << " ; ";
+
+	for(unsigned int i=0; i<this->cadeiras_inscrito.size(); i++){
+		(*output) << this->cadeiras_inscrito[i].second->getSigla();
+		if(i != this->cadeiras_inscrito.size()-1){
+			(*output) << ", ";
+		}
+	}
+}
+
+
 //__________________________________________________________________
 
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
@@ -157,7 +180,7 @@ vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 			data = line.substr(0, line.find(","));
 		}
 
-		data = line.substr(0, line.find(";"));
+		data = line.substr(0, line.find(";") - 1);
 		dataUCs.push_back(data);
 
 		line = line.substr(line.find(";") + 2);

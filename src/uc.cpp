@@ -129,7 +129,7 @@ void Optativa::displayUC(){
 	cout << "Unidade Curricular : " <<nome <<"     Sigla: " << sigla << endl;
 	cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
 	cout << "Creditos: " << creditos << endl;
-	cout<<"Faculdade:"<<faculdade<<"     Curso:"<<curso<<endl;
+	cout << "Faculdade:"<<faculdade<<"     Curso:"<<curso<<endl;
 	cout << "Alunos a frequentar: (" << alunos.size() << ")" << endl;
 
 	for(unsigned int i = 0; i<this->alunos.size(); i++){
@@ -149,13 +149,17 @@ void Optativa::display_incomplete( ){
 		cout << "Vagas: " << vagas << endl;
 		cout << "==============================" << endl;
 
-	}
-
-
+}
 
 void Optativa::addAluno(Aluno* aluno){
 	alunos.push_back(aluno);
 }
+
+void Optativa::save(ofstream *output){
+	(*output) << 1 << " ; " << this->nome << " ; " << this->sigla << " ; " << this->ano << " ; " << this->semestre << " ; " <<
+			this->creditos << " ; " << this->area << " ; " << this->curso << " ; " << this->faculdade << " ; " << this->vagas;
+}
+
 
 /**
  * UC Nao Optativa
@@ -213,6 +217,12 @@ string N_Optativa::getArea(){
 string N_Optativa::getCurso(){
 	return "MIEIC";
 }
+
+void N_Optativa::save(ofstream *output){
+	(*output) << 0 << " ; " << this->nome << " ; " << this->sigla << " ; " <<
+			this->ano << " ; " << this->semestre << " ; " << this->creditos;
+}
+
 
 
 

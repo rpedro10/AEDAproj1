@@ -24,6 +24,7 @@ public:
 	void displayDocente();
 	int getQtt() const;
 	void setQtt();
+	void save(ofstream* output);
 };
 
 vector<Docente*> initDocentes();

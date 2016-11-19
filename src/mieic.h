@@ -2,6 +2,8 @@
 #define __mieic_h__
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctime>
+#include <fstream>
 
 #include "aluno.h"
 #include "uc.h"
@@ -22,8 +24,8 @@ public:
 
 	int runProgram();
 
-	void inscreverAluno();
-	void inscreverNovoAluno();
+	int inscreverAluno();
+	int inscreverNovoAluno();
 	int buscarAluno();
 	int buscarCadeira();
 	int consultarAluno();
@@ -36,6 +38,7 @@ public:
 	void ConsultarAllUcs();
 	void ConsultarAllAlunos();
 	void ConsultarAllDocentes();
+	void SaveFiles();
 
 	//void test_uc(Aluno* aluno);
 
