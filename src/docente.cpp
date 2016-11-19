@@ -33,6 +33,10 @@ void Docente::setQtt() {
 	this->qtt = ++qtt;
 }
 
+void Docente::save(ofstream* output){
+	(*output) << this->codigo << " ; " << this->nome << " ; " << this->qtt;
+}
+
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 

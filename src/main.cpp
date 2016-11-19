@@ -62,14 +62,14 @@ int main() {
 	mieic.ConsultarAllUcs();
 	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
 	mieic.ConsultarAllDocentes();
+*/
 
-/*
+
 	int running = 1;
 	while(running){
 		running = mieic.runProgram();
 	}
-
 	return 0;
-*/
+
 
 }

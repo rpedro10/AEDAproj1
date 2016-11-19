@@ -49,6 +49,8 @@ public:
 
 	virtual void display_incomplete();
 
+	virtual void save(ofstream *output) = 0;
+
 };
 
 class Optativa: public Uc {
@@ -71,6 +73,7 @@ public:
 	void addAluno(Aluno* aluno);
 	void display_incomplete();
 
+	void save(ofstream *output);
 
 };
 
@@ -87,11 +90,12 @@ public:
 	string getFaculdade() ;
 	string getCurso();
 
-	 string getArea() ;
+	string getArea() ;
 
 
-	 void display_incomplete();
+	void display_incomplete();
 
+	void save(ofstream *output);
 };
 
 vector<Uc*> initUCs();

@@ -1,2 +1,2 @@
-201492758 ; Antonio Alberto ; 2 ; up201492758@fe.up.pt ; trabalhador-estudante ; 1 ; 13/9/2010, 15/9/2011 ; PROG, PLOG
+201492758 ; Antonio Alberto ; 2 ; up201492758@fe.up.pt ; trabalhador-estudante ; 2 ; 13/9/2010, 15/9/2011 ; PROG, PLOG
 200654065 ; Ricardo Astro ; 2 ; up200654065@fe.up.pt ; estudante ; 2 ; 14/9/2013, 16/9/2014 ; PROG, ROBO

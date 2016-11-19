@@ -1,2 +1,2 @@
-1 ; Manuel Joaquim ; 1
-2 ; Asdrubal Tiago ; 1
+1 ; Manuel Joaquim ; 2
+2 ; Asdrubal Tiago ; 2

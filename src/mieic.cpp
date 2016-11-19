@@ -24,8 +24,7 @@ int Mieic::runProgram(){
 	switch(a){
 	case 1:
 		while(running) {
-			int i = 33;
-					//inscreverAluno();
+			int i = inscreverAluno();
 			if(i<0){
 				printf("Erro a inscrever aluno.\n");
 				return -1;
@@ -36,8 +35,7 @@ int Mieic::runProgram(){
 		break;
 	case 2:
 		while(running) {
-			int i = 33;
-					//inscreverNovoAluno();
+			int i = inscreverNovoAluno();
 			if(i<0){
 				printf("Erro a inscrever novo aluno.\n");
 				return -1;
@@ -72,6 +70,9 @@ int Mieic::runProgram(){
 
 		break;
 	case 5:
+		cout << "Gravando..." << endl;
+		SaveFiles();
+		cout << "Adeus!" << endl;
 		return 0;
 		break;
 	default:
@@ -83,113 +84,119 @@ int Mieic::runProgram(){
 }
 
 
-void Mieic::inscreverAluno(){
+int Mieic::inscreverAluno(){
+	string name;
+	cout <<name<<endl;
+	cout << "Nome? ";
 
-		string name;
-		cout <<name<<endl;
-		cout << "Nome? ";
+	// Ricardo Astro
+	getline(cin,name);
+	cout <<name<<endl;
+	//cin.clear();
+	// cin.ignore(1000,'\n');
 
-		// Ricardo Astro
-		getline(cin,name);
-		cout <<name<<endl;
-		//cin.clear();
-		// cin.ignore(1000,'\n');
-
-		int index= getAluno_byNome(name);
-		//cout<<"Index:::"<<index<<endl;
+	int index= getAluno_byNome(name);
+	//cout<<"Index:::"<<index<<endl;
 
 
-		if(index!=-1){
-		//	cout<<"entrou no if"<<endl;
-			int creditos=0;
-			vector< pair<string, Uc *> > disciplinas =alunos[index]->getCadeirasInscrito();
-			int ano= alunos[index]->getAno();
-			//cout<<ano<<endl;
-			string data= getCurrentDate();
-			//cout<<data<<endl;
+	if(index!=-1){
+	//	cout<<"entrou no if"<<endl;
+		int creditos=0;
+		vector< pair<string, Uc *> > disciplinas =alunos[index]->getCadeirasInscrito();
+		int ano= alunos[index]->getAno();
+		//cout<<ano<<endl;
+		string data= getCurrentDate();
+		//cout<<data<<endl;
 
-				for(unsigned int i=0;i<disciplinas.size();i++ ){
-					creditos+= disciplinas[i].second->getCreditos();
+			for(unsigned int i=0;i<disciplinas.size();i++ ){
+				creditos+= disciplinas[i].second->getCreditos();
 
+			}
+			//cout<<creditos<<endl;
+			//cout<<cadeiras.size()<<endl;
+
+			vector<Uc*> ucsPossiveis;
+			for(unsigned int i=0;i<cadeiras.size();i++){
+				if(cadeiras[i]->getAno() <= ano && !alunos[index]->estaInscrito(cadeiras[i])){
+					ucsPossiveis.push_back(cadeiras[i]);
 				}
-				//cout<<creditos<<endl;
-				//cout<<cadeiras.size()<<endl;
+			}
 
-				vector<Uc*> ucsPossiveis;
-				for(unsigned int i=0;i<cadeiras.size();i++){
-					if(cadeiras[i]->getAno() <= ano && !alunos[index]->estaInscrito(cadeiras[i])){
-						ucsPossiveis.push_back(cadeiras[i]);
-					}
-				}
+			for(unsigned int i=0; i<ucsPossiveis.size(); i++){
+				cout << i+1 << endl;
+				ucsPossiveis[i]->display_incomplete();
+			}
 
-				for(unsigned int i=0; i<ucsPossiveis.size(); i++){
-					cout << i+1 << endl;
-					ucsPossiveis[i]->display_incomplete();
-				}
+			int aux = ucsPossiveis.size();
 
-				int aux = ucsPossiveis.size();
+			while(creditos < MAX_CREDITOS && aux != 0){
 
-				while(creditos < MAX_CREDITOS && aux != 0){
+				unsigned int number;
+				cout<<"inserir numero da cadeira: (zero para terminar)";
+				cin >> number;
 
-					unsigned int number;
-					cout<<"inserir numero da cadeira: (zero para terminar)";
-					cin >> number;
+				if(number==0)
+					break;
+				else {
+					//cout <<number<<endl;
+					if (number <= ucsPossiveis.size() && ucsPossiveis[number-1] != NULL){
 
-					if(number==0)
-						break;
-					else {
-						//cout <<number<<endl;
-						if (number <= ucsPossiveis.size() && ucsPossiveis[number-1] != NULL){
+						if(ucsPossiveis[number-1]->getAno() <= ano){
+							if(ucsPossiveis [number-1]->getVagas()>0 || ucsPossiveis [number-1]->getVagas()==-1){
+								cout<<ucsPossiveis[number-1]->getSigla()<<endl;
+								creditos+=ucsPossiveis[number-1]->getCreditos();
+								int new_vagas=ucsPossiveis[number-1]->getVagas();
+								new_vagas--;
+								ucsPossiveis[number-1]->setVagas(new_vagas);
+								ucsPossiveis[number-1]->addAluno(alunos[index]);
 
-							if(ucsPossiveis[number-1]->getAno() <= ano){
-								if(ucsPossiveis [number-1]->getVagas()>0 || ucsPossiveis [number-1]->getVagas()==-1){
-									cout<<ucsPossiveis[number-1]->getSigla()<<endl;
-									creditos+=ucsPossiveis[number-1]->getCreditos();
-									int new_vagas=ucsPossiveis[number-1]->getVagas();
-									new_vagas--;
-									ucsPossiveis[number-1]->setVagas(new_vagas);
-									ucsPossiveis[number-1]->addAluno(alunos[index]);
+								disciplinas.push_back({data,ucsPossiveis[number-1]});
 
-									disciplinas.push_back({data,ucsPossiveis[number-1]});
+								ucsPossiveis[number-1] = NULL;
+								--aux;
 
-									ucsPossiveis[number-1] = NULL;
-									--aux;
+								//		datas.push_back(data);
+								//	uc.push_back(cadeiras[number-1]);
 
-									//		datas.push_back(data);
-									//	uc.push_back(cadeiras[number-1]);
+							} else if(ucsPossiveis[number-1]->getVagas()==0) {
 
-								} else if(ucsPossiveis[number-1]->getVagas()==0) {
+								cout<<"VAGAS INSUFICIENTES"<<endl;
+								for(unsigned int j=0;j<cadeiras.size();j++){
 
-									cout<<"VAGAS INSUFICIENTES"<<endl;
-									for(unsigned int j=0;j<cadeiras.size();j++){
-
-										if( ucsPossiveis[number-1]->getArea()==cadeiras[j]->getArea()&&
-												ucsPossiveis[number-1]->getSigla()!=cadeiras[j]->getSigla())
-										{
-											cout<<"Recomenda-se:"<<endl;
-											cout<<cadeiras[j]->getFaculdade()<<endl;
-											cadeiras[j]->displayUC();
-										//	 cout<< "Faculdade:: "<<cadeiras[j]->getFaculdade()<<endl;
-										}
+									if( ucsPossiveis[number-1]->getArea()==cadeiras[j]->getArea()&&
+											ucsPossiveis[number-1]->getSigla()!=cadeiras[j]->getSigla())
+									{
+										cout<<"Recomenda-se:"<<endl;
+										cout<<cadeiras[j]->getFaculdade()<<endl;
+										cadeiras[j]->displayUC();
+									//	 cout<< "Faculdade:: "<<cadeiras[j]->getFaculdade()<<endl;
 									}
 								}
-
 							}
+
 						}
 					}
 				}
+			}
 
-			alunos[index]->setCadeirasInscrito(disciplinas);
+		alunos[index]->setCadeirasInscrito(disciplinas);
 
-			alunos[index]->displayAlunoInfo();
-			/*
-			for(unsigned int j = 0; j<disciplinas.size(); j++){
-				disciplinas[j].second->addAluno(alunos[index]);
-			}*/
+		alunos[index]->displayAlunoInfo();
+		/*
+		for(unsigned int j = 0; j<disciplinas.size(); j++){
+			disciplinas[j].second->addAluno(alunos[index]);
+		}*/
 
-		} else
-			cout<<"Aluno nao existe";
+	} else {
+		cout<<"Aluno nao existe";
+		return 0;
+	}
 
+	char c;
+	cout << "Insira qualquer coisa para continuar";
+	cin >> c;
+
+	return 1;
 
 
 /**
@@ -252,12 +259,12 @@ int Mieic::getAluno_byNumero(int n){
 
 
 
-void  Mieic::inscreverNovoAluno(){
+int Mieic::inscreverNovoAluno(){
 
 	int numero,ano;
 	string nome,email,estatuto,data;
 	cout << "Inscrever novo aluno: "<<endl<<"Numero? ";
-	cin>>numero;
+	cin >> numero;
 	int index= getAluno_byNumero(numero);
 
 	if(index==-1){
@@ -357,7 +364,6 @@ void  Mieic::inscreverNovoAluno(){
 					}
 				}
 			}
-
 		}
 
 		data=getCurrentDate();
@@ -377,10 +383,16 @@ void  Mieic::inscreverNovoAluno(){
 			ucsAluno[j].second->addAluno(aluno);
 		}
 	}
-
-	else
+	else {
 		cout<<"erro"<<endl;
+		return 0;
+	}
 
+	char c;
+	cout << "Insira qualquer coisa para continuar";
+	cin >> c;
+
+	return 1;
 
 
 	 // cout<<numero<<"---"<<nome<<"---"<<email<<"..."<<estatuto<<"---"<<ano<<endl;
@@ -406,6 +418,7 @@ int Mieic::buscarAluno(){
 
 	switch(a){
 	case 1:
+		consultarAluno();
 		break;
 	case 2:
 
@@ -445,7 +458,7 @@ int Mieic::buscarCadeira(){
 
 		break;
 	case 2:
-
+		consultarCadeira();
 		break;
 	case 3:
 		ConsultarAllUcs();
@@ -472,7 +485,7 @@ void Mieic::ConsultarAllUcs(){
 
 void Mieic::ConsultarAllAlunos(){
 	for(unsigned int i=0;i<alunos.size();i++){
-		alunos[i]->displayAlunoInfo();
+		alunos[i]->displayAluno();
 	}
 }
 
@@ -485,6 +498,8 @@ void Mieic::ConsultarAllDocentes(){
 
 // funcao que imprime aluno. pode ser substituida por displayAluno()
 int Mieic::consultarAluno(){
+	cin.clear();
+    cin.ignore(10000,'\n');
 	cout<<"Nome? ";
 	string name;
 	getline(cin, name);
@@ -494,10 +509,12 @@ int Mieic::consultarAluno(){
 	if(index!=-1){
 		alunos[index]->displayAlunoInfo();
 	}
-	else cout<<"Aluno Nao Existe!"<<endl;
+	else {
+		cout<<"Aluno Nao Existe!"<<endl;
+		return 0;
+	}
 
-
-	return 0;
+	return 1;
 }
 
 
@@ -513,21 +530,24 @@ int Mieic::getUc_bySigla(string s){
 
 // funcao que imprime cadeira. pode ser substituida por displayCadeira()
 int Mieic::consultarCadeira(){
+	cin.clear();
+    cin.ignore(10000,'\n');
 	cout<<"Sigla da Uc? ";
-		string sigla;
-		getline(cin, sigla);
+	string sigla;
+	getline(cin, sigla);
 
-		int index= getUc_bySigla(sigla);
+	int index= getUc_bySigla(sigla);
 
-		if (index!=-1){
-			cadeiras[index]->displayUC();
+	if (index!=-1){
+		cadeiras[index]->displayUC();
 
-		}
-		else
-			cout<<"Uc nao existe"<<endl;
+	}
+	else {
+		cout<<"Uc nao existe"<<endl;
+		return 0;
+	}
 
-
-	return 0;
+	return 1;
 }
 
 Docente* Mieic::assignTutor(){
@@ -562,3 +582,40 @@ string Mieic::getCurrentDate(){
 
 		return str.c_str();
 }
+
+void Mieic::SaveFiles(){
+	/** SAVING UC's **/
+	ofstream output;
+	output.open("ucs.txt", ios_base::trunc);
+	for (unsigned int i = 0; i < cadeiras.size(); i++){
+		cadeiras[i]->save(&output);
+		if(i != cadeiras.size()-1){
+			output << endl;
+		}
+	}
+	output.close();
+
+	/** SAVING DOCENTES **/
+	output.clear();
+	output.open("docentes.txt", ios_base::trunc);
+	for (unsigned int i = 0; i < docentes.size(); i++){
+		docentes[i]->save(&output);
+		if(i != docentes.size()-1){
+			output << endl;
+		}
+	}
+	output.close();
+
+	/** SAVING ALUNOS **/
+	output.clear();
+	output.open("aa.txt", ios_base::trunc);
+	for (unsigned int i = 0; i < alunos.size(); i++){
+		alunos[i]->save(&output);
+		if(i != alunos.size()-1){
+			output << endl;
+		}
+	}
+	output.close();
+}
+
+
