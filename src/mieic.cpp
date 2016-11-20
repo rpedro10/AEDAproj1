@@ -201,6 +201,7 @@ int Mieic::inscreverAluno(){
 			return 0;
 
 		}
+	sort(alunos.begin(), alunos.end(), compAlunoAlf);
 
 	char c;
 	cout << "Insira qualquer coisa para continuar";
@@ -381,6 +382,8 @@ int Mieic::inscreverNovoAluno(){
 
 	}
 
+	sort(alunos.begin(), alunos.end(), compAlunoAlf);
+
 	char c;
 	cout << "Insira qualquer coisa para continuar";
 	cin >> c;
@@ -399,11 +402,12 @@ int Mieic::inscreverNovoAluno(){
 
 int Mieic::buscarAluno(){
 	cout << "Procurar aluno: " << endl;
-	cout << "1. por nome" << endl;
-	cout << "2. por numero" << endl;
-	cout << "3. Ver todos os alunos" << endl;
-	cout << "4. Voltar ao menu anterior" << endl;
-	cout << "Introduza um numero para escolher a accao: ";
+	  	cout << "1. por nome" << endl;
+	  	cout << "2. por numero" << endl;
+	 	cout << "3. Ver todos os alunos por ordem alfabetica" << endl;
+	 	cout << "4. Ver todos os alunos por ordem numerica" << endl;
+	 	cout << "5. Voltar ao menu anterior" << endl;
+	  	cout << "Introduza um numero para escolher a accao: ";
 
 	unsigned int a;
 	cin >> a;
@@ -416,12 +420,17 @@ int Mieic::buscarAluno(){
 		consultarAluno_byNumero();
 		break;
 	case 3:
+		sort(alunos.begin(), alunos.end(), compAlunoAlf);
 		ConsultarAllAlunos();
 		break;
 	case 4:
-		return 1;
-		break;
-	default:
+	 		sort(alunos.begin(), alunos.end(), compAlunoNum);
+	 		ConsultarAllAlunos();
+	 		break;
+	 	case 5:
+	  		return 1;
+	  		break;
+	  	default:
 		cout << "Introduza um numero valido." << endl;
 		break;
 	}
@@ -436,22 +445,31 @@ int Mieic::buscarAluno(){
 //TODO funcao que procura cadeiras
 int Mieic::buscarCadeira(){
 	cout << "Procurar Unidade Curricular: " << endl;
-	cout << "1. por sigla" << endl;
-	cout << "2. Ver todas as Unidades Curriculares" << endl;
-	cout << "3. Voltar ao menu anterior" << endl;
-	cout << "Introduza um numero para escolher a accao: ";
-
+	  	cout << "1. por nome" << endl;
+	  	cout << "2. por sigla" << endl;
+	 	cout << "3. Ver todas as Unidades Curriculares por ordem alfabetica" << endl;
+	 	cout << "4. Ver todas as Unidades Curriculares por ordem anual" << endl;
+	 	cout << "5. Voltar ao menu anterior" << endl;
+	  	cout << "Introduza um numero para escolher a accao: ";
 	unsigned int a;
 	cin >> a;
 
 	switch(a){
 	case 1:
-		consultarCadeira();
+		//consultarCadeira();
 		break;
 	case 2:
-		ConsultarAllUcs();
+		consultarCadeira();
 		break;
 	case 3:
+		sort(cadeiras.begin(), cadeiras.end(), compUCalf);
+		 ConsultarAllUcs();
+		 break;
+	case 4:
+		sort(cadeiras.begin(), cadeiras.end(), compUCano);
+		ConsultarAllUcs();
+		break;
+	case 5:
 		return 1;
 		break;
 	default:
