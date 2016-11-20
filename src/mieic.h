@@ -24,6 +24,8 @@ class Mieic{
 public:
 	Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos);
 
+
+
 	int runProgram();
 
 	int inscreverAluno();
@@ -35,11 +37,13 @@ public:
 	int getAluno_byNumero(int n);
 	int getAluno_byNome(const string &s);
 	int getUc_bySigla(string s);
+
 	Docente* assignTutor();
 	string getCurrentDate();
 	void ConsultarAllUcs();
 	void ConsultarAllAlunos();
 	void ConsultarAllDocentes();
+
 	void SaveFiles();
 	int consultarAluno_byNumero();
 	//void test_uc(Aluno* aluno);

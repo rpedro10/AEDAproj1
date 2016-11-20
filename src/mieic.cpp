@@ -20,7 +20,8 @@ int Mieic::runProgram(){
 	cout << "2. Inscrever novo aluno" << endl;
 	cout << "3. Procurar aluno" << endl;
 	cout << "4. Procurar Unidade Curricular" << endl;
-	cout << "5. Sair" << endl;
+	cout << "5. Mostrar Todos os Docentes" << endl;
+	cout << "6. Sair" << endl;
 	cout << "Introduza um numero para escolher a accao: ";
 
 	unsigned int a;
@@ -75,11 +76,14 @@ int Mieic::runProgram(){
 
 		break;
 	case 5:
-		cout << "Gravando..." << endl;
-		SaveFiles();
-		cout << "Adeus!" << endl;
-		return 0;
+		ConsultarAllDocentes();
 		break;
+	case 6:
+		cout << "Gravando..." << endl;
+				SaveFiles();
+				cout << "Adeus!" << endl;
+				return 0;
+				break;
 	default:
 		cout << "Introduza um numero valido." << endl;
 		break;
@@ -198,7 +202,7 @@ int Mieic::inscreverAluno(){
 	}
 	catch(string & x){
 			cout<<"nome de aluno nao existe: "<<name<<endl;
-			return 0;
+			return -1;
 
 		}
 	sort(alunos.begin(), alunos.end(), compAlunoAlf);
@@ -378,7 +382,7 @@ int Mieic::inscreverNovoAluno(){
 
 	}catch(int x){
 		cout<<"nº de aluno ja existe: "<<numero<<endl;
-		return 0;
+		return -1;
 
 	}
 
@@ -445,31 +449,27 @@ int Mieic::buscarAluno(){
 //TODO funcao que procura cadeiras
 int Mieic::buscarCadeira(){
 	cout << "Procurar Unidade Curricular: " << endl;
-	  	cout << "1. por nome" << endl;
-	  	cout << "2. por sigla" << endl;
-	 	cout << "3. Ver todas as Unidades Curriculares por ordem alfabetica" << endl;
-	 	cout << "4. Ver todas as Unidades Curriculares por ordem anual" << endl;
-	 	cout << "5. Voltar ao menu anterior" << endl;
+	  	cout << "1. por sigla" << endl;
+	 	cout << "2. Ver todas as Unidades Curriculares por ordem alfabetica" << endl;
+	 	cout << "3. Ver todas as Unidades Curriculares por ordem anual" << endl;
+	 	cout << "4. Voltar ao menu anterior" << endl;
 	  	cout << "Introduza um numero para escolher a accao: ";
 	unsigned int a;
 	cin >> a;
 
 	switch(a){
 	case 1:
-		//consultarCadeira();
-		break;
-	case 2:
 		consultarCadeira();
 		break;
-	case 3:
+	case 2:
 		sort(cadeiras.begin(), cadeiras.end(), compUCalf);
 		 ConsultarAllUcs();
 		 break;
-	case 4:
+	case 3:
 		sort(cadeiras.begin(), cadeiras.end(), compUCano);
 		ConsultarAllUcs();
 		break;
-	case 5:
+	case 4:
 		return 1;
 		break;
 	default:
@@ -562,6 +562,8 @@ int Mieic::getUc_bySigla(string s){
 
 }
 
+
+
 // funcao que imprime cadeira. pode ser substituida por displayCadeira()
 int Mieic::consultarCadeira(){
 	cin.clear();
@@ -619,6 +621,7 @@ string Mieic::getCurrentDate(){
 
 		return str.c_str();
 }
+
 
 void Mieic::SaveFiles(){
 	/** SAVING UC's **/

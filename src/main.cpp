@@ -9,12 +9,6 @@
 #include <iostream>
 
 using namespace std;
-// TODO  TESTAR SE JA ESTA INSCRITO � CADEIRA, SE ESTIVER NAO DEIXA INSCREVER OUTRA VEZ
-// TODO  FUNCOES PARA ESCREVER PARA FICHEIRO (GUARDAR INFO)
-// TODO  SEQUENTIAL SEARCH
-// TODO  QUICK SORT
-// TODO  OVERLOAD ??
-// TODO  EXCEP�OES
 
 
 int loadDependencies(vector<Aluno*> alunos){
@@ -30,7 +24,8 @@ int loadDependencies(vector<Aluno*> alunos){
 }
 
 int main() {
-	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl;
+	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl
+			<<"-------------------------------"<<endl;;
 
 
 	vector<Docente*> docentes = initDocentes();
@@ -43,30 +38,6 @@ int main() {
 	}
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
-
-
-
-/*
-	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
-	mieic.ConsultarAllAlunos();
-	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
-	mieic.ConsultarAllUcs();
-	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
-	mieic.ConsultarAllDocentes();
-*/
-	//mieic.inscreverNovoAluno();
-	//mieic.inscreverAluno();
-	//mieic.consultarAluno();
-	//mieic.consultarCadeira();
-/*
-	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
-	mieic.ConsultarAllAlunos();
-	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
-	mieic.ConsultarAllUcs();
-	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
-	mieic.ConsultarAllDocentes();
-*/
-
 
 	int running = 1;
 	while(running){
