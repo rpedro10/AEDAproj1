@@ -39,8 +39,7 @@ public:
 	void ConsultarAllAlunos();
 	void ConsultarAllDocentes();
 	void SaveFiles();
-	void handler();
-
+	int consultarAluno_byNumero();
 	//void test_uc(Aluno* aluno);
 
 

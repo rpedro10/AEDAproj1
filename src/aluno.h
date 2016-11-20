@@ -53,16 +53,8 @@ public:
 
 };
 
-class AlunoNaoExiste {
-	string nome;
-public:
 
-	AlunoNaoExiste(string nm): nome(nm) {
-
-	}
-	string getNome() const { return nome; }
-
-};
+//__________________________________________________________
 
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs);
 
