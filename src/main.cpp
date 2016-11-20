@@ -23,6 +23,8 @@ int loadDependencies(vector<Aluno*> alunos){
 	return 0;
 }
 
+
+
 int main() {
 	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl
 			<<"-------------------------------"<<endl;;
@@ -44,6 +46,5 @@ int main() {
 		running = mieic.runProgram();
 	}
 	return 0;
-
 
 }
