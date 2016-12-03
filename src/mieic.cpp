@@ -8,12 +8,17 @@
 #include <exception>
 #include <stdexcept>
 
+/**
+ * construtor do MIEIC
+ */
 Mieic::Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos){
 	this->cadeiras = cadeiras;
 	this->docentes = docentes;
 	this->alunos = alunos;
 }
-
+/**
+ * funcao de ciclo do programa, navegacao entre menus
+ */
 int Mieic::runProgram(){
 	int running = 1;
 	cout << "1. Inscrever aluno existente" << endl;
@@ -92,7 +97,9 @@ int Mieic::runProgram(){
 	return 1;
 }
 
-
+/**
+ * inscreve aluno que ja existe no Mieic, dado o seu nome
+ */
 int Mieic::inscreverAluno(){
 	string name;
 	//cout <<name<<endl;
@@ -218,7 +225,9 @@ int Mieic::inscreverAluno(){
 }
 
 
-
+/**
+ * devolve a posicao do aluno com o nome dado no vetor de apontadores para alunos, devolve -1 se nao existir
+ */
 int Mieic::getAluno_byNome(const string &s ){
 
 		Aluno* aluno = new Aluno();
@@ -237,7 +246,10 @@ int Mieic::getAluno_byNome(const string &s ){
 	return -1;
 	*/
 }
-
+/**
+ * devolve a posicao do aluno com o numero dado no vetor de apontadores para alunos, devolve -1 se nao existir
+ *
+ */
 int Mieic::getAluno_byNumero(int n){
 	for(unsigned int i=0;i<alunos.size();i++){
 			if(alunos[i]->getNumero()==n)
@@ -248,7 +260,9 @@ int Mieic::getAluno_byNumero(int n){
 }
 
 
-
+/**
+ * Cria um novo aluno no MIEIC  e inscreve o às cadeiras desejadas
+ */
 int Mieic::inscreverNovoAluno(){
 
 	int numero,ano;
@@ -403,7 +417,9 @@ int Mieic::inscreverNovoAluno(){
 
 
 
-
+/**
+ * Menu Pesquisa de alunos
+ */
 int Mieic::buscarAluno(){
 	cout << "Procurar aluno: " << endl;
 	  	cout << "1. por nome" << endl;
@@ -445,8 +461,9 @@ int Mieic::buscarAluno(){
 
 	return 0;
 }
-
-//TODO funcao que procura cadeiras
+/**
+ * Menu de pesquisa de Ucs
+ */
 int Mieic::buscarCadeira(){
 	cout << "Procurar Unidade Curricular: " << endl;
 	  	cout << "1. por sigla" << endl;
@@ -483,24 +500,34 @@ int Mieic::buscarCadeira(){
 
 	return 0;
 }
+
+/**
+ * display de todas as ucs do mieic
+ */
 void Mieic::ConsultarAllUcs(){
 	for(unsigned int i=0;i<cadeiras.size();i++){
 		cadeiras[i]->displayUC();
 	}
 }
-
+/**
+ * display de todos os alunos do mieic
+ */
 void Mieic::ConsultarAllAlunos(){
 	for(unsigned int i=0;i<alunos.size();i++){
 		alunos[i]->displayAluno();
 	}
 }
-
+/**
+ * dispay de todos os docentes do mieic
+ */
 void Mieic::ConsultarAllDocentes(){
 	for(unsigned int i=0;i<docentes.size();i++){
 		docentes[i]->displayDocente();
 	}
 }
-
+/**
+ * Mostra aluno dado o seu numero de aluno
+ */
 int Mieic::consultarAluno_byNumero(){
 
 	cout<<"Nome? ";
@@ -526,7 +553,9 @@ int Mieic::consultarAluno_byNumero(){
 
 }
 
-// funcao que imprime aluno. pode ser substituida por displayAluno()
+/**
+ * Display de info de um aluno do mieic dado o seu nome
+ */
 int Mieic::consultarAluno(){
 	cin.clear();
     cin.ignore(10000,'\n');
@@ -551,7 +580,9 @@ int Mieic::consultarAluno(){
 		}
 }
 
-
+/**
+ * devolve a posicao no vetor de apontadores de ucs da uc com a sigla desejada, -1 se nao existir
+ */
 int Mieic::getUc_bySigla(string s){
 	for(unsigned int i=0;i<cadeiras.size();i++){
 			if(cadeiras[i]->getSigla()==s)
@@ -564,7 +595,10 @@ int Mieic::getUc_bySigla(string s){
 
 
 
-// funcao que imprime cadeira. pode ser substituida por displayCadeira()
+/**
+ * funcao que imprime cadeira dada a sua sigla
+ *
+ */
 int Mieic::consultarCadeira(){
 	cin.clear();
     cin.ignore(10000,'\n');
@@ -588,7 +622,9 @@ int Mieic::consultarCadeira(){
 
 		}
 }
-
+/**
+ * Atribui um tutor ao aluno
+ */
 Docente* Mieic::assignTutor(){
 
 	int maior=99;
@@ -607,7 +643,9 @@ Docente* Mieic::assignTutor(){
 
 	return tutor;
 }
-
+/**
+ * devolve a data atual em string para inscriçao em uc
+ */
 string Mieic::getCurrentDate(){
 	time_t rawtime;
 		struct tm * timeinfo;
@@ -622,7 +660,9 @@ string Mieic::getCurrentDate(){
 		return str.c_str();
 }
 
-
+/**
+ * output para ficheiro de toda a info do mieic
+ */
 void Mieic::SaveFiles(){
 	/** SAVING UC's **/
 	ofstream output;

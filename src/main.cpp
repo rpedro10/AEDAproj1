@@ -10,7 +10,9 @@
 
 using namespace std;
 
-
+/**
+ * atribui dependencias entre alunos e datas a que se inscreveu em ucs
+ */
 int loadDependencies(vector<Aluno*> alunos){
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		vector< pair<string, Uc *> > ucsAluno = (*alunos[i]).getCadeirasInscrito();

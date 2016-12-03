@@ -11,35 +11,47 @@ const string& Docente::getNome() const {
 void Docente::setNome(const string& nome) {
 	this->nome = nome;
 }
-
+/**
+ * construtor de docente
+ */
 Docente::Docente(int cod, string nome, int qtt){
 	this->codigo = cod;
 	this->nome = nome;
 	this->qtt = qtt;
 }
-
+/**
+ * display de info do docente
+ */
 void Docente::displayDocente(){
 	cout << "Nome : " << this->nome << endl;
 	cout << "Codigo: " << this->codigo << endl;
 	cout << "Quantidade de alunos a tutorar: " << this->qtt << endl;
 	cout << "==============================" << endl;
 }
-
+/**
+ * devolve a quantidade de alunos a tutorar
+ */
 int Docente::getQtt() const {
 	return qtt;
 }
-
+/**
+ * adiciona uma unidade a quantidade de alunos a tutorar
+ */
 void Docente::setQtt() {
 	this->qtt = ++qtt;
 }
-
+/**
+ * output para ficheiros
+ */
 void Docente::save(ofstream* output){
 	(*output) << this->codigo << " ; " << this->nome << " ; " << this->qtt;
 }
 
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
+/**
+ * funcao que le info de docentes do ficheiro e inicializa o vetor
+ */
 vector<Docente*> initDocentes() {
 
 	ifstream in;

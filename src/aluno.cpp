@@ -1,5 +1,7 @@
 #include "aluno.h"
-
+/**
+ * Construtor Aluno com todos os argumentos
+ */
 Aluno::Aluno(int num, string nome, int ano, string email, string estatuto, Docente* tutor, vector< pair<string, Uc *> > cadeiras_inscrito){
 	this->numero = num;  				// coloca o nï¿½
 	this->nome = nome;					// nome colocado
@@ -9,10 +11,14 @@ Aluno::Aluno(int num, string nome, int ano, string email, string estatuto, Docen
 	this->tutor = tutor;
 	this->cadeiras_inscrito = cadeiras_inscrito;
 }
-
+/**
+ * default construtor
+ */
 Aluno::Aluno(){
 }
-
+/**
+ * overload do operador ==
+ */
 bool Aluno::operator == (const Aluno* & p2) const
 {	cout<<"1";
 cout<<p2->getNome();
@@ -20,57 +26,83 @@ cout<<p2->getNome();
 
 
 
-
+/**
+ * getAno, devolve ano
+ */
 int Aluno::getAno() const {
 	return ano;
 }
-
+/**
+ * setAno, altera o ano
+ */
 void Aluno::setAno(int ano) {
 	this->ano = ano;
 }
-
+/**
+ * devolve as cadeiras às quais o aluno esta inscrito
+ */
 vector< pair<string, Uc *> > Aluno::getCadeirasInscrito() const {
 	return cadeiras_inscrito;
 }
-
+/**
+ * altera o vetor de cadeiras as quais o aluno esta inscrito
+ */
 void Aluno::setCadeirasInscrito(vector< pair<string, Uc *> > cadeirasInscrito) {
 	cadeiras_inscrito = cadeirasInscrito;
 }
 
 
-
+/**
+ * devolve o email do aluno
+ */
 const string& Aluno::getEmail() const {
 	return email;
 }
-
+/**
+ * altera email
+ */
 void Aluno::setEmail(const string& email) {
 	this->email = email;
 }
-
+/**
+ * devolve o estatuto do aluno
+ */
 const string& Aluno::getEstatuto() const {
 	return estatuto;
 }
-
+/**
+ * altera estatuto
+ */
 void Aluno::setEstatuto(const string& estatuto) {
 	this->estatuto = estatuto;
 }
-
+/**
+ * Devolve nome do aluno
+ */
 const string& Aluno::getNome() const {
 	return nome;
 }
-
+/**
+ * altera nome
+ */
 void Aluno::setNome(const string& nome) {
 	this->nome = nome;
 }
-
+/**
+ * devolve numero
+ */
 int Aluno::getNumero() const {
 	return numero;
 }
-
+/**
+ * altera numero
+ */
 void Aluno::setNumero(int numero) {
 	this->numero = numero;
 }
-
+/**
+ * Mostra toda a INFO do aluno
+ */
 void Aluno::displayAlunoInfo(){
 	cout << "Nome : " << nome << endl;
 	cout << "Numero de Estudante: " << numero << endl;
@@ -93,11 +125,15 @@ void Aluno::displayAlunoInfo(){
 }
 
 
-
+/**
+ * mostra apenas numero e nome do aluno
+ */
 void Aluno::displayAluno(){
 	cout << numero << "	" << nome << "	" << endl;
 }
-
+/**
+ * dada uma Uc verifica se o aluno esta ou nao isncrito a essa uc
+ */
 bool Aluno::estaInscrito(Uc* uc){
 	for(unsigned int i = 0; i < cadeiras_inscrito.size(); i++){
 		if(uc->getSigla().compare(cadeiras_inscrito[i].second->getSigla()) == 0){
@@ -107,7 +143,9 @@ bool Aluno::estaInscrito(Uc* uc){
 	return false;
 }
 
-
+/**
+ * output do aluno guardar num ficheiro
+ */
 void Aluno::save(ofstream* output){
 	(*output) << this->numero << " ; " << this->nome << " ; " << this->ano << " ; " << this->email << " ; " << this->estatuto
 	 	 	  << " ; " << this->tutor->getCodigo() << " ; ";
@@ -132,6 +170,9 @@ void Aluno::save(ofstream* output){
 
 //__________________________________________________________________
 
+/**
+ * Inicializa vetor de alunos ( funcao que lê info do ficheiro inicial)
+ */
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){
 	ifstream in;
 	string filename;
