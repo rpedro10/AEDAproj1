@@ -79,11 +79,32 @@ void Uc::setAlunos(vector<Aluno*> alunos){
 	this->alunos = alunos;
 }
 
+/**
+ * dado um aluno, este e adicionado ao vetor de alunos que frequentam a cadeira
+ */
+void Uc::addAluno(Aluno* aluno){
+	alunos.push_back(aluno);
+}
+
+/**
+ * dado um aluno, este e adicionado ao vetor de alunos que frequentam a cadeira
+ */
+void Uc::removeAluno(int numero){
+	for(unsigned int i = 0; i < alunos.size(); i++){
+		if(alunos[i]->getNumero() == numero)
+			alunos.erase(alunos.begin()+i);
+		break;
+	}
+}
+
 void Uc::display_incomplete( ){
 }
 
 /**
  * UC Optativa
+ */
+/**
+ * construtor de optativa
  */
 Optativa::Optativa(string nome, string sigla, int semestre, int ano, float cred, int vagas, string curso, string faculdade, string area) :
 	Uc(nome, sigla, semestre, ano, cred){
@@ -124,7 +145,9 @@ int Optativa::getVagas() {
 void Optativa::setVagas(int vagas) {
 	this->vagas = vagas;
 }
-
+/**
+ * display de toda a info de uc optativa
+ */
 void Optativa::displayUC(){
 	cout << "Unidade Curricular : " <<nome <<"     Sigla: " << sigla << endl;
 	cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
@@ -140,7 +163,9 @@ void Optativa::displayUC(){
 
 	cout << "==============================" << endl;
 }
-
+/**
+ * display de parte da info de uc optativa
+ */
 void Optativa::display_incomplete( ){
 	cout << "Unidade Curricular : " <<nome << "    Sigla: "<<sigla<<endl;
 		cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
@@ -150,11 +175,9 @@ void Optativa::display_incomplete( ){
 		cout << "==============================" << endl;
 
 }
-
-void Optativa::addAluno(Aluno* aluno){
-	alunos.push_back(aluno);
-}
-
+/**
+ * output da informa�ao de cadeiras para ficheiro
+ */
 void Optativa::save(ofstream *output){
 	(*output) << 1 << " ; " << this->nome << " ; " << this->sigla << " ; " << this->ano << " ; " << this->semestre << " ; " <<
 			this->creditos << " ; " << this->area << " ; " << this->curso << " ; " << this->faculdade << " ; " << this->vagas;
@@ -164,13 +187,19 @@ void Optativa::save(ofstream *output){
 /**
  * UC Nao Optativa
  */
+
+/**
+ * construtor de nao optativa
+ */
 N_Optativa::N_Optativa(string nome, string sigla, int semestre, int ano, float cred) :
 	Uc(nome, sigla, semestre, ano, cred){
 }
 
 
 
-
+/**
+ * display de toda a info
+ */
 void N_Optativa::displayUC(){
 	cout << "Unidade Curricular : " << nome << endl;
 	cout << "Sigla: " <<sigla << endl;
@@ -186,17 +215,15 @@ void N_Optativa::displayUC(){
 	cout << "==============================" << endl;
 }
 
+/**
+ * display de parte da info da uc nao optativa
+ */
 void N_Optativa::display_incomplete( ){
 	cout << "Unidade Curricular : " <<nome << "    Sigla: "<<sigla<<endl;
 	cout << "Ano Curricular: " << ano << "     Semestre : " << semestre << endl;
 	cout << "Creditos: " << creditos << endl;
 	cout << "==============================" << endl;
 
-}
-
-
-void N_Optativa::addAluno(Aluno* aluno){
-	alunos.push_back(aluno);
 }
 
 int N_Optativa::getVagas(){
@@ -218,6 +245,9 @@ string N_Optativa::getCurso(){
 	return "MIEIC";
 }
 
+/**
+ * output para ficheiro
+ */
 void N_Optativa::save(ofstream *output){
 	(*output) << 0 << " ; " << this->nome << " ; " << this->sigla << " ; " <<
 			this->ano << " ; " << this->semestre << " ; " << this->creditos;
@@ -228,6 +258,9 @@ void N_Optativa::save(ofstream *output){
 
 //_____________________________________________________________________________
 
+/**
+ * funcao que inicia o vetor de ucs, lendo a info do ficheiro
+ */
 vector<Uc*> initUCs(){
 	ifstream in;
 	string filename;

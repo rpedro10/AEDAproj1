@@ -9,11 +9,10 @@
 #include <iostream>
 
 using namespace std;
-// TODO  QUICK SORT
-// TODO  OVERLOAD ??
-// TODO  EXCEP�OES
 
-
+/**
+ * atribui dependencias entre alunos e datas a que se inscreveu em ucs
+ */
 int loadDependencies(vector<Aluno*> alunos){
 	for(unsigned int i = 0; i<alunos.size(); i++){
 		vector< pair<string, Uc *> > ucsAluno = (*alunos[i]).getCadeirasInscrito();
@@ -26,8 +25,11 @@ int loadDependencies(vector<Aluno*> alunos){
 	return 0;
 }
 
+
+
 int main() {
-	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl;
+	cout << "Bem Vindo ao curso de Mestrado Integrado em Engenharia Informatica" << endl
+			<<"-------------------------------"<<endl;;
 
 
 	vector<Docente*> docentes = initDocentes();
@@ -41,35 +43,10 @@ int main() {
 
 	Mieic mieic = Mieic(ucs, docentes, alunos);
 
-
-
-/*
-	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
-	mieic.ConsultarAllAlunos();
-	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
-	mieic.ConsultarAllUcs();
-	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
-	mieic.ConsultarAllDocentes();
-*/
-	//mieic.inscreverNovoAluno();
-	//mieic.inscreverAluno();
-	//mieic.consultarAluno();
-	//mieic.consultarCadeira();
-/*
-	printf("-=-=-=-=-=-Alunos-=-=-=-=-=-\n");
-	mieic.ConsultarAllAlunos();
-	printf("-=-=-=-=-=-UCs-=-=-=-=-=-\n");
-	mieic.ConsultarAllUcs();
-	printf("-=-=-=-=-=-Docentes-=-=-=-=-=-\n");
-	mieic.ConsultarAllDocentes();
-*/
-
-
 	int running = 1;
 	while(running){
 		running = mieic.runProgram();
 	}
 	return 0;
-
 
 }

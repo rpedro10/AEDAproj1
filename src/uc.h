@@ -37,7 +37,9 @@ public:
 	vector<Aluno*> getAlunos() const;
 	void setAlunos(vector<Aluno*> alunos);
 
-	virtual void addAluno(Aluno* aluno) = 0;
+	void addAluno(Aluno* aluno);
+	void removeAluno(int numero);
+
 	virtual void displayUC()=0;
 
 	virtual string getFaculdade() ;
@@ -70,7 +72,6 @@ public:
 	int getVagas();
 	void setVagas(int vagas);
 	void displayUC();
-	void addAluno(Aluno* aluno);
 	void display_incomplete();
 
 	void save(ofstream *output);
@@ -83,7 +84,6 @@ public:
 	N_Optativa(string nome,string sigla,int semestre,int ano,float cred);
 	~N_Optativa(){};
 	void displayUC();
-	void addAluno(Aluno* aluno);
 
 	int getVagas();
 	void setVagas(int vagas);
