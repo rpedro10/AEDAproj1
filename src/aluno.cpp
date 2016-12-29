@@ -80,6 +80,10 @@ void Aluno::setNumero(int numero) {
 	this->numero = numero;
 }
 
+const Docente* Aluno::getTutor() const{
+	return this->tutor;
+}
+
 void Aluno::displayAlunoInfo(){
 	cout << "Nome : " << nome << endl;
 	cout << "Numero de Estudante: " << numero << endl;

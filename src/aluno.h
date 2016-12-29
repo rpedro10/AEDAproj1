@@ -10,6 +10,7 @@
 #include "uc.h"
 #include "docente.h"
 
+using namespace std;
 
 class Aluno {
 	int numero;
@@ -35,7 +36,7 @@ public:
 	void setNome(const string& nome);
 	int getNumero() const;
 	void setNumero(int numero);
-	//const Docente* getTutor() const;
+	const Docente* getTutor() const;
 
 	vector< pair<string, Uc *> > getCadeirasInscrito() const;
 	void setCadeirasInscrito(vector< pair<string, Uc *> > cadeirasInscrito);
