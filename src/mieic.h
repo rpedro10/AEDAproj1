@@ -6,28 +6,28 @@
 #include <algorithm>
 #include <functional>
 #include <fstream>
+#include <sstream>
 
 #include "aluno.h"
 #include "uc.h"
 #include "docente.h"
+#include "turma.h"
 
 #define MAX_CREDITOS 75
+#define ANO1 1
+#define ANO5 5
 
 using namespace std;
 
-
 class Mieic{
+	bool canTurmas;
 	vector<Uc*> cadeiras;
 	vector<Docente*> docentes;
 	vector<Aluno*> alunos;
 
 public:
 	Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos);
-
-
-
 	int runProgram();
-
 	int inscreverAluno();
 	int inscreverNovoAluno();
 	int buscarAluno();
@@ -37,35 +37,29 @@ public:
 	int getAluno_byNumero(int n);
 	int getAluno_byNome(const string &s);
 	int getUc_bySigla(string s);
-
 	Docente* assignTutor();
 	string getCurrentDate();
 	void ConsultarAllUcs();
 	void ConsultarAllAlunos();
 	void ConsultarAllDocentes();
-
 	void SaveFiles();
 	int consultarAluno_byNumero();
 	//void test_uc(Aluno* aluno);
-
 	static bool compAlunoAlf(const Aluno * aluno1, const Aluno * aluno2){
 		if((*aluno1).getNome().compare((*aluno2).getNome()) < 0)
 			return true;
 		else return false;
 	};
-
 	static bool compAlunoNum(const Aluno * aluno1, const Aluno * aluno2){
 		if((*aluno1).getNumero() < (*aluno2).getNumero())
 			return true;
 		else return false;
 	};
-
 	static bool compUCalf(const Uc * uc1, const Uc * uc2){
 		if((*uc1).getNome().compare((*uc2).getNome()) < 0)
 			return true;
 		else return false;
 	};
-
 	static bool compUCano(const Uc * uc1, const Uc * uc2){
 		if((*uc1).getAno() < (*uc2).getAno())
 			return true;
@@ -76,6 +70,8 @@ public:
 	};
 
 
+	void turmasMenu();
+	void initTurmas(int semestre);
 };
 
 #endif

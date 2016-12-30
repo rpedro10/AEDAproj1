@@ -16,7 +16,6 @@ int Uc::getVagas(){
 }
 
 string Uc::getFaculdade(){
-
 }
 
 string Uc::getArea(){
@@ -24,7 +23,6 @@ string Uc::getArea(){
 }
 
 string Uc::getCurso(){
-
 }
 
 void Uc::setVagas(int i){
@@ -99,6 +97,7 @@ void Uc::removeAluno(int numero){
 
 void Uc::display_incomplete( ){
 }
+
 
 /**
  * UC Optativa
@@ -255,6 +254,66 @@ void N_Optativa::save(ofstream *output){
 
 
 
+/***  ------------------- -------------------  PARTE 2  ------------------- -------------------  ***/
+
+
+/**
+ * simples getter para o parametro turmas
+ */
+priority_queue<Turma> Uc::getTurmas() const{
+	return this->turmas;
+}
+
+
+/**
+ * cria uma nova turma para a UC Optativa
+ */
+void Optativa::novaTurma(int vagas){
+	if(this->curso.compare("MIEIC") != 0 || this->vagas == 0){
+		return;
+	}
+
+	if(vagas > this->vagas){
+		this->displayUC();
+		cout << "Esta UC nao tem vagas suficientes para esta turma." << endl;
+		while(true){
+			int v;
+			cout << "Introduza um numero valido de vagas: " << endl;
+			cin >> v;
+			if(v<vagas){
+				vagas = v;
+				break;
+			}
+		}
+	}
+
+	stringstream ss;
+	if(this->turmas.size()+1 < 10)
+		ss << ano << "MIEIC0" << this->turmas.size()+1;
+	else
+		ss << ano << "MIEIC" << this->turmas.size()+1;
+	string turmaID = ss.str();
+
+	Turma turma = Turma(turmaID, this->getSigla(), vagas);
+
+	this->turmas.push(turma);
+}
+
+/**
+ * cria uma nova turma para a UC nao Optativa
+ */
+void N_Optativa::novaTurma(int vagas){
+	stringstream ss;
+	if(this->turmas.size()+1 < 10)
+		ss << ano << "MIEIC0" << this->turmas.size()+1;
+	else
+		ss << ano << "MIEIC" << this->turmas.size()+1;
+	string turmaID = ss.str();
+
+	Turma turma = Turma(turmaID, this->getSigla(), vagas);
+
+	this->turmas.push(turma);
+}
 
 //_____________________________________________________________________________
 

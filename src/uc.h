@@ -3,10 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <vector>
+#include <queue>
 
+#include "turma.h"
 
 using namespace std;
 
@@ -21,6 +24,8 @@ protected:
 	float creditos;
 	vector<Aluno*> alunos;
 
+
+	priority_queue<Turma> turmas;
 public:
 	Uc(string nome,string sigla,int semestre,int ano,float creditos);
 	virtual ~Uc(){};
@@ -36,23 +41,20 @@ public:
 	void setSigla(const string& sigla);
 	vector<Aluno*> getAlunos() const;
 	void setAlunos(vector<Aluno*> alunos);
-
 	void addAluno(Aluno* aluno);
 	void removeAluno(int numero);
-
 	virtual void displayUC()=0;
-
 	virtual string getFaculdade() ;
 	virtual string getCurso();
 	virtual string getArea() ;
-
 	virtual int getVagas();
 	virtual void setVagas(int vagas);
-
 	virtual void display_incomplete();
-
 	virtual void save(ofstream *output) = 0;
 
+
+	priority_queue<Turma> getTurmas() const;
+	virtual void novaTurma(int vagas) = 0;
 };
 
 class Optativa: public Uc {
@@ -73,9 +75,10 @@ public:
 	void setVagas(int vagas);
 	void displayUC();
 	void display_incomplete();
-
 	void save(ofstream *output);
 
+
+	void novaTurma(int vagas);
 };
 
 class N_Optativa: public Uc {
@@ -84,18 +87,16 @@ public:
 	N_Optativa(string nome,string sigla,int semestre,int ano,float cred);
 	~N_Optativa(){};
 	void displayUC();
-
 	int getVagas();
 	void setVagas(int vagas);
 	string getFaculdade() ;
 	string getCurso();
-
 	string getArea() ;
-
-
 	void display_incomplete();
-
 	void save(ofstream *output);
+
+
+	void novaTurma(int vagas);
 };
 
 vector<Uc*> initUCs();

@@ -15,6 +15,7 @@ Mieic::Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alu
 	this->cadeiras = cadeiras;
 	this->docentes = docentes;
 	this->alunos = alunos;
+	this->canTurmas = true;
 }
 /**
  * funcao de ciclo do programa, navegacao entre menus
@@ -28,7 +29,7 @@ int Mieic::runProgram(){
 	cout << "5. Mostrar todos os Docentes" << endl;
 	cout << "6. Terminar ano curricular" << endl;
 	cout << "7. Entrar como Docente" << endl;
-	cout << "8. ? Turmas ?" << endl;
+	cout << "8. Inscricao nas Turmas" << endl;
 	cout << "9. ? Tabela de dispersao ?" << endl;
 	cout << "0. Sair" << endl;
 	cout << "Introduza um numero para escolher a accao: ";
@@ -115,8 +116,9 @@ int Mieic::runProgram(){
 		if(have){
 			cout << "Bem-vindo " << docentes[id]->getNome() << "!" << endl;
 			docentes[id]->menu();
-		} else { return 1; }
-	}
+		} else return 1;}
+	case 8:
+		turmasMenu();
 	default:
 		cout << "Introduza um numero valido." << endl;
 		break;
@@ -690,6 +692,83 @@ string Mieic::getCurrentDate(){
 	string str(buffer);
 
 	return str.c_str();
+}
+
+/**
+ * Funcao que apresenta o menu de accoes das turmas
+ */
+void Mieic::turmasMenu(){
+	cout << "MENU TURMAS" << endl;
+	while(true){
+		if(cadeiras[0]->getTurmas().empty() && this->canTurmas){
+			cout << "A inscricao nas turmas ainda nao comecou." << endl;
+			cout << "Dar inicio ao processo de inscricao(y/n)? ";
+			char r;
+			cin >> r;
+			if(r == 'y'){
+				cout << "Iniciar semestre 1 ou 2? ";
+				int semestre;
+				cin >> semestre;
+				initTurmas(semestre);
+			}
+		} else if(this->canTurmas) {
+			cout << "1. Alocar aluno numa turma" << endl;
+			cout << "2. Criar nova turma" << endl;
+			cout << "3. Eliminar turma existente" << endl;
+			cout << "4. Visualizar turma" << endl;
+			cout << "5. Ver turmas existentes" << endl;
+			cout << "6. Terminar processo de inscricao" << endl;
+			cout << "0. Voltar" << endl;
+			cout << "Introduza um numero para escolher a accao: ";
+
+			unsigned int a;
+			cin >> a;
+
+			switch(a){
+			case 0:
+				return;
+				break;
+			case 6:{
+				char r;
+				cout << "Terminar processo de inscricao (y/n)? ";
+				cin >> r;
+				if(r == 'y') this->canTurmas = false;
+				cout << "Processo de inscricao terminado."
+				return;
+				break;}
+			default:
+				cout << "Introduza um numero valido." << endl;
+				break;
+			}
+		} else {
+			cout << "Processo de incricao ja' terminou." << endl;
+			cout << "Apagar turmas para comecar novo semestre?" << endl;
+			char r;
+			cin >> r;
+			if(r == 'y'){
+				this->canTurmas = true;
+				for(unsigned int i=0; i<cadeiras.size(); i++){
+					while(!cadeiras[i]->getTurmas().empty()){
+						cadeiras[i]->getTurmas().pop();
+					}
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Funcao que introduz o numero minimo de turmas para a quantidade de
+ * alunos e turmas que existe, no sistema e inscreve-os automaticamente
+ * numa turma do seu ano base.
+ */
+void Mieic::initTurmas(int semestre){
+	int v;
+	cout << "Quantas vagas deseja por turma? ";
+	cin >> v;
+	for(unsigned int i=0; i<cadeiras.size(); i++){
+		cadeiras[i]->novaTurma(v);
+	}
 }
 
 /**
