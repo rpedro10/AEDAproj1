@@ -1,2 +1,2 @@
-1 ; Manuel Joaquim ; 3
-2 ; Asdrubal Tiago ; 3
+1 ; Manuel Joaquim ; 1 ; 21/01/2016, 22/01/2016 ; 121212212, 121212212 ; Duvidas, Perguntas ; Tema 1 - Tema 2 - Tema 3, Tema 3 - Tema 4 - Tema 5
+2 ; Asdrubal Tiago ; 2 ; 05/04/2015, 15/09/2016, 01/12/2016 ; 201492758, 200654065, 200654065 ; Duvidas, Proposta de Tese, Cafe ; Tema 3 - Tema 4 - Tema 5, Tema 1 - Tema 2 - Tema 3, Temas variados

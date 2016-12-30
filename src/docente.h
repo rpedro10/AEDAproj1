@@ -22,7 +22,7 @@ class Docente {
 	vector<Aluno*> alunos;
 
 public:
-	Docente(int cod, string nome, int qtt);
+	Docente(int cod, string nome, int qtt, set<Reuniao> rns);
 	int getCodigo() const;
 	const string& getNome() const;
 	void setNome(const string& nome);
@@ -34,13 +34,16 @@ public:
 	void save(ofstream* output);
 
 	void newReuniao();
-	vector<Reuniao*> findReuniaoData(vector<int> data);
-	vector<Reuniao*> findReuniaoID(int id);
-	void cancelReuniao();
-	void changeTerms(Reuniao* reuniao, string agenda, string descricao);
-	vector<Reuniao*> getReunioes(vector<int> fromDate, vector<int> toDate);
+	vector<Reuniao*> findReuniaoData();
+	vector<Reuniao*> findReuniaoID();
+	void cancelReuniao(Reuniao* reuniao);
+	void changeTerms(Reuniao* reuniao);
+	vector<Reuniao*> getReunioes();
+	void printAllReunioes();
+	Reuniao* chooseReuniao(vector<Reuniao*> rns);
 
 	void menu();
+	void subMenu(Reuniao* reuniao);
 };
 
 vector<Docente*> initDocentes();
