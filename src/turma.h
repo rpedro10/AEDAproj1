@@ -7,33 +7,75 @@
 #include <string>
 #include <vector>
 
+#include "uc.h"
+
 using namespace std;
 
 /**
  * Class turma que, como o nome indica, faz uma turma
  * de varios alunos e varias cadeiras.
  * @param turmaID - id da turma no formato [ano]MIEIC[numero da turma]
- * @param vagas - vagas da turma, valor por defeito e' 20
- * @param alunosID - ID de todos os alunos nesta turma
+ * @param vagasCadeiras - vector que guarda as vagas na turma da cadeira correspondente
  */
 class Turma {
 	string turmaID;
-	string ucID;
-	int vagas;
-	vector<int> alunosID;
+	vector< pair<int,Uc*> > vagasCadeiras;
 public:
-	Turma(string turmaID, string ucID, int v);
+	/**
+	 * Simples construtor da Class Turma
+	 */
+	Turma(string turmaID, vector< pair<int,Uc*> > vagasCadeiras);
 
-	const vector<int>& getAlunosId() const;
-	int getVagas() const;
-	void setVagas(int vagas);
+	/**
+	 * getter simples
+	 * @return turmaID
+	 */
+	string getTurmaID() const;
 
+	/**
+	 * getter simples
+	 * @return vagasCadeiras
+	 */
+	vector< pair<int,Uc*> > getVagasCadeiras();
+
+	/**
+	 * Operator < overloading
+	 * O termo de comparacao e' o numero de vagas
+	 */
     bool operator < (const Turma &t1) const;
+
+    /**
+	 * Operator == overloading
+	 * Compara os parametros turmaID e ucID
+	 */
     bool operator == (const Turma &t1) const;
 
+    /**
+     * Introduz um aluno numa turma
+     */
 	void alocarAluno(int alunoID);
 
-	void saveTurma(ofstream *output);
+	/**
+	 * Guarda os dados da turma numa ofstream
+	 */
+	void saveTurmas(ofstream *output);
+
+	/**
+	 * Imprime toda a informacao das ucs e das
+	 * vagas de uma maneira curta
+	 */
+	void printInfo();
+
+	/**
+	 * retorna verdadeiro se tem vagas nas cadeiras ucs
+	 */
+	bool cadeirasTemVagas(vector<Uc*> ucs);
+
+
+	int vagasCadeira(Uc*);
+	bool todasCvagas();
+	vector<Uc*> cadeirasCvagas(vector<Uc*> ucs);
+
 };
 
 #endif

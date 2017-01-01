@@ -1,7 +1,24 @@
 0 ; Programacao ; PROG ; 1 ; 2 ; 6
+0 ; Fundamentos da Programacao ; FPRO ; 1 ; 1 ; 6
+0 ; Algebra ; ALGE ; 1 ; 1 ; 4.5
+0 ; Arquitetura de Computadores ; AOC ; 1 ; 1 ; 6
+0 ; Redes de Computadores ; RCOM ; 3 ; 1 ; 6
 0 ; Algoritmos e Estrutura de Dados ; AEDA ; 2 ; 1 ; 7.5
-0 ; Programacao em Logica ; PLOG ; 3 ; 1 ; 5
+0 ; Programacao em Logica ; PLOG ; 3 ; 1 ; 4.5
+0 ; Compiladores ; COMP ; 3 ; 2 ; 6
+0 ; Inteligencia Artificial ; IART ; 3 ; 2 ; 6
+0 ; Proficiencia Pessoal e Interpessoal ; PPIN ; 3 ; 2 ; 6
+0 ; Sistemas Operativos ; SOPE ; 2 ; 2 ; 6
+0 ; Bases de Dados ; BDAD ; 2 ; 2 ; 6
+0 ; Laboratorio de Programacao Orientada por Objectos ; LPOO ; 2 ; 2 ; 6
+0 ; Computacao Grafica ; CGRA ; 2 ; 2 ; 6
+0 ; Gestao de Empresas ; GEMP ; 4 ; 1 ; 4.5
+0 ; Sistemas de Informacao ; SINF ; 4 ; 1 ; 6
+1 ; Desenvolvimento de Jogos de Computador ; DJCO ; 4 ; 2 ; 6 ; Programacao ; MIEIC ; FEUP ; 0
+0 ; Comunicacoes Moveis ; CMO ; 4 ; 2 ; 6 ; Programacao ; MIEIC ; FEUP ; 10
+1 ; Marketing ; MARK ; 4 ; 2 ; 6 ; Markting ; MIEIC ; FEUP ; 5
 1 ; Sinais e Sensores ; SSEN ; 4 ; 2 ; 6 ; Automacao Industrial ; MIEIC ; FEUP ; 5
 1 ; Robotica ; ROBO ; 5 ; 1 ; 6 ; Inteligencia Artificial ; MIEIC ; FEUP ; 0
 0 ; Dissertacao ; DISS ; 5 ; 2 ; 30
-1 ; Fundamentos da Robotica ; FROB ; 4 ; 1 ; 6 ; Inteligencia Artificial ; CCOM ; FCUP ; 3
+1 ; Fundamentos da Robotica ; FROB ; 4 ; 1 ; 6 ; Inteligencia Artificial ; CCOM ; FCUP ; 2
+1 ; Armazens de Dados ; ADAD ; 5 ; 1 ; 6 ; Bases de Dados ; MIEIC ; FEUP ; 30

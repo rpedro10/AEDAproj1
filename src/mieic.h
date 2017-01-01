@@ -7,6 +7,7 @@
 #include <functional>
 #include <fstream>
 #include <sstream>
+#include <queue>
 
 #include "aluno.h"
 #include "uc.h"
@@ -24,6 +25,14 @@ class Mieic{
 	vector<Uc*> cadeiras;
 	vector<Docente*> docentes;
 	vector<Aluno*> alunos;
+
+
+	vector<Turma*> turmas;
+	priority_queue<Turma*> turmasAno1;
+	priority_queue<Turma*> turmasAno2;
+	priority_queue<Turma*> turmasAno3;
+	priority_queue<Turma*> turmasAno4;
+	priority_queue<Turma*> turmasAno5;
 
 public:
 	Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos);
@@ -72,6 +81,7 @@ public:
 
 	void turmasMenu();
 	void initTurmas(int semestre);
+	void novaTurma();
 };
 
 #endif

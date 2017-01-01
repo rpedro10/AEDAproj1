@@ -56,6 +56,8 @@ public:
 
 	void terminarAno();
 
+	vector<Uc*> getUCsAnoBase();
+
 };
 
 

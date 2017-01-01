@@ -210,6 +210,16 @@ void Aluno::terminarAno(){
 
 }
 
+vector<Uc*> Aluno::getUCsAnoBase(){
+	vector<Uc*> ucs;
+	for(unsigned int i=0; i<this->cadeiras_inscrito.size(); i++){
+		if(this->cadeiras_inscrito[i].second->getAno() == this->ano){
+			ucs.push_back(this->cadeiras_inscrito[i].second);
+		}
+	}
+	return ucs;
+}
+
 //__________________________________________________________________
 
 vector<Aluno*> initAlunos(vector <Docente*> docentes, vector<Uc*> ucs){

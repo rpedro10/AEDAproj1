@@ -698,9 +698,12 @@ string Mieic::getCurrentDate(){
  * Funcao que apresenta o menu de accoes das turmas
  */
 void Mieic::turmasMenu(){
+	//TODO testar
 	cout << "MENU TURMAS" << endl;
 	while(true){
-		if(cadeiras[0]->getTurmas().empty() && this->canTurmas){
+		cin.clear();
+		cin.ignore(1000,'\n');
+		if(turmas.empty() && this->canTurmas){
 			cout << "A inscricao nas turmas ainda nao comecou." << endl;
 			cout << "Dar inicio ao processo de inscricao(y/n)? ";
 			char r;
@@ -709,15 +712,24 @@ void Mieic::turmasMenu(){
 				cout << "Iniciar semestre 1 ou 2? ";
 				int semestre;
 				cin >> semestre;
-				initTurmas(semestre);
+				if(semestre == 1 || semestre == 2){
+					try{
+						initTurmas(semestre);
+					} catch(const exception& ex){
+						ex.what();
+					}
+				} else {
+					cout << "Processo cancelado." << endl;
+					return;
+				}
 			}
 		} else if(this->canTurmas) {
+			cout << "MENU TURMAS:" << endl;
 			cout << "1. Alocar aluno numa turma" << endl;
 			cout << "2. Criar nova turma" << endl;
 			cout << "3. Eliminar turma existente" << endl;
 			cout << "4. Visualizar turma" << endl;
-			cout << "5. Ver turmas existentes" << endl;
-			cout << "6. Terminar processo de inscricao" << endl;
+			cout << "5. Terminar processo de inscricao" << endl;
 			cout << "0. Voltar" << endl;
 			cout << "Introduza um numero para escolher a accao: ";
 
@@ -728,47 +740,364 @@ void Mieic::turmasMenu(){
 			case 0:
 				return;
 				break;
-			case 6:{
+			case 2:
+				novaTurma();
+				break;
+			case 5:{
 				char r;
 				cout << "Terminar processo de inscricao (y/n)? ";
 				cin >> r;
-				if(r == 'y') this->canTurmas = false;
-				cout << "Processo de inscricao terminado."
-				return;
+				if(r == 'y'){
+					this->canTurmas = false;
+					cout << "Processo de inscricao terminado." << endl;
+					return;
+				}
 				break;}
 			default:
 				cout << "Introduza um numero valido." << endl;
 				break;
 			}
+
 		} else {
 			cout << "Processo de incricao ja' terminou." << endl;
-			cout << "Apagar turmas para comecar novo semestre?" << endl;
+			cout << "Apagar turmas para comecar novo semestre (y/n)?" << endl;
 			char r;
 			cin >> r;
 			if(r == 'y'){
 				this->canTurmas = true;
+				while(!turmas.empty()){
+					turmas.pop_back();
+				}
+				cout << "Turmas apagadas com sucesso." << endl;
+				return;
+				/*
 				for(unsigned int i=0; i<cadeiras.size(); i++){
 					while(!cadeiras[i]->getTurmas().empty()){
 						cadeiras[i]->getTurmas().pop();
 					}
-				}
+				}*/
 			}
 		}
 	}
 }
 
 /**
+ * Cria uma nova turma com todas as cadeiras que pertencem ao mesmo ano
+ * e semestre
+ */
+void Mieic::novaTurma(){/*
+	cout << "Em que ano e semestre deseja criar uma turma nova?" << endl;
+	cout << "Ano: ";
+	int a;
+	cin >> a;
+	while(a<1 || a>5){
+		cout << "Introduza um ano valido." << endl;
+		cout << "Ano: ";
+		cin >> a;
+	}
+	cout << "Semestre: ";
+	int s;
+	cin >> s;
+	while(s!=1 && s!=2){
+		cout << "Introduza um semestre valido." << endl;
+		cout << "Semestre: ";
+		cin >> s;
+	}
+	cout << "Quantas vagas deseja por na turma?" << endl;
+	int v;
+	cin >> v;
+
+	for(unsigned int i=0; i<cadeiras.size(); i++){
+		if(cadeiras[i]->getAno() == a && cadeiras[i]->getSemestre() == s)
+			turmas.push_back(cadeiras[i]->novaTurma(v));
+	}*/
+}
+
+/**
+ * Struct auxiliar para criacao de turmas de cadeiras optativas
+ * @param vPt - vagas por turma
+ * @param nT - numero de turmas
+ * @param uc - identificador da UC
+ */
+struct TurmasOpt{
+	int vPt;
+	int nT;
+	string uc;
+};
+
+/**
  * Funcao que introduz o numero minimo de turmas para a quantidade de
- * alunos e turmas que existe, no sistema e inscreve-os automaticamente
+ * alunos e vagas que existem, no sistema e inscreve-os automaticamente
  * numa turma do seu ano base.
  */
 void Mieic::initTurmas(int semestre){
-	int v;
-	cout << "Quantas vagas deseja por turma? ";
-	cin >> v;
-	for(unsigned int i=0; i<cadeiras.size(); i++){
-		cadeiras[i]->novaTurma(v);
+	for(int l=ANO1; l<=ANO5; l++){
+		cout << "Ano " << l << endl;
+
+		vector<Uc*> ucsOpt;
+		vector<Uc*> ucsNopt;
+
+
+		for(unsigned int i=0; i<cadeiras.size(); i++){
+			//cout << "size " << cadeiras.size() <<  " cadeira " << cadeiras[i]->getSigla() << " i " << i << endl;
+			if(cadeiras[i]->getCurso().compare("MIEIC") == 0 &&
+					cadeiras[i]->getAno() == l &&
+					cadeiras[i]->getSemestre() == semestre &&
+					(cadeiras[i]->getAlunos().size()>0 || cadeiras[i]->getVagas()>0 || cadeiras[i]->getVagas() == -1) ){
+
+				if(cadeiras[i]->getVagas() == -1)
+					ucsNopt.push_back(cadeiras[i]);
+				else if(cadeiras[i]->getVagas() > 0)
+					ucsOpt.push_back(cadeiras[i]);
+
+			}
+		}
+
+		cout << "ucsNopt " << ucsNopt.size() << " ucsOpt " << ucsOpt.size() << endl;
+
+		/* Vagas e numero de turmas para as Nao Optativas */
+		unsigned int nAlunos = 0, ind = 0;
+		for(unsigned int i=0; i<ucsNopt.size(); i++){
+			if(nAlunos < ucsNopt[i]->getAlunos().size()){
+				nAlunos = ucsNopt[i]->getAlunos().size();
+				ind = i;
+			}
+		}
+
+		int maxVagas, nTurmasNopt;
+		if(ucsNopt.size() != 0 && nAlunos !=0){
+			while(true){
+				int a;
+				cout << "Das UC's nao optativas, a UC " << ucsNopt[ind]->getSigla() << " tem mais alunos ("
+					<< ucsNopt[ind]->getAlunos().size() << ")." << endl;
+				cout << "Quantos alunos deseja por turma? ";
+				cin >> a;
+
+				if(a > 0){
+					nTurmasNopt = nAlunos/a;
+					if(nAlunos%a != 0)
+						nTurmasNopt += 1;
+
+					cout << "Numero de turmas necessario: " << nTurmasNopt << endl;;
+					cout << "Criar " << nTurmasNopt << " turmas (y/n)? ";
+					char r;
+					cin >> r;
+					if(r == 'y'){
+						maxVagas = a;
+						break;
+					}
+				} else cout << "Introduza um numero valido." << endl;
+			}
+		} else if(ucsNopt.size() != 0 && nAlunos == 0){
+			while(true){
+				int a,b;
+				cout << "Nenhuma UC nao optativa tem alunos, quantas vagas deseja por turma? ";
+				cin >> a;
+				cout << "Quantas turmas deseja? ";
+				cin >> b;
+
+				if(b > 0 && a > 0){
+					cout << "Criar " << b << " turmas de " << a << " alunos (y/n)? ";
+					char r;
+					cin >> r;
+					if(r == 'y'){
+						maxVagas = a;
+						nTurmasNopt = b;
+						break;
+					}
+				} else {
+					cout << "Introduza um numero valido." << endl;
+				}
+			}
+		}
+
+		vector< pair<int,Uc*> > vagasCadeiras;
+		for(unsigned int i = 0; i<ucsNopt.size(); i++){
+			vagasCadeiras.push_back({maxVagas,ucsNopt[i]});
+		}
+
+		/* Vagas e numero de turmas para as Optativas */
+		vector<TurmasOpt> tOpts;
+		for(unsigned int i = 0; i<ucsOpt.size(); i++){
+			int nTurmas;
+			while(true){
+				int a;
+				cout << "Das UC's optativas, a UC " << ucsOpt[i]->getSigla() << " tem "
+						<< ucsOpt[i]->getVagas() << " vagas.";
+				cout << "Quantos alunos deseja por turma? ";
+				cin >> a;
+
+				nTurmas = ucsOpt[i]->getVagas()/a;
+				if(ucsOpt[i]->getVagas()%a != 0)
+					nTurmas += 1;
+
+				cout << "Numero de turmas necessario: " << nTurmas << endl;;
+				cout << "Criar " << nTurmas << " turmas (y/n)? ";
+				char r;
+				cin >> r;
+				if(r == 'y'){
+					maxVagas = a;
+					break;
+				}
+			}
+
+			TurmasOpt tOpt;
+			tOpt.vPt = maxVagas;
+			tOpt.nT = nTurmas;
+			tOpt.uc = ucsOpt[i]->getSigla();
+
+
+			tOpts.push_back(tOpt);
+
+			vagasCadeiras.push_back({maxVagas,ucsOpt[i]});
+		}
+
+		/* Criacao de turmas */
+		int aux = nTurmasNopt;
+		for(unsigned int i=0; i<tOpts.size(); i++){
+			if(aux<tOpts[i].nT)
+				aux = tOpts[i].nT;
+		}
+
+		Turma* turma;
+		for(int i=0; i<aux; i++){
+			stringstream ss;
+			ss << l << "MIEIC" << i+1;
+			string turmaID = ss.str();
+
+			if(vagasCadeiras.size() > 0){
+				turma = new Turma(turmaID,vagasCadeiras);
+				this->turmas.push_back(turma);
+				switch(l){
+				case 1:
+					this->turmasAno1.push(turma);
+					break;
+				case 2:
+					this->turmasAno2.push(turma);
+					break;
+				case 3:
+					this->turmasAno3.push(turma);
+					break;
+				case 4:
+					this->turmasAno4.push(turma);
+					break;
+				case 5:
+					this->turmasAno5.push(turma);
+					break;
+				default:
+					cout << "Erro: Estado impossivel." << endl;
+				    exit (EXIT_FAILURE);
+					break;
+				}
+			}
+
+			/* apagar do vector vagasCadeiras as cadeiras
+			 * Nao Optativas que ja tem turmas suficientes*/
+			if(nTurmasNopt > 0){
+				nTurmasNopt--;
+			} else if(nTurmasNopt == 0){
+				int delta = 1;
+				int in,fin;
+				while(delta != 0){
+					in = vagasCadeiras.size();
+					for(unsigned int j=0; j<vagasCadeiras.size(); j++){
+						if(vagasCadeiras[j].second->getVagas() == -1){
+							vagasCadeiras.erase(vagasCadeiras.begin()+j);
+							fin = vagasCadeiras.size();
+							break;
+						}
+					}
+					delta = in - fin;
+				}
+				nTurmasNopt = -1;
+			}
+
+			/* apagar do vector vagasCadeiras as cadeiras
+			 * Optativas que ja tem turmas suficientes*/
+			for(unsigned int j=0; j<tOpts.size(); j++){
+				if(tOpts[j].nT > 0){
+					tOpts[j].nT--;
+				} else if(tOpts[j].nT == 0){
+					for(unsigned int k=0; k<vagasCadeiras.size(); k++){
+						if(vagasCadeiras[k].second->getSigla().compare(tOpts[j].uc) == 0){
+							vagasCadeiras.erase(vagasCadeiras.begin()+k);
+						}
+					}
+				}
+			}
+		}
+		cout << "Criadas turmas para o Ano " << l << endl;
 	}
+/*
+	//TODO assign alunos to turmas
+	for(unsigned int i=0; i<alunos.size(); i++){
+		vector<Uc*> ucs = alunos[i]->getUCsAnoBase();
+
+		vector<Turma*> aux;
+		switch(alunos[i]->getAno()){
+		case 1:
+			while(!this->turmasAno1.empty()){
+				if(this->turmasAno1.top()->cadeirasTemVagas(ucs)){
+					//inscrever aluno
+				} else {
+					//tentar outra turma
+				}
+			}
+			break;
+		case 2:
+			while(!this->turmasAno1.empty()){
+				if(this->turmasAno1.top()->cadeirasTemVagas(ucs)){
+					//inscrever aluno
+				} else {
+					//tentar outra turma
+				}
+			}
+			break;
+		case 3:
+			while(!this->turmasAno1.empty()){
+				if(this->turmasAno1.top()->cadeirasTemVagas(ucs)){
+					//inscrever aluno
+				} else {
+					//tentar outra turma
+				}
+			}
+			break;
+		case 4:
+			while(!this->turmasAno1.empty()){
+				if(this->turmasAno1.top()->cadeirasTemVagas(ucs)){
+					//inscrever aluno
+				} else {
+					//tentar outra turma
+				}
+			}
+			break;
+		case 5:
+			while(!this->turmasAno1.empty()){
+				if(this->turmasAno1.top()->cadeirasTemVagas(ucs)){
+					//inscrever aluno
+				} else {
+					//tentar outra turma
+				}
+			}
+			break;
+		default:
+			cout << "Erro: Estado impossivel." << endl;
+			exit (EXIT_FAILURE);
+			break;
+		}
+	}
+*/
+	/*
+	for(unsigned int i=0; i<turmas.size(); i++){
+		turmas[i]->printInfo();
+	}
+	turmasAno1.top()->printInfo();
+	turmasAno2.top()->printInfo();
+	turmasAno3.top()->printInfo();
+	turmasAno4.top()->printInfo();
+	turmasAno5.top()->printInfo();
+	 */
+
 }
 
 /**

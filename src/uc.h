@@ -7,9 +7,6 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <queue>
-
-#include "turma.h"
 
 using namespace std;
 
@@ -24,8 +21,7 @@ protected:
 	float creditos;
 	vector<Aluno*> alunos;
 
-
-	priority_queue<Turma> turmas;
+	vector< pair<string,Aluno*> > turmas;
 public:
 	Uc(string nome,string sigla,int semestre,int ano,float creditos);
 	virtual ~Uc(){};
@@ -52,9 +48,7 @@ public:
 	virtual void display_incomplete();
 	virtual void save(ofstream *output) = 0;
 
-
-	priority_queue<Turma> getTurmas() const;
-	virtual void novaTurma(int vagas) = 0;
+	vector< pair<string,Aluno*> > getTurmas();
 };
 
 class Optativa: public Uc {
@@ -76,9 +70,6 @@ public:
 	void displayUC();
 	void display_incomplete();
 	void save(ofstream *output);
-
-
-	void novaTurma(int vagas);
 };
 
 class N_Optativa: public Uc {
@@ -94,9 +85,6 @@ public:
 	string getArea() ;
 	void display_incomplete();
 	void save(ofstream *output);
-
-
-	void novaTurma(int vagas);
 };
 
 vector<Uc*> initUCs();
