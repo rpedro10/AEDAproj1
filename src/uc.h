@@ -49,6 +49,9 @@ public:
 	virtual void save(ofstream *output) = 0;
 
 	vector< pair<string,Aluno*> > getTurmas();
+	void assignAlunoTurma(string turmaID, Aluno* aluno);
+	vector<Aluno*> getAlunosSemTurma();
+	vector<Aluno*> apagarTurma(string turmaID);
 };
 
 class Optativa: public Uc {

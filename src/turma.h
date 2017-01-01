@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "uc.h"
+#include "aluno.h"
 
 using namespace std;
 
@@ -67,15 +68,23 @@ public:
 	void printInfo();
 
 	/**
-	 * retorna verdadeiro se tem vagas nas cadeiras ucs
+	 * Retorna verdadeiro se tem vagas nas cadeiras ucs
 	 */
 	bool cadeirasTemVagas(vector<Uc*> ucs);
 
+	/**
+	 * Inscreve aluno nas ucs introduzidas
+	 */
+	void inscreverAluno(vector<Uc*> ucs, Aluno* aluno);
+
+	/**
+	 * manda tirar os alunos desta turma nas respectivas UCs
+	 */
+	vector<Aluno*> disbandTurma();
 
 	int vagasCadeira(Uc*);
 	bool todasCvagas();
 	vector<Uc*> cadeirasCvagas(vector<Uc*> ucs);
-
 };
 
 #endif

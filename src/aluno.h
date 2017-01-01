@@ -56,7 +56,7 @@ public:
 
 	void terminarAno();
 
-	vector<Uc*> getUCsAnoBase();
+	vector<Uc*> getUCsAnoBase(int semestre);
 
 };
 

@@ -11,10 +11,10 @@ vector< pair<int,Uc*> > Turma::getVagasCadeiras(){
 	return this->vagasCadeiras;
 }
 
-bool Turma::operator <(const Turma &t1) const {
+bool Turma::operator <(const Turma &t1) const {/*
 	if(this->vagasCadeiras.size() < t1.vagasCadeiras.size())
 		return true;
-
+*/
 	int thisTotalVagasT;
 	for(unsigned int i = 0; i < this->vagasCadeiras.size(); i++){
 		thisTotalVagasT += this->vagasCadeiras[i].first;
@@ -27,8 +27,7 @@ bool Turma::operator <(const Turma &t1) const {
 
 	if(thisTotalVagasT < t1totalVagas)
 		return true;
-
-	else return false;
+	return false;
 }
 
 bool Turma::operator ==(const Turma &t1) const {
@@ -47,7 +46,7 @@ void Turma::printInfo(){
 }
 
 bool Turma::cadeirasTemVagas(vector<Uc*> ucs){
-	int aux = 0;
+	unsigned int aux = 0;
 	for(unsigned int i=0; i<ucs.size(); i++){
 		for(unsigned int j=0; j<this->vagasCadeiras.size(); j++){
 			if(ucs[i]->getSigla().compare(this->vagasCadeiras[j].second->getSigla()) == 0
@@ -58,6 +57,29 @@ bool Turma::cadeirasTemVagas(vector<Uc*> ucs){
 	}
 	if(aux == ucs.size()) return true;
 	else return false;
+}
+
+void Turma::inscreverAluno(vector<Uc*> ucs, Aluno* aluno){
+	for(unsigned int i=0; i<this->vagasCadeiras.size(); i++){
+		for(unsigned int j=0; j<ucs.size(); j++){
+			if(vagasCadeiras[i].second->getSigla().compare(ucs[j]->getSigla()) == 0){
+				vagasCadeiras[i].first--;
+				ucs[j]->assignAlunoTurma(this->turmaID, aluno);
+			}
+		}
+	}
+}
+
+vector<Aluno*> Turma::disbandTurma(){
+	vector<Aluno*> alunos;
+	vector<Aluno*> aux;
+	for(unsigned int i=0; i<this->vagasCadeiras.size(); i++){
+		aux = this->vagasCadeiras[i].second->apagarTurma(this->turmaID);
+		for(unsigned int j=0; j<aux.size(); j++){
+			alunos.push_back(aux[j]);
+		}
+	}
+	return alunos;
 }
 
 void Turma::saveTurmas(ofstream *output){

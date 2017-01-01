@@ -262,6 +262,43 @@ vector< pair<string,Aluno*> > Uc::getTurmas(){
 	return this->turmas;
 }
 
+/**
+ *	associar aluno a uma turma
+ */
+void Uc::assignAlunoTurma(string turmaID, Aluno* aluno){
+	this->turmas.push_back({turmaID,aluno});
+}
+
+/**
+ * desassocia todos os alunos de uma turma
+ * e retorna os alunos que ficaram sem turma
+ */
+vector<Aluno*> Uc::apagarTurma(string turmaID){
+	vector<Aluno*> alns;
+	for(unsigned int i=0; i<this->turmas.size(); i++){
+		if(turmas[i].first.compare(turmaID) == 0){
+			alns.push_back(turmas[i].second);
+		}
+	}
+
+	int delta = 1;
+	int in,fin;
+	while(delta != 0){
+		in = turmas.size();
+		for(unsigned int i=0; i<this->turmas.size(); i++){
+			if(turmas[i].first.compare(turmaID) == 0){
+				alns.push_back(turmas[i].second);
+				turmas.erase(turmas.begin()+i);
+				fin = turmas.size();
+				break;
+			}
+		}
+		delta = in - fin;
+	}
+
+	return alns;
+}
+
 
 //_____________________________________________________________________________
 
