@@ -156,8 +156,7 @@ void Mieic::display_alunos_inativos()const{
 }
 
 /**
- * Adiciona um aluno à tabela de dispersao dos alunos que interromperam ou acabaram o curso
- * e retira-o do sistema
+ * Adiciona um aluno ï¿½ tabela de dispersao dos alunos que interromperam ou acabaram o curso * e retira-o do sistema
  */
 void Mieic::addAluno_inativo(){
 
@@ -844,16 +843,7 @@ void Mieic::turmasMenu(){
 				apagarTurma();
 				break;
 			case 3:
-				//TODO consultar 3 turmas
-				for(unsigned int i=0; i<turmas.size(); i++){
-					turmas[i]->printInfo();
-				}
-				cout << ".top" << endl;
-				turmasAno1.top().printInfo();
-				turmasAno2.top().printInfo();
-				turmasAno3.top().printInfo();
-				turmasAno4.top().printInfo();
-				turmasAno5.top().printInfo();
+				mostarTurmas();
 				break;
 			case 4:{
 				char r;
@@ -894,14 +884,139 @@ void Mieic::turmasMenu(){
 }
 
 /**
+ * mostra as 3 turmas com mais vagas de cada ano
+ */
+void Mieic::mostarTurmas(){
+	vector<Turma> auxiliar;
+	cout << "Primeiro ano." << turmasAno1.size() <<  endl;
+	if(turmasAno1.size()<3){
+		while(!turmasAno1.empty()){
+			Turma* tr = new Turma(turmasAno1.top().getTurmaID(), turmasAno1.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno1.top());
+			turmasAno1.pop();
+			tr->printInfo();
+		}
+	} else {
+		for(unsigned int i=0; i<3; i++){
+			Turma* tr = new Turma(turmasAno1.top().getTurmaID(), turmasAno1.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno1.top());
+			turmasAno1.pop();
+			tr->printInfo();
+		}
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno1.push(tr);
+	}
+
+
+	cout << "Segundo ano." << endl;
+	if(turmasAno2.size()<3){
+		while(!turmasAno2.empty()){
+			Turma* tr = new Turma(turmasAno2.top().getTurmaID(), turmasAno2.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno2.top());
+			turmasAno2.pop();
+			tr->printInfo();
+		}
+	} else {
+		for(unsigned int i=0; i<3; i++){
+			Turma* tr = new Turma(turmasAno2.top().getTurmaID(), turmasAno2.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno2.top());
+			turmasAno2.pop();
+			tr->printInfo();
+		}
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno2.push(tr);
+	}
+
+
+	cout << "Terceiro ano." << endl;
+	if(turmasAno3.size()<3){
+		while(!turmasAno3.empty()){
+			Turma* tr = new Turma(turmasAno3.top().getTurmaID(), turmasAno3.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno3.top());
+			turmasAno3.pop();
+			tr->printInfo();
+		}
+	} else {
+		for(unsigned int i=0; i<3; i++){
+			Turma* tr = new Turma(turmasAno3.top().getTurmaID(), turmasAno3.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno3.top());
+			turmasAno3.pop();
+			tr->printInfo();
+		}
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno3.push(tr);
+	}
+
+
+	cout << "Quarto ano." << endl;
+	if(turmasAno4.size()<3){
+		while(!turmasAno4.empty()){
+			Turma* tr = new Turma(turmasAno4.top().getTurmaID(), turmasAno4.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno4.top());
+			turmasAno4.pop();
+			tr->printInfo();
+		}
+	} else {
+		for(unsigned int i=0; i<3; i++){
+			Turma* tr = new Turma(turmasAno4.top().getTurmaID(), turmasAno4.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno4.top());
+			turmasAno4.pop();
+			tr->printInfo();
+		}
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno4.push(tr);
+	}
+
+
+	cout << "Quinto ano." << endl;
+	if(turmasAno5.size()<3){
+		while(!turmasAno5.empty()){
+			Turma* tr = new Turma(turmasAno5.top().getTurmaID(), turmasAno5.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno5.top());
+			turmasAno5.pop();
+			tr->printInfo();
+		}
+	} else {
+		for(unsigned int i=0; i<3; i++){
+			Turma* tr = new Turma(turmasAno5.top().getTurmaID(), turmasAno5.top().getVagasCadeiras());
+			turmas.push_back(tr);
+			auxiliar.push_back(turmasAno5.top());
+			turmasAno5.pop();
+			tr->printInfo();
+		}
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno5.push(tr);
+	}
+}
+
+/**
  * Apaga uma turma e tira os alunos pertencentes 'a mesma
  */
 void Mieic::apagarTurma(){
-	//TODO TESTAR eliminacao de turma
-	for(unsigned int i=0; i<turmas.size(); i++){
-		turmas[i]->printInfo();
-	}
-
 	cout << "Introduza o ano da turma que quer apagar: ";
 
 	int ano;
@@ -972,64 +1087,54 @@ void Mieic::apagarTurma(){
 
 	string turmaID = trms[ind-1].getTurmaID();
 
-	vector<Aluno*> alns;
-	alns = trms[ind-1].disbandTurma();
-	for(unsigned int i=0; i<alns.size(); i++){
-		int aux = alunoTemTurma(alns[i]);
-		if(aux < 0){
-			this->alunosSemTurma.push_back(alns[i]);
-		}
+	vector<Uc*> ucs;
+	ucs = trms[ind-1].getUCs();
+
+	//tira a turma das ucs
+	for(unsigned int i=0; i<ucs.size(); i++){
+		if(ucs[i]->getAlunos().size() != ucs[i]->getTurmas().size())
+			ucs[i]->apagarTurma(trms[ind-1].getTurmaID());
 	}
 
+	//tira a turma do vector turmas e da priority queue
 	for(unsigned int i=0; i<turmas.size(); i++){
-		if(turmas[i] == &trms[ind]){
+		if(turmas[i]->getTurmaID().compare(trms[ind-1].getTurmaID()) == 0){
 			turmas.erase(turmas.begin()+i);
-			trms.erase(trms.begin()+ind);
+			trms.erase(trms.begin()+ind-1);
 			break;
 		}
 	}
 
+	//update da priority queue
 	switch(ano){
-		case 1:
-			for(unsigned int i=0; i<trms.size();i++){
-				turmasAno1.push(trms[i]);
-			}
-			break;
-		case 2:
-			for(unsigned int i=0; i<trms.size();i++){
-				turmasAno2.push(trms[i]);
-			}
-			break;
-		case 3:
-			for(unsigned int i=0; i<trms.size();i++){
-				turmasAno3.push(trms[i]);
-			}
-			break;
-		case 4:
-			for(unsigned int i=0; i<trms.size();i++){
-				turmasAno4.push(trms[i]);
-			}
-			break;
-		case 5:
-			for(unsigned int i=0; i<trms.size();i++){
-				turmasAno5.push(trms[i]);
-			}
-			break;
+	case 1:
+		for(unsigned int i=0; i<trms.size();i++){
+			turmasAno1.push(trms[i]);
 		}
+		break;
+	case 2:
+		for(unsigned int i=0; i<trms.size();i++){
+			turmasAno2.push(trms[i]);
+		}
+		break;
+	case 3:
+		for(unsigned int i=0; i<trms.size();i++){
+			turmasAno3.push(trms[i]);
+		}
+		break;
+	case 4:
+		for(unsigned int i=0; i<trms.size();i++){
+			turmasAno4.push(trms[i]);
+		}
+		break;
+	case 5:
+		for(unsigned int i=0; i<trms.size();i++){
+			turmasAno5.push(trms[i]);
+		}
+		break;
+	}
 
 	cout << "Turma " << turmaID << " apagada com sucesso" << endl;
-
-	for(unsigned int i=0; i<turmas.size(); i++){
-		turmas[i]->printInfo();
-	}
-}
-
-int Mieic::alunoTemTurma(Aluno* aluno){
-	for(unsigned int i=0; i<this->alunosSemTurma.size(); i++){
-		if(this->alunosSemTurma[i]->getNumero() == aluno->getNumero())
-			return i;
-	}
-	return -1;
 }
 
 /**
@@ -1075,7 +1180,7 @@ void Mieic::novaTurma(){
 	}
 
 	cout << "Quantas vagas por UC deseja na turma? ";
-	int vagas;
+	unsigned int vagas;
 	while(true){
 		cin >> vagas;
 		if(vagas < 1)
@@ -1088,7 +1193,7 @@ void Mieic::novaTurma(){
 
 	string turmaID = getNameForTurma(a);
 
-	vector< pair<int,Uc*> > vagasCadeiras;
+	vector< pair<unsigned int,Uc*> > vagasCadeiras;
 	for(unsigned int i = 0; i<ucs.size(); i++){
 		vagasCadeiras.push_back({vagas,ucs[i]});
 	}
@@ -1264,7 +1369,7 @@ void Mieic::initTurmas(int semestre){
 			}
 		}
 
-		int maxVagas, nTurmasNopt;
+		unsigned int maxVagas, nTurmasNopt;
 		if(ucsNopt.size() != 0 && nAlunos !=0){
 			while(true){
 				int a;
@@ -1311,7 +1416,7 @@ void Mieic::initTurmas(int semestre){
 			}
 		}
 
-		vector< pair<int,Uc*> > vagasCadeiras;
+		vector< pair<unsigned int,Uc*> > vagasCadeiras;
 		for(unsigned int i = 0; i<ucsNopt.size(); i++){
 			vagasCadeiras.push_back({maxVagas,ucsNopt[i]});
 		}
@@ -1431,20 +1536,13 @@ void Mieic::initTurmas(int semestre){
 
 	/* Alocacao dos alunos nas turmas */
 	for(unsigned int i=0; i<alunos.size(); i++){
-		bool temTurma = true;
 		vector<Uc*> ucs = alunos[i]->getUCsAnoBase(semestre);
-
-		if(alunos[i]->getCadeirasInscrito().size()> ucs.size())
-			temTurma = false;
 
 		vector<Turma> result;
 		switch(alunos[i]->getAno()){
 		case 1:
 			result = procurarTurmaPaluno(this->turmasAno1, ucs, alunos[i]);
-			if(result.size() < 1)
-				temTurma = false;
-			else{
-
+			if(result.size() != 0){
 				while(!this->turmasAno1.empty()){
 					this->turmasAno1.pop();
 				}
@@ -1456,9 +1554,7 @@ void Mieic::initTurmas(int semestre){
 			break;
 		case 2:
 			result = procurarTurmaPaluno(this->turmasAno2, ucs, alunos[i]);
-			if(result.size() < 1)
-				temTurma = false;
-			else{
+			if(result.size() != 0){
 				while(!this->turmasAno2.empty()){
 					this->turmasAno2.pop();
 				}
@@ -1470,9 +1566,7 @@ void Mieic::initTurmas(int semestre){
 			break;
 		case 3:
 			result = procurarTurmaPaluno(this->turmasAno3, ucs, alunos[i]);
-			if(result.size() < 1)
-				temTurma = false;
-			else{
+			if(result.size() != 0){
 				while(!this->turmasAno3.empty()){
 					this->turmasAno3.pop();
 				}
@@ -1484,9 +1578,7 @@ void Mieic::initTurmas(int semestre){
 			break;
 		case 4:
 			result = procurarTurmaPaluno(this->turmasAno4, ucs, alunos[i]);
-			if(result.size() < 1)
-				temTurma = false;
-			else{
+			if(result.size() != 0){
 				while(!this->turmasAno4.empty()){
 					this->turmasAno4.pop();
 				}
@@ -1498,9 +1590,7 @@ void Mieic::initTurmas(int semestre){
 			break;
 		case 5:
 			result = procurarTurmaPaluno(this->turmasAno5, ucs, alunos[i]);
-			if(result.size() < 1)
-				temTurma = false;
-			else{
+			if(result.size() != 0){
 				while(!this->turmasAno5.empty()){
 					this->turmasAno5.pop();
 				}
@@ -1515,14 +1605,120 @@ void Mieic::initTurmas(int semestre){
 			exit (EXIT_FAILURE);
 			break;
 		}
-
-		if(!temTurma)
-			this->alunosSemTurma.push_back(alunos[i]);
-
 	}
 
-	cout << "Assigned alunos to turmas" << endl;
+	updateTurmas();
 
+	for(unsigned int i=0; i<cadeiras.size();i++){
+		if(cadeiras[i]->getSemestre() == semestre){
+			vector<Aluno*> semTurma = cadeiras[i]->getAlunosSemTurma();
+
+			for(unsigned int j=0; j<semTurma.size();j++){
+				vector<Uc*> temp;
+				temp.push_back(cadeiras[i]);
+				vector<Turma> result;
+				switch(cadeiras[i]->getAno()){
+				case 1:{
+					result = procurarTurmaPaluno(this->turmasAno1, temp, semTurma[j]);
+					if(result.size() != 0){
+					while(!this->turmasAno1.empty()){
+							this->turmasAno1.pop();
+						}
+						for(unsigned int k=0;k<result.size();k++){
+							//result[j].printInfo();
+							this->turmasAno1.push(result[k]);
+						}
+					}
+					break;}
+				case 2:{
+					result = procurarTurmaPaluno(this->turmasAno2, temp, semTurma[j]);
+					if(result.size() != 0){
+					while(!this->turmasAno2.empty()){
+							this->turmasAno2.pop();
+						}
+						for(unsigned int k=0;k<result.size();k++){
+							//result[j].printInfo();
+							this->turmasAno2.push(result[k]);
+						}
+					}
+					break;}
+				case 3:{
+					result = procurarTurmaPaluno(this->turmasAno3, temp, semTurma[j]);
+					if(result.size() != 0){
+					while(!this->turmasAno3.empty()){
+							this->turmasAno3.pop();
+						}
+						for(unsigned int k=0;k<result.size();k++){
+							//result[j].printInfo();
+							this->turmasAno3.push(result[k]);
+						}
+					}
+					break;}
+				case 4:{
+					result = procurarTurmaPaluno(this->turmasAno4, temp, semTurma[j]);
+					if(result.size() != 0){
+					while(!this->turmasAno4.empty()){
+							this->turmasAno4.pop();
+						}
+						for(unsigned int k=0;k<result.size();k++){
+							//result[j].printInfo();
+							this->turmasAno4.push(result[k]);
+						}
+					}
+					break;}
+				case 5:{
+					result = procurarTurmaPaluno(this->turmasAno5, temp, semTurma[j]);
+					if(result.size() != 0){
+					while(!this->turmasAno5.empty()){
+							this->turmasAno5.pop();
+						}
+						for(unsigned int k=0;k<result.size();k++){
+							//result[j].printInfo();
+							this->turmasAno5.push(result[k]);
+						}
+					}
+					break;}
+				}
+			}
+		}
+	}
+
+	updateTurmas();
+
+	cout << "Turmas atribuidas." << endl;
+}
+
+/**
+ * procura e aloca uma turma do ano base para aluno, retorna false se nao encontrou
+ */
+vector<Turma> Mieic::procurarTurmaPaluno(priority_queue<Turma> trms, vector<Uc*> ucs, Aluno* aluno){
+	vector<Turma> aux;
+	bool inscreveu = false;
+	while(!trms.empty()){
+		vector< pair<unsigned int,Uc*> > vagasCadeiras = trms.top().getVagasCadeiras();
+		Turma turma = Turma(trms.top().getTurmaID(), trms.top().getVagasCadeiras());
+		trms.pop();
+
+		if(turma.cadeirasTemVagas(ucs) && !inscreveu){
+			turma.inscreverAluno(ucs,aluno);
+			inscreveu = true;
+		}
+
+		aux.push_back(turma);
+	}
+
+	if(!inscreveu){
+		while(!aux.empty()){
+			aux.erase(aux.begin());
+		}
+	}
+	return aux;
+}
+
+/**
+ * updates vagas e turmas
+ */
+void Mieic::updateTurmas(){
 	/* Update vector turmas*/
 	while(!turmas.empty()){
 		turmas.erase(turmas.begin());
@@ -1587,73 +1783,6 @@ void Mieic::initTurmas(int semestre){
 		auxiliar.erase(auxiliar.begin());
 		turmasAno5.push(tr);
 	}
-
-
-	cout << "Assigned alunos to turmas" << endl;
-/*
-	//todo elaborate procurar turma
-	for(unsigned int i=0; i<this->alunosSemTurma; i++){
-		vector<Uc*> ucsSemTurma;
-		vector< pair<string, Uc *> > ucsAluno = this->alunosSemTurma[i]->getCadeirasInscrito();
-		for(unsigned int j=0; j<ucsAluno.size(); j++){
-			if(ucsAluno[j].second->alunoTemTurma(this->alunosSemTurma[i])){
-				ucsSemTurma.push_back(ucsAluno[j].second);
-			}
-		}
-
-		for(unsigned int j=0; j<ucsSemTurma.size(); j++){
-
-		}
-	}*/
-}
-
-/**
- *
- */
-
-/**
- * procura e aloca uma turma do ano base para aluno, retorna false se nao encontrou
- */
-vector<Turma> Mieic::procurarTurmaPaluno(priority_queue<Turma> trms, vector<Uc*> ucs, Aluno* aluno){
-	vector<Turma> aux;
-	bool inscreveu = false;
-	//int cena = 0;
-	while(!trms.empty()){
-		vector< pair<int,Uc*> > vagasCadeiras = trms.top().getVagasCadeiras();
-		Turma turma = Turma(trms.top().getTurmaID(), trms.top().getVagasCadeiras());
-		trms.pop();
-
-		if(turma.cadeirasTemVagas(ucs) && !inscreveu){
-			//cout << "antes de mudar vagas: " << endl;
-			//turma.printInfo();
-			turma.inscreverAluno(ucs,aluno);
-			inscreveu = true;
-			//cout << "depois de mudar vagas: " << endl;
-			//turma.printInfo();
-		}
-
-		aux.push_back(turma);
-		/*
-		cena++;
-		cout << "aux size devia ser " << cena << " mas e' " << aux.size() << endl;
-		*/
-	}
-
-	//cout << "turmas do ano X depois de mudar as vagas " << aux.size() << endl;
-
-	if(!inscreveu){
-		cout << "O aluno " << aluno->getNome() << " nao tem turma par todas as cadeiras do ano base." << endl;
-		while(!aux.empty()){
-			aux.erase(aux.begin());
-		}
-	}
-/*
-	cout << "turmas do ano X depois de mudar as vagas " << aux.size() << endl;
-	for(unsigned int i=0; i<aux.size();i++){
-		aux[i].printInfo();
-	}
-*/
-	return aux;
 }
 
 /**

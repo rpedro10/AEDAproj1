@@ -90,6 +90,7 @@ void Aluno::displayAlunoInfo(){
 	cout << "Ano Curricular: " << ano << endl;
 	cout << "Email: " <<email << endl;
 	cout << "Estado: " << estado << endl;
+	//cout << "Data de inscricao: " << this->data << endl;
 	cout << "Estatuto: " << estatuto << endl;
 	cout << "Tutor: " << (*tutor).getNome() << endl;
 	cout << "Cadeiras que frequenta: " << "(" <<cadeiras_inscrito.size() << ")" << endl;
@@ -235,6 +236,16 @@ vector<Uc*> Aluno::getUCsAnoBase(int semestre){
 		}
 	}
 	return ucs;
+}
+
+unsigned int Aluno::getUCsSemestre(int semestre){
+	vector<Uc*> ucs;
+	for(unsigned int i=0; i<this->cadeiras_inscrito.size(); i++){
+		if(this->cadeiras_inscrito[i].second->getSemestre() == semestre){
+			ucs.push_back(this->cadeiras_inscrito[i].second);
+		}
+	}
+	return ucs.size();
 }
 
 //__________________________________________________________________

@@ -73,6 +73,7 @@ public:
 	void setEstado(Estado estado);
 	const string& getMorada() const;
 	void setMorada(const string& morada);
+	unsigned int getUCsSemestre(int semestre);
 };
 
 

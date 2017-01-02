@@ -51,7 +51,7 @@ public:
 	vector< pair<string,Aluno*> > getTurmas();
 	void assignAlunoTurma(string turmaID, Aluno* aluno);
 	vector<Aluno*> getAlunosSemTurma();
-	vector<Aluno*> apagarTurma(string turmaID);
+	void apagarTurma(string turmaID);
 	bool alunoTemTurma(Aluno* aluno);
 };
 

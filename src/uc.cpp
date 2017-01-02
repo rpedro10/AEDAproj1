@@ -273,21 +273,13 @@ void Uc::assignAlunoTurma(string turmaID, Aluno* aluno){
  * desassocia todos os alunos de uma turma
  * e retorna os alunos que ficaram sem turma
  */
-vector<Aluno*> Uc::apagarTurma(string turmaID){
-	vector<Aluno*> alns;
-	for(unsigned int i=0; i<this->turmas.size(); i++){
-		if(turmas[i].first.compare(turmaID) == 0){
-			alns.push_back(turmas[i].second);
-		}
-	}
-
+void Uc::apagarTurma(string turmaID){
 	int delta = 1;
 	int in,fin;
 	while(delta != 0){
 		in = turmas.size();
 		for(unsigned int i=0; i<this->turmas.size(); i++){
 			if(turmas[i].first.compare(turmaID) == 0){
-				alns.push_back(turmas[i].second);
 				turmas.erase(turmas.begin()+i);
 				fin = turmas.size();
 				break;
@@ -295,8 +287,6 @@ vector<Aluno*> Uc::apagarTurma(string turmaID){
 		}
 		delta = in - fin;
 	}
-
-	return alns;
 }
 
 /**
@@ -310,6 +300,24 @@ bool Uc::alunoTemTurma(Aluno* aluno){
 	return false;
 }
 
+/**
+ * retorna os alunos inscritos a esta cadeira sem turma
+ */
+vector<Aluno*> Uc::getAlunosSemTurma(){
+	vector<Aluno*> value;
+	for(unsigned int i=0;i<alunos.size();i++){
+		bool hasTurma = false;
+		for(unsigned int j=0;j<turmas.size();j++){
+			if(alunos[i]->getNumero() == turmas[j].second->getNumero()){
+				hasTurma = true;
+			}
+		}
+		if(!hasTurma){
+			value.push_back(alunos[i]);
+		}
+	}
+	return value;
+}
 
 //_____________________________________________________________________________
 

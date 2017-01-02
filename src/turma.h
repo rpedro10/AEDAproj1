@@ -20,12 +20,12 @@ using namespace std;
  */
 class Turma {
 	string turmaID;
-	vector< pair<int,Uc*> > vagasCadeiras;
+	vector< pair<unsigned int,Uc*> > vagasCadeiras;
 public:
 	/**
 	 * Simples construtor da Class Turma
 	 */
-	Turma(string turmaID, vector< pair<int,Uc*> > vagasCadeiras);
+	Turma(string turmaID, vector< pair<unsigned int,Uc*> > vagasCadeiras);
 
 	/**
 	 * getter simples
@@ -37,7 +37,7 @@ public:
 	 * getter simples
 	 * @return vagasCadeiras
 	 */
-	vector< pair<int,Uc*> > getVagasCadeiras() const;
+	vector< pair<unsigned int,Uc*> > getVagasCadeiras() const;
 
 	/**
 	 * Operator < overloading
@@ -57,11 +57,6 @@ public:
 	void alocarAluno(int alunoID);
 
 	/**
-	 * Guarda os dados da turma numa ofstream
-	 */
-	void saveTurmas(ofstream *output);
-
-	/**
 	 * Imprime toda a informacao das ucs e das
 	 * vagas de uma maneira curta
 	 */
@@ -78,13 +73,9 @@ public:
 	void inscreverAluno(vector<Uc*> ucs, Aluno* aluno);
 
 	/**
-	 * manda tirar os alunos desta turma nas respectivas UCs
+	 * retorna as ucs
 	 */
-	vector<Aluno*> disbandTurma();
-
-	int vagasCadeira(Uc*);
-	bool todasCvagas();
-	vector<Uc*> cadeirasCvagas(vector<Uc*> ucs);
+	vector<Uc*> getUCs();
 };
 
 #endif

@@ -1,13 +1,13 @@
 #include "turma.h"
 
-Turma::Turma(string turmaID, vector< pair<int,Uc*> > vagasCadeiras):
+Turma::Turma(string turmaID, vector< pair<unsigned int,Uc*> > vagasCadeiras):
 	turmaID(turmaID), vagasCadeiras(vagasCadeiras){}
 
 string Turma::getTurmaID() const{
 	return this->turmaID;
 }
 
-vector< pair<int,Uc*> > Turma::getVagasCadeiras() const{
+vector< pair<unsigned int,Uc*> > Turma::getVagasCadeiras() const{
 	return this->vagasCadeiras;
 }
 
@@ -83,18 +83,10 @@ void Turma::inscreverAluno(vector<Uc*> ucs, Aluno* aluno){
 	}
 }
 
-vector<Aluno*> Turma::disbandTurma(){
-	vector<Aluno*> alunos;
-	vector<Aluno*> aux;
+vector<Uc*> Turma::getUCs(){
+	vector<Uc*> ucs;
 	for(unsigned int i=0; i<this->vagasCadeiras.size(); i++){
-		aux = this->vagasCadeiras[i].second->apagarTurma(this->turmaID);
-		for(unsigned int j=0; j<aux.size(); j++){
-			alunos.push_back(aux[j]);
-		}
+		ucs.push_back(this->vagasCadeiras[i].second);
 	}
-	return alunos;
-}
-
-void Turma::saveTurmas(ofstream *output){
-
+	return ucs;
 }
