@@ -74,9 +74,8 @@ public:
 
 	////////////////////////////////////////////////
 
-	void display_alunos_inativos()const;
+	void display_alunos_inativos();
 	void addAluno_inativo();
-	tabHInativos getAlunos_inativos() const;
 	void deleteAluno_inativo(); // atualizar morada e contactos
 	void deleteAluno(int num);
 

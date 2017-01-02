@@ -11,7 +11,7 @@
 #include "docente.h"
 
 
- enum Estado { estudar, terminou, interrompeu };
+ enum Estado { decorrer, terminou, interrompeu };
 
 
 using namespace std;

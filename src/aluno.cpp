@@ -89,7 +89,7 @@ void Aluno::displayAlunoInfo(){
 	cout << "Numero de Estudante: " << numero << endl;
 	cout << "Ano Curricular: " << ano << endl;
 	cout << "Email: " <<email << endl;
-	//cout << "Data de inscricao: " << this->data << endl;
+	cout << "Estado: " << estado << endl;
 	cout << "Estatuto: " << estatuto << endl;
 	cout << "Tutor: " << (*tutor).getNome() << endl;
 	cout << "Cadeiras que frequenta: " << "(" <<cadeiras_inscrito.size() << ")" << endl;

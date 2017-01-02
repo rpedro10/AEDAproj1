@@ -24,7 +24,9 @@ int Mieic::runProgram(){
 	cout << "6. Terminar ano curricular" << endl;
 	cout << "7. Entrar como Docente" << endl;
 	cout << "8. Inscricao nas Turmas" << endl;
-	cout << "9. ? Tabela de dispersao ?" << endl;
+	cout << "9. Mostrar alunos inativos " << endl;
+	cout << "10. Adicionar aluno inativo" << endl;
+	cout << "11. Retirar aluno inativo" << endl;
 	cout << "0. Sair" << endl;
 	cout << "Introduza um numero para escolher a accao: ";
 
@@ -113,6 +115,14 @@ int Mieic::runProgram(){
 		} else return 1;}
 	case 8:
 		turmasMenu();
+	case 9:
+		 display_alunos_inativos();
+	case 10:
+		 addAluno_inativo();
+
+	case 11:
+		 deleteAluno_inativo();
+
 	default:
 		cout << "Introduza um numero valido." << endl;
 		break;
@@ -125,9 +135,7 @@ int Mieic::runProgram(){
 
 
 
-tabHInativos Mieic::getAlunos_inativos() const{
-	return 	alunos_inativos;
-}
+
 
 void Mieic::display_alunos_inativos()const{
 
@@ -151,15 +159,31 @@ void Mieic::display_alunos_inativos()const{
 
 void Mieic::addAluno_inativo(){
 
-		int numero;
+		int numero,nnn;
 		cout<<"Numero? ";
 		cin >> numero;
 
 			int index= getAluno_byNumero(numero);
 			if(index>0){
-				Aluno al=alunos[index];
-				alunos_inativos.insert(al);
-				alunos.erase(alunos.begin()+index);
+				cout << "1. Inerromper curso" << endl;
+				cout << "2. Terminar curso" << endl;
+				cin>>nnn;
+				switch(nnn){
+					case 1:
+						Aluno al=alunos[index];
+						al.setEstado(interrompeu);
+						alunos_inativos.insert(al);
+						alunos.erase(alunos.begin()+index);
+					case 2:
+						Aluno al=alunos[index];
+						al.setEstado(terminou);
+						alunos_inativos.insert(al);
+						alunos.erase(alunos.begin()+index);
+
+					default:
+						cout<<"erro"<<endl;
+				}
+
 			}
 }
 
@@ -175,20 +199,23 @@ void Mieic::deleteAluno_inativo(){
 	tabHInativos::const_iterator it;
 
 	for(it=alunos_inativos.begin();it!=alunos_inativos.end();it++){
-		if(numero== it->getNumero())
+		if(numero== it->getNumero()&& it->getEstado()==interrompeu )
 		{
 			cout<<"Novo email?";
-				getline(cin,new_email);
-				cout<<"Nova morada?";
-				getline(cin,new_address);
-				it->setEmail(new_email);
-				it->setMorada(new_address);
+			getline(cin,new_email);
+			cout<<"Nova morada?";
+			getline(cin,new_address);
 
-				Aluno* aluno_ptr = &it;
+			Aluno al =it;
+			al.setEmail(new_email);
+			al.setMorada(new_address);
+			al.setEstado(decorrer);
 
-				alunos.push_back(aluno_ptr);    // volta a colocar no sistema
+			Aluno* aluno_ptr = &al;
 
-				alunos_inativos.erase(it);
+			alunos.push_back(aluno_ptr);    // volta a colocar no sistema
+
+			alunos_inativos.erase(it);
 
 		}
 
