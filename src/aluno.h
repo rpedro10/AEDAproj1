@@ -10,7 +10,9 @@
 #include "uc.h"
 #include "docente.h"
 
-
+/**
+ * Estado da matricula
+ */
  enum Estado { decorrer, terminou, interrompeu };
 
 

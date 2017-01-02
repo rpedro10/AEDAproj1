@@ -1,0 +1,227 @@
+\hypertarget{class_docente}{}\section{Docente Class Reference}
+\label{class_docente}\index{Docente@{Docente}}
+
+
+{\ttfamily \#include $<$docente.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_docente_a6a5a2767071333f26d8b9f78e594c62a}{Docente} (int cod, string \hyperlink{class_docente_a66b320a22a0e829473b70f7fe11ac6d9}{nome}, int \hyperlink{class_docente_ab29ba6bb97580e8a8bb9dd5f53a532d6}{qtt}, set$<$ \hyperlink{class_reuniao}{Reuniao} $>$ rns)
+\item 
+int \hyperlink{class_docente_a9973620c09d6d48dc1871db5f0a9cd5b}{get\+Codigo} () const
+\item 
+const string \& \hyperlink{class_docente_ae9660cce3a01db623da50009781b0b77}{get\+Nome} () const
+\item 
+void \hyperlink{class_docente_a5e41a574e7adf0062530b80687224bc1}{set\+Nome} (const string \&\hyperlink{class_docente_a66b320a22a0e829473b70f7fe11ac6d9}{nome})
+\item 
+void \hyperlink{class_docente_ae0b73b4b0d10c25c23eb678f74e3c0e8}{display\+Docente} ()
+\item 
+int \hyperlink{class_docente_a9fb95f3bee62cfaf9a358cf102feb7e8}{get\+Qtt} () const
+\item 
+void \hyperlink{class_docente_a63f5f1b1a094a2366a148b33043f1f2d}{set\+Qtt} ()
+\item 
+vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_docente_accbc43c2e9c79d2adbc6d49fe8de9697}{get\+Alunos} ()
+\item 
+void \hyperlink{class_docente_a9c594ff4aeb0fa373708c7440491c22d}{add\+Aluno} (\hyperlink{class_aluno}{Aluno} $\ast$aluno)
+\item 
+void \hyperlink{class_docente_a4c4a09cf3c7f03a6b45a9b2c98c4e815}{save} (ofstream $\ast$output)
+\item 
+void \hyperlink{class_docente_a69d24901234585a51e8dfe3dec22c00d}{new\+Reuniao} ()
+\item 
+vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$ $>$ \hyperlink{class_docente_a41eda045287485cfdc5f94ebf1c1f44b}{find\+Reuniao\+Data} ()
+\item 
+vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$ $>$ \hyperlink{class_docente_a75f4bb31ccff54cc38c34dbb333708df}{find\+Reuniao\+ID} ()
+\item 
+void \hyperlink{class_docente_af850bd3ba1bdf87cb179b24713eb463b}{cancel\+Reuniao} (\hyperlink{class_reuniao}{Reuniao} $\ast$reuniao)
+\item 
+void \hyperlink{class_docente_a852db58186f4e1a7e49dbaf35f8c567d}{change\+Terms} (\hyperlink{class_reuniao}{Reuniao} $\ast$reuniao)
+\item 
+vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$ $>$ \hyperlink{class_docente_a8c7e74836d656bec642bb4ba3e3449c4}{get\+Reunioes} ()
+\item 
+void \hyperlink{class_docente_afb6708e3f626bb7dcdeba6e568b69e5c}{print\+All\+Reunioes} ()
+\item 
+\hyperlink{class_reuniao}{Reuniao} $\ast$ \hyperlink{class_docente_a5269740fc625141805801d499f377dad}{choose\+Reuniao} (vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$$>$ rns)
+\item 
+void \hyperlink{class_docente_aa566202f3f83b288b630095ff5493a26}{menu} ()
+\item 
+void \hyperlink{class_docente_a00b8c20d2bf2f3015efb8710cc4dad89}{sub\+Menu} (\hyperlink{class_reuniao}{Reuniao} $\ast$reuniao)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_docente_aa1db9f8aaf6d2f21b2f418c989629171}{codigo}
+\item 
+string \hyperlink{class_docente_a66b320a22a0e829473b70f7fe11ac6d9}{nome}
+\item 
+int \hyperlink{class_docente_ab29ba6bb97580e8a8bb9dd5f53a532d6}{qtt}
+\item 
+set$<$ \hyperlink{class_reuniao}{Reuniao} $>$ \hyperlink{class_docente_a59b98f7d748eb407238f29208f5fb997}{reunioes}
+\item 
+vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_docente_aa0d2dd3fca5eb6eeb6d1a2f75184e09e}{alunos}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_docente_a6a5a2767071333f26d8b9f78e594c62a}{}\label{class_docente_a6a5a2767071333f26d8b9f78e594c62a} 
+\index{Docente@{Docente}!Docente@{Docente}}
+\index{Docente@{Docente}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{Docente()}{Docente()}}
+{\footnotesize\ttfamily Docente\+::\+Docente (\begin{DoxyParamCaption}\item[{int}]{cod,  }\item[{string}]{nome,  }\item[{int}]{qtt,  }\item[{set$<$ \hyperlink{class_reuniao}{Reuniao} $>$}]{rns }\end{DoxyParamCaption})}
+
+construtor de docente 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_docente_a9c594ff4aeb0fa373708c7440491c22d}{}\label{class_docente_a9c594ff4aeb0fa373708c7440491c22d} 
+\index{Docente@{Docente}!add\+Aluno@{add\+Aluno}}
+\index{add\+Aluno@{add\+Aluno}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{add\+Aluno()}{addAluno()}}
+{\footnotesize\ttfamily void Docente\+::add\+Aluno (\begin{DoxyParamCaption}\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
+
+Adiciona aluno ao vector de alunos ao cargo do docente \hypertarget{class_docente_af850bd3ba1bdf87cb179b24713eb463b}{}\label{class_docente_af850bd3ba1bdf87cb179b24713eb463b} 
+\index{Docente@{Docente}!cancel\+Reuniao@{cancel\+Reuniao}}
+\index{cancel\+Reuniao@{cancel\+Reuniao}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{cancel\+Reuniao()}{cancelReuniao()}}
+{\footnotesize\ttfamily void Docente\+::cancel\+Reuniao (\begin{DoxyParamCaption}\item[{\hyperlink{class_reuniao}{Reuniao} $\ast$}]{reuniao }\end{DoxyParamCaption})}
+
+Imprime e deixa o utilizador cancelar uma das reunioes imprimidas. \hypertarget{class_docente_a852db58186f4e1a7e49dbaf35f8c567d}{}\label{class_docente_a852db58186f4e1a7e49dbaf35f8c567d} 
+\index{Docente@{Docente}!change\+Terms@{change\+Terms}}
+\index{change\+Terms@{change\+Terms}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{change\+Terms()}{changeTerms()}}
+{\footnotesize\ttfamily void Docente\+::change\+Terms (\begin{DoxyParamCaption}\item[{\hyperlink{class_reuniao}{Reuniao} $\ast$}]{reuniao }\end{DoxyParamCaption})}
+
+Muda a agenda e/ou a descricao da reuniao \hypertarget{class_docente_a5269740fc625141805801d499f377dad}{}\label{class_docente_a5269740fc625141805801d499f377dad} 
+\index{Docente@{Docente}!choose\+Reuniao@{choose\+Reuniao}}
+\index{choose\+Reuniao@{choose\+Reuniao}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{choose\+Reuniao()}{chooseReuniao()}}
+{\footnotesize\ttfamily \hyperlink{class_reuniao}{Reuniao} $\ast$ Docente\+::choose\+Reuniao (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$$>$}]{rns }\end{DoxyParamCaption})}
+
+\hypertarget{class_docente_ae0b73b4b0d10c25c23eb678f74e3c0e8}{}\label{class_docente_ae0b73b4b0d10c25c23eb678f74e3c0e8} 
+\index{Docente@{Docente}!display\+Docente@{display\+Docente}}
+\index{display\+Docente@{display\+Docente}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{display\+Docente()}{displayDocente()}}
+{\footnotesize\ttfamily void Docente\+::display\+Docente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+display de info do docente \hypertarget{class_docente_a41eda045287485cfdc5f94ebf1c1f44b}{}\label{class_docente_a41eda045287485cfdc5f94ebf1c1f44b} 
+\index{Docente@{Docente}!find\+Reuniao\+Data@{find\+Reuniao\+Data}}
+\index{find\+Reuniao\+Data@{find\+Reuniao\+Data}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{find\+Reuniao\+Data()}{findReuniaoData()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$ $>$ Docente\+::find\+Reuniao\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Procura uma reuniao com a data fornecida. \hypertarget{class_docente_a75f4bb31ccff54cc38c34dbb333708df}{}\label{class_docente_a75f4bb31ccff54cc38c34dbb333708df} 
+\index{Docente@{Docente}!find\+Reuniao\+ID@{find\+Reuniao\+ID}}
+\index{find\+Reuniao\+ID@{find\+Reuniao\+ID}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{find\+Reuniao\+I\+D()}{findReuniaoID()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$ $>$ Docente\+::find\+Reuniao\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Procura uma reuniao com o estudante do ID fornecido. \hypertarget{class_docente_accbc43c2e9c79d2adbc6d49fe8de9697}{}\label{class_docente_accbc43c2e9c79d2adbc6d49fe8de9697} 
+\index{Docente@{Docente}!get\+Alunos@{get\+Alunos}}
+\index{get\+Alunos@{get\+Alunos}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{get\+Alunos()}{getAlunos()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ Docente\+::get\+Alunos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+retorna o vector de alunos ao cargo do docente \hypertarget{class_docente_a9973620c09d6d48dc1871db5f0a9cd5b}{}\label{class_docente_a9973620c09d6d48dc1871db5f0a9cd5b} 
+\index{Docente@{Docente}!get\+Codigo@{get\+Codigo}}
+\index{get\+Codigo@{get\+Codigo}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{get\+Codigo()}{getCodigo()}}
+{\footnotesize\ttfamily int Docente\+::get\+Codigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_docente_ae9660cce3a01db623da50009781b0b77}{}\label{class_docente_ae9660cce3a01db623da50009781b0b77} 
+\index{Docente@{Docente}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{get\+Nome()}{getNome()}}
+{\footnotesize\ttfamily const string \& Docente\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_docente_a9fb95f3bee62cfaf9a358cf102feb7e8}{}\label{class_docente_a9fb95f3bee62cfaf9a358cf102feb7e8} 
+\index{Docente@{Docente}!get\+Qtt@{get\+Qtt}}
+\index{get\+Qtt@{get\+Qtt}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{get\+Qtt()}{getQtt()}}
+{\footnotesize\ttfamily int Docente\+::get\+Qtt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+devolve a quantidade de alunos a tutorar \hypertarget{class_docente_a8c7e74836d656bec642bb4ba3e3449c4}{}\label{class_docente_a8c7e74836d656bec642bb4ba3e3449c4} 
+\index{Docente@{Docente}!get\+Reunioes@{get\+Reunioes}}
+\index{get\+Reunioes@{get\+Reunioes}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{get\+Reunioes()}{getReunioes()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_reuniao}{Reuniao} $\ast$ $>$ Docente\+::get\+Reunioes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Procura todas as reunioes entre as datas from\+Date e to\+Date \hypertarget{class_docente_aa566202f3f83b288b630095ff5493a26}{}\label{class_docente_aa566202f3f83b288b630095ff5493a26} 
+\index{Docente@{Docente}!menu@{menu}}
+\index{menu@{menu}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void Docente\+::menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Menu das accoes que o \hyperlink{class_docente}{Docente} pode fazer \hypertarget{class_docente_a69d24901234585a51e8dfe3dec22c00d}{}\label{class_docente_a69d24901234585a51e8dfe3dec22c00d} 
+\index{Docente@{Docente}!new\+Reuniao@{new\+Reuniao}}
+\index{new\+Reuniao@{new\+Reuniao}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{new\+Reuniao()}{newReuniao()}}
+{\footnotesize\ttfamily void Docente\+::new\+Reuniao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Marca uma reuniao nova na B\+ST do docente \hypertarget{class_docente_afb6708e3f626bb7dcdeba6e568b69e5c}{}\label{class_docente_afb6708e3f626bb7dcdeba6e568b69e5c} 
+\index{Docente@{Docente}!print\+All\+Reunioes@{print\+All\+Reunioes}}
+\index{print\+All\+Reunioes@{print\+All\+Reunioes}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{print\+All\+Reunioes()}{printAllReunioes()}}
+{\footnotesize\ttfamily void Docente\+::print\+All\+Reunioes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Imprime todas as reunioes \hypertarget{class_docente_a4c4a09cf3c7f03a6b45a9b2c98c4e815}{}\label{class_docente_a4c4a09cf3c7f03a6b45a9b2c98c4e815} 
+\index{Docente@{Docente}!save@{save}}
+\index{save@{save}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Docente\+::save (\begin{DoxyParamCaption}\item[{ofstream $\ast$}]{output }\end{DoxyParamCaption})}
+
+output para ficheiros \hypertarget{class_docente_a5e41a574e7adf0062530b80687224bc1}{}\label{class_docente_a5e41a574e7adf0062530b80687224bc1} 
+\index{Docente@{Docente}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{set\+Nome()}{setNome()}}
+{\footnotesize\ttfamily void Docente\+::set\+Nome (\begin{DoxyParamCaption}\item[{const string \&}]{nome }\end{DoxyParamCaption})}
+
+\hypertarget{class_docente_a63f5f1b1a094a2366a148b33043f1f2d}{}\label{class_docente_a63f5f1b1a094a2366a148b33043f1f2d} 
+\index{Docente@{Docente}!set\+Qtt@{set\+Qtt}}
+\index{set\+Qtt@{set\+Qtt}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{set\+Qtt()}{setQtt()}}
+{\footnotesize\ttfamily void Docente\+::set\+Qtt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+adiciona uma unidade a quantidade de alunos a tutorar \hypertarget{class_docente_a00b8c20d2bf2f3015efb8710cc4dad89}{}\label{class_docente_a00b8c20d2bf2f3015efb8710cc4dad89} 
+\index{Docente@{Docente}!sub\+Menu@{sub\+Menu}}
+\index{sub\+Menu@{sub\+Menu}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{sub\+Menu()}{subMenu()}}
+{\footnotesize\ttfamily void Docente\+::sub\+Menu (\begin{DoxyParamCaption}\item[{\hyperlink{class_reuniao}{Reuniao} $\ast$}]{reuniao }\end{DoxyParamCaption})}
+
+Submenu para alteracao dos dados de uma reuniao 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_docente_aa0d2dd3fca5eb6eeb6d1a2f75184e09e}{}\label{class_docente_aa0d2dd3fca5eb6eeb6d1a2f75184e09e} 
+\index{Docente@{Docente}!alunos@{alunos}}
+\index{alunos@{alunos}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{alunos}{alunos}}
+{\footnotesize\ttfamily vector$<$\hyperlink{class_aluno}{Aluno}$\ast$$>$ Docente\+::alunos\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_docente_aa1db9f8aaf6d2f21b2f418c989629171}{}\label{class_docente_aa1db9f8aaf6d2f21b2f418c989629171} 
+\index{Docente@{Docente}!codigo@{codigo}}
+\index{codigo@{codigo}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{codigo}{codigo}}
+{\footnotesize\ttfamily int Docente\+::codigo\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_docente_a66b320a22a0e829473b70f7fe11ac6d9}{}\label{class_docente_a66b320a22a0e829473b70f7fe11ac6d9} 
+\index{Docente@{Docente}!nome@{nome}}
+\index{nome@{nome}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily string Docente\+::nome\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_docente_ab29ba6bb97580e8a8bb9dd5f53a532d6}{}\label{class_docente_ab29ba6bb97580e8a8bb9dd5f53a532d6} 
+\index{Docente@{Docente}!qtt@{qtt}}
+\index{qtt@{qtt}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{qtt}{qtt}}
+{\footnotesize\ttfamily int Docente\+::qtt\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_docente_a59b98f7d748eb407238f29208f5fb997}{}\label{class_docente_a59b98f7d748eb407238f29208f5fb997} 
+\index{Docente@{Docente}!reunioes@{reunioes}}
+\index{reunioes@{reunioes}!Docente@{Docente}}
+\subsubsection{\texorpdfstring{reunioes}{reunioes}}
+{\footnotesize\ttfamily set$<$\hyperlink{class_reuniao}{Reuniao}$>$ Docente\+::reunioes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{docente_8h}{docente.\+h}\item 
+\hyperlink{docente_8cpp}{docente.\+cpp}\end{DoxyCompactItemize}

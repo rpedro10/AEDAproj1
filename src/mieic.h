@@ -44,21 +44,20 @@ struct halunos {
 	}
 };
 
-
 typedef tr1::unordered_set<Aluno, halunos, eqalunos> tabHInativos;
 
 using namespace std;
 
-
-
-
 class Mieic{
+
+	tabHInativos alunos_inativos;
+
+
 	bool canTurmas;
 	vector<Uc*> cadeiras;
 	vector<Docente*> docentes;
 	vector<Aluno*> alunos;
 
-	tabHInativos alunos_inativos;
 
 	vector<Turma*> turmas;
 	priority_queue<Turma> turmasAno1;

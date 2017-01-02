@@ -1,0 +1,349 @@
+\hypertarget{class_aluno}{}\section{Aluno Class Reference}
+\label{class_aluno}\index{Aluno@{Aluno}}
+
+
+{\ttfamily \#include $<$aluno.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_aluno_ab7ed0488b4fe0366a8db56f5773d7809}{Aluno} (int num, string \hyperlink{class_aluno_a22e26cb85066e4dfdc144c502819a7b4}{nome}, int \hyperlink{class_aluno_abcf2d0bb0b690d81e01e9b38f68897c6}{ano}, string \hyperlink{class_aluno_a3f211b7d1b0aac05976bf25912b66c6b}{email}, string \hyperlink{class_aluno_ae0609c8c3939eee522aee8e7c68a2eac}{estatuto}, \hyperlink{class_docente}{Docente} $\ast$\hyperlink{class_aluno_a0569ac677617ba6b9fc420830bc21bf6}{tutor}, vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$ \hyperlink{class_aluno_a1999cc002e1c271c4722717ab457b4e4}{cadeiras\+\_\+inscrito}, vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$ \hyperlink{class_aluno_aa9de55282ab2d53a6e903999db67eefc}{cadeiras\+\_\+completadas})
+\item 
+\hyperlink{class_aluno_ad5106d0f7834762fbe5f71f908144336}{Aluno} ()
+\item 
+int \hyperlink{class_aluno_abd0b9f8a7cdd8ac51dd810424340b27b}{get\+Ano} () const
+\item 
+void \hyperlink{class_aluno_a05e1c531761274c17ecf85a23f75b16a}{set\+Ano} (int \hyperlink{class_aluno_abcf2d0bb0b690d81e01e9b38f68897c6}{ano})
+\item 
+const string \& \hyperlink{class_aluno_a11b8f11bcd88edf24950e4c865009c5c}{get\+Email} () const
+\item 
+void \hyperlink{class_aluno_a45246f0bd15a445e11dae4cccc231984}{set\+Email} (const string \&\hyperlink{class_aluno_a3f211b7d1b0aac05976bf25912b66c6b}{email})
+\item 
+const string \& \hyperlink{class_aluno_ae9bb3b0f1dd75bad1f860478631232be}{get\+Estatuto} () const
+\item 
+void \hyperlink{class_aluno_a4bac5fc524532359adb4a61388e6b348}{set\+Estatuto} (const string \&\hyperlink{class_aluno_ae0609c8c3939eee522aee8e7c68a2eac}{estatuto})
+\item 
+const string \& \hyperlink{class_aluno_a3070c2f9d3933ce8fe336b1fa53ca7b7}{get\+Nome} () const
+\item 
+void \hyperlink{class_aluno_a67c455668824da3badaeb3a2eb2c8c4d}{set\+Nome} (const string \&\hyperlink{class_aluno_a22e26cb85066e4dfdc144c502819a7b4}{nome})
+\item 
+int \hyperlink{class_aluno_afcbe89f392d4c6332bcbd17184ad50bb}{get\+Numero} () const
+\item 
+void \hyperlink{class_aluno_a36ad83483a9e0c247d7092a95607758c}{set\+Numero} (int \hyperlink{class_aluno_a49ba5929b875d3f502c48245775b834c}{numero})
+\item 
+const \hyperlink{class_docente}{Docente} $\ast$ \hyperlink{class_aluno_a26e3da1324ccda24ba0f73bd39d2ea63}{get\+Tutor} () const
+\item 
+vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$ $>$ $>$ \hyperlink{class_aluno_a9caa50647a1ebb3882e1e01a39e78aa4}{get\+Cadeiras\+Inscrito} () const
+\item 
+void \hyperlink{class_aluno_a998361a645330ab98133ebaeb2e62058}{set\+Cadeiras\+Inscrito} (vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$ cadeiras\+Inscrito)
+\item 
+vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$ $>$ $>$ \hyperlink{class_aluno_a5c6936a1faa21d970aaaaf922d3f6203}{get\+Cadeiras\+Completadas} () const
+\item 
+void \hyperlink{class_aluno_aaeb693e1e8888a1034253cb2d4e3fe79}{set\+Cadeiras\+Completadas} (vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$ cadeiras\+Completadas)
+\item 
+void \hyperlink{class_aluno_a32eabc2f1bb3a3a7f03e048210bc47cd}{display\+Aluno\+Info} ()
+\item 
+void \hyperlink{class_aluno_aee32fb416fb5164c9b474a163b55977a}{display\+Aluno} ()
+\item 
+void \hyperlink{class_aluno_ac4010eebc776c72f5575b4ea8b230209}{inscrever\+Cadeira} (\hyperlink{class_uc}{Uc} $\ast$uc)
+\item 
+bool \hyperlink{class_aluno_ab1c56db2906bb038c877a1078358b1b8}{esta\+Inscrito} (\hyperlink{class_uc}{Uc} $\ast$uc)
+\item 
+bool \hyperlink{class_aluno_a632f91e407309ff24b5e1ee20c2d8daf}{completou} (\hyperlink{class_uc}{Uc} $\ast$uc)
+\item 
+void \hyperlink{class_aluno_add3489276cc0bccd4f2ac39e3a190979}{save} (ofstream $\ast$output)
+\item 
+bool \hyperlink{class_aluno_a9eeb557159beb7c7c833134ea27f4b56}{operator==} (const \hyperlink{class_aluno}{Aluno} $\ast$\&p2) const
+\item 
+void \hyperlink{class_aluno_a541c17d0c9a626c132153936dc6065f5}{terminar\+Ano} ()
+\item 
+vector$<$ \hyperlink{class_uc}{Uc} $\ast$ $>$ \hyperlink{class_aluno_a3bcc5d9133d8f034ef862c596b07c2ec}{get\+U\+Cs\+Ano\+Base} (int semestre)
+\item 
+\hyperlink{aluno_8h_a9d4630b1e0c310d9b8c562abd8114c49}{Estado} \hyperlink{class_aluno_a3e853d005e1ed55e130b660b925e604d}{get\+Estado} () const
+\item 
+void \hyperlink{class_aluno_a7786eb123c2bc7bcdf3ea14432ffdadd}{set\+Estado} (\hyperlink{aluno_8h_a9d4630b1e0c310d9b8c562abd8114c49}{Estado} \hyperlink{class_aluno_a9c848f698de935f301a0e5becd087cc1}{estado})
+\item 
+const string \& \hyperlink{class_aluno_a7c0acf4e931f989aa8bb5d707b6cf7c5}{get\+Morada} () const
+\item 
+void \hyperlink{class_aluno_aa96c2e587fd84faa59864a50cd8393ec}{set\+Morada} (const string \&\hyperlink{class_aluno_a5824ede0b7b791dcbe13aeeba1c26372}{morada})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_aluno_a49ba5929b875d3f502c48245775b834c}{numero}
+\item 
+int \hyperlink{class_aluno_abcf2d0bb0b690d81e01e9b38f68897c6}{ano}
+\item 
+string \hyperlink{class_aluno_a22e26cb85066e4dfdc144c502819a7b4}{nome}
+\item 
+string \hyperlink{class_aluno_ae0609c8c3939eee522aee8e7c68a2eac}{estatuto}
+\item 
+string \hyperlink{class_aluno_a3f211b7d1b0aac05976bf25912b66c6b}{email}
+\item 
+string \hyperlink{class_aluno_a5824ede0b7b791dcbe13aeeba1c26372}{morada}
+\item 
+\hyperlink{aluno_8h_a9d4630b1e0c310d9b8c562abd8114c49}{Estado} \hyperlink{class_aluno_a9c848f698de935f301a0e5becd087cc1}{estado}
+\item 
+const \hyperlink{class_docente}{Docente} $\ast$ \hyperlink{class_aluno_a0569ac677617ba6b9fc420830bc21bf6}{tutor}
+\item 
+vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$ $>$ $>$ \hyperlink{class_aluno_a1999cc002e1c271c4722717ab457b4e4}{cadeiras\+\_\+inscrito}
+\item 
+vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$ $>$ $>$ \hyperlink{class_aluno_aa9de55282ab2d53a6e903999db67eefc}{cadeiras\+\_\+completadas}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_aluno_ab7ed0488b4fe0366a8db56f5773d7809}{}\label{class_aluno_ab7ed0488b4fe0366a8db56f5773d7809} 
+\index{Aluno@{Aluno}!Aluno@{Aluno}}
+\index{Aluno@{Aluno}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{Aluno()}{Aluno()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aluno\+::\+Aluno (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{string}]{nome,  }\item[{int}]{ano,  }\item[{string}]{email,  }\item[{string}]{estatuto,  }\item[{\hyperlink{class_docente}{Docente} $\ast$}]{tutor,  }\item[{vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$}]{cadeiras\+\_\+inscrito,  }\item[{vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$}]{cadeiras\+\_\+completadas }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_ad5106d0f7834762fbe5f71f908144336}{}\label{class_aluno_ad5106d0f7834762fbe5f71f908144336} 
+\index{Aluno@{Aluno}!Aluno@{Aluno}}
+\index{Aluno@{Aluno}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{Aluno()}{Aluno()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aluno\+::\+Aluno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_aluno_a632f91e407309ff24b5e1ee20c2d8daf}{}\label{class_aluno_a632f91e407309ff24b5e1ee20c2d8daf} 
+\index{Aluno@{Aluno}!completou@{completou}}
+\index{completou@{completou}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{completou()}{completou()}}
+{\footnotesize\ttfamily bool Aluno\+::completou (\begin{DoxyParamCaption}\item[{\hyperlink{class_uc}{Uc} $\ast$}]{uc }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_aee32fb416fb5164c9b474a163b55977a}{}\label{class_aluno_aee32fb416fb5164c9b474a163b55977a} 
+\index{Aluno@{Aluno}!display\+Aluno@{display\+Aluno}}
+\index{display\+Aluno@{display\+Aluno}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{display\+Aluno()}{displayAluno()}}
+{\footnotesize\ttfamily void Aluno\+::display\+Aluno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a32eabc2f1bb3a3a7f03e048210bc47cd}{}\label{class_aluno_a32eabc2f1bb3a3a7f03e048210bc47cd} 
+\index{Aluno@{Aluno}!display\+Aluno\+Info@{display\+Aluno\+Info}}
+\index{display\+Aluno\+Info@{display\+Aluno\+Info}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{display\+Aluno\+Info()}{displayAlunoInfo()}}
+{\footnotesize\ttfamily void Aluno\+::display\+Aluno\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_ab1c56db2906bb038c877a1078358b1b8}{}\label{class_aluno_ab1c56db2906bb038c877a1078358b1b8} 
+\index{Aluno@{Aluno}!esta\+Inscrito@{esta\+Inscrito}}
+\index{esta\+Inscrito@{esta\+Inscrito}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{esta\+Inscrito()}{estaInscrito()}}
+{\footnotesize\ttfamily bool Aluno\+::esta\+Inscrito (\begin{DoxyParamCaption}\item[{\hyperlink{class_uc}{Uc} $\ast$}]{uc }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_abd0b9f8a7cdd8ac51dd810424340b27b}{}\label{class_aluno_abd0b9f8a7cdd8ac51dd810424340b27b} 
+\index{Aluno@{Aluno}!get\+Ano@{get\+Ano}}
+\index{get\+Ano@{get\+Ano}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Ano()}{getAno()}}
+{\footnotesize\ttfamily int Aluno\+::get\+Ano (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a5c6936a1faa21d970aaaaf922d3f6203}{}\label{class_aluno_a5c6936a1faa21d970aaaaf922d3f6203} 
+\index{Aluno@{Aluno}!get\+Cadeiras\+Completadas@{get\+Cadeiras\+Completadas}}
+\index{get\+Cadeiras\+Completadas@{get\+Cadeiras\+Completadas}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Cadeiras\+Completadas()}{getCadeirasCompletadas()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$ $>$ $>$ Aluno\+::get\+Cadeiras\+Completadas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a9caa50647a1ebb3882e1e01a39e78aa4}{}\label{class_aluno_a9caa50647a1ebb3882e1e01a39e78aa4} 
+\index{Aluno@{Aluno}!get\+Cadeiras\+Inscrito@{get\+Cadeiras\+Inscrito}}
+\index{get\+Cadeiras\+Inscrito@{get\+Cadeiras\+Inscrito}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Cadeiras\+Inscrito()}{getCadeirasInscrito()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$ $>$ $>$ Aluno\+::get\+Cadeiras\+Inscrito (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a11b8f11bcd88edf24950e4c865009c5c}{}\label{class_aluno_a11b8f11bcd88edf24950e4c865009c5c} 
+\index{Aluno@{Aluno}!get\+Email@{get\+Email}}
+\index{get\+Email@{get\+Email}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Email()}{getEmail()}}
+{\footnotesize\ttfamily const string \& Aluno\+::get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a3e853d005e1ed55e130b660b925e604d}{}\label{class_aluno_a3e853d005e1ed55e130b660b925e604d} 
+\index{Aluno@{Aluno}!get\+Estado@{get\+Estado}}
+\index{get\+Estado@{get\+Estado}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Estado()}{getEstado()}}
+{\footnotesize\ttfamily \hyperlink{aluno_8h_a9d4630b1e0c310d9b8c562abd8114c49}{Estado} Aluno\+::get\+Estado (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_ae9bb3b0f1dd75bad1f860478631232be}{}\label{class_aluno_ae9bb3b0f1dd75bad1f860478631232be} 
+\index{Aluno@{Aluno}!get\+Estatuto@{get\+Estatuto}}
+\index{get\+Estatuto@{get\+Estatuto}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Estatuto()}{getEstatuto()}}
+{\footnotesize\ttfamily const string \& Aluno\+::get\+Estatuto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a7c0acf4e931f989aa8bb5d707b6cf7c5}{}\label{class_aluno_a7c0acf4e931f989aa8bb5d707b6cf7c5} 
+\index{Aluno@{Aluno}!get\+Morada@{get\+Morada}}
+\index{get\+Morada@{get\+Morada}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Morada()}{getMorada()}}
+{\footnotesize\ttfamily const string \& Aluno\+::get\+Morada (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a3070c2f9d3933ce8fe336b1fa53ca7b7}{}\label{class_aluno_a3070c2f9d3933ce8fe336b1fa53ca7b7} 
+\index{Aluno@{Aluno}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Nome()}{getNome()}}
+{\footnotesize\ttfamily const string \& Aluno\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_afcbe89f392d4c6332bcbd17184ad50bb}{}\label{class_aluno_afcbe89f392d4c6332bcbd17184ad50bb} 
+\index{Aluno@{Aluno}!get\+Numero@{get\+Numero}}
+\index{get\+Numero@{get\+Numero}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Numero()}{getNumero()}}
+{\footnotesize\ttfamily int Aluno\+::get\+Numero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a26e3da1324ccda24ba0f73bd39d2ea63}{}\label{class_aluno_a26e3da1324ccda24ba0f73bd39d2ea63} 
+\index{Aluno@{Aluno}!get\+Tutor@{get\+Tutor}}
+\index{get\+Tutor@{get\+Tutor}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+Tutor()}{getTutor()}}
+{\footnotesize\ttfamily const \hyperlink{class_docente}{Docente} $\ast$ Aluno\+::get\+Tutor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_a3bcc5d9133d8f034ef862c596b07c2ec}{}\label{class_aluno_a3bcc5d9133d8f034ef862c596b07c2ec} 
+\index{Aluno@{Aluno}!get\+U\+Cs\+Ano\+Base@{get\+U\+Cs\+Ano\+Base}}
+\index{get\+U\+Cs\+Ano\+Base@{get\+U\+Cs\+Ano\+Base}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{get\+U\+Cs\+Ano\+Base()}{getUCsAnoBase()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_uc}{Uc} $\ast$ $>$ Aluno\+::get\+U\+Cs\+Ano\+Base (\begin{DoxyParamCaption}\item[{int}]{semestre }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_ac4010eebc776c72f5575b4ea8b230209}{}\label{class_aluno_ac4010eebc776c72f5575b4ea8b230209} 
+\index{Aluno@{Aluno}!inscrever\+Cadeira@{inscrever\+Cadeira}}
+\index{inscrever\+Cadeira@{inscrever\+Cadeira}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{inscrever\+Cadeira()}{inscreverCadeira()}}
+{\footnotesize\ttfamily void Aluno\+::inscrever\+Cadeira (\begin{DoxyParamCaption}\item[{\hyperlink{class_uc}{Uc} $\ast$}]{uc }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a9eeb557159beb7c7c833134ea27f4b56}{}\label{class_aluno_a9eeb557159beb7c7c833134ea27f4b56} 
+\index{Aluno@{Aluno}!operator==@{operator==}}
+\index{operator==@{operator==}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Aluno\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_aluno}{Aluno} $\ast$\&}]{p2 }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_aluno_add3489276cc0bccd4f2ac39e3a190979}{}\label{class_aluno_add3489276cc0bccd4f2ac39e3a190979} 
+\index{Aluno@{Aluno}!save@{save}}
+\index{save@{save}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Aluno\+::save (\begin{DoxyParamCaption}\item[{ofstream $\ast$}]{output }\end{DoxyParamCaption})}
+
+cadeiras\+\_\+completadas
+
+cadeiras\+\_\+inscrito \hypertarget{class_aluno_a05e1c531761274c17ecf85a23f75b16a}{}\label{class_aluno_a05e1c531761274c17ecf85a23f75b16a} 
+\index{Aluno@{Aluno}!set\+Ano@{set\+Ano}}
+\index{set\+Ano@{set\+Ano}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Ano()}{setAno()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Ano (\begin{DoxyParamCaption}\item[{int}]{ano }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_aaeb693e1e8888a1034253cb2d4e3fe79}{}\label{class_aluno_aaeb693e1e8888a1034253cb2d4e3fe79} 
+\index{Aluno@{Aluno}!set\+Cadeiras\+Completadas@{set\+Cadeiras\+Completadas}}
+\index{set\+Cadeiras\+Completadas@{set\+Cadeiras\+Completadas}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Cadeiras\+Completadas()}{setCadeirasCompletadas()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Cadeiras\+Completadas (\begin{DoxyParamCaption}\item[{vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$}]{cadeiras\+Completadas }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a998361a645330ab98133ebaeb2e62058}{}\label{class_aluno_a998361a645330ab98133ebaeb2e62058} 
+\index{Aluno@{Aluno}!set\+Cadeiras\+Inscrito@{set\+Cadeiras\+Inscrito}}
+\index{set\+Cadeiras\+Inscrito@{set\+Cadeiras\+Inscrito}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Cadeiras\+Inscrito()}{setCadeirasInscrito()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Cadeiras\+Inscrito (\begin{DoxyParamCaption}\item[{vector$<$ pair$<$ string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$}]{cadeiras\+Inscrito }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a45246f0bd15a445e11dae4cccc231984}{}\label{class_aluno_a45246f0bd15a445e11dae4cccc231984} 
+\index{Aluno@{Aluno}!set\+Email@{set\+Email}}
+\index{set\+Email@{set\+Email}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Email()}{setEmail()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Email (\begin{DoxyParamCaption}\item[{const string \&}]{email }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a7786eb123c2bc7bcdf3ea14432ffdadd}{}\label{class_aluno_a7786eb123c2bc7bcdf3ea14432ffdadd} 
+\index{Aluno@{Aluno}!set\+Estado@{set\+Estado}}
+\index{set\+Estado@{set\+Estado}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Estado()}{setEstado()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Estado (\begin{DoxyParamCaption}\item[{\hyperlink{aluno_8h_a9d4630b1e0c310d9b8c562abd8114c49}{Estado}}]{estado }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a4bac5fc524532359adb4a61388e6b348}{}\label{class_aluno_a4bac5fc524532359adb4a61388e6b348} 
+\index{Aluno@{Aluno}!set\+Estatuto@{set\+Estatuto}}
+\index{set\+Estatuto@{set\+Estatuto}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Estatuto()}{setEstatuto()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Estatuto (\begin{DoxyParamCaption}\item[{const string \&}]{estatuto }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_aa96c2e587fd84faa59864a50cd8393ec}{}\label{class_aluno_aa96c2e587fd84faa59864a50cd8393ec} 
+\index{Aluno@{Aluno}!set\+Morada@{set\+Morada}}
+\index{set\+Morada@{set\+Morada}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Morada()}{setMorada()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Morada (\begin{DoxyParamCaption}\item[{const string \&}]{morada }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a67c455668824da3badaeb3a2eb2c8c4d}{}\label{class_aluno_a67c455668824da3badaeb3a2eb2c8c4d} 
+\index{Aluno@{Aluno}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Nome()}{setNome()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Nome (\begin{DoxyParamCaption}\item[{const string \&}]{nome }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a36ad83483a9e0c247d7092a95607758c}{}\label{class_aluno_a36ad83483a9e0c247d7092a95607758c} 
+\index{Aluno@{Aluno}!set\+Numero@{set\+Numero}}
+\index{set\+Numero@{set\+Numero}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{set\+Numero()}{setNumero()}}
+{\footnotesize\ttfamily void Aluno\+::set\+Numero (\begin{DoxyParamCaption}\item[{int}]{numero }\end{DoxyParamCaption})}
+
+\hypertarget{class_aluno_a541c17d0c9a626c132153936dc6065f5}{}\label{class_aluno_a541c17d0c9a626c132153936dc6065f5} 
+\index{Aluno@{Aluno}!terminar\+Ano@{terminar\+Ano}}
+\index{terminar\+Ano@{terminar\+Ano}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{terminar\+Ano()}{terminarAno()}}
+{\footnotesize\ttfamily void Aluno\+::terminar\+Ano (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_aluno_abcf2d0bb0b690d81e01e9b38f68897c6}{}\label{class_aluno_abcf2d0bb0b690d81e01e9b38f68897c6} 
+\index{Aluno@{Aluno}!ano@{ano}}
+\index{ano@{ano}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{ano}{ano}}
+{\footnotesize\ttfamily int Aluno\+::ano\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_aa9de55282ab2d53a6e903999db67eefc}{}\label{class_aluno_aa9de55282ab2d53a6e903999db67eefc} 
+\index{Aluno@{Aluno}!cadeiras\+\_\+completadas@{cadeiras\+\_\+completadas}}
+\index{cadeiras\+\_\+completadas@{cadeiras\+\_\+completadas}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{cadeiras\+\_\+completadas}{cadeiras\_completadas}}
+{\footnotesize\ttfamily vector$<$ pair$<$string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$ Aluno\+::cadeiras\+\_\+completadas\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a1999cc002e1c271c4722717ab457b4e4}{}\label{class_aluno_a1999cc002e1c271c4722717ab457b4e4} 
+\index{Aluno@{Aluno}!cadeiras\+\_\+inscrito@{cadeiras\+\_\+inscrito}}
+\index{cadeiras\+\_\+inscrito@{cadeiras\+\_\+inscrito}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{cadeiras\+\_\+inscrito}{cadeiras\_inscrito}}
+{\footnotesize\ttfamily vector$<$ pair$<$string, \hyperlink{class_uc}{Uc} $\ast$$>$ $>$ Aluno\+::cadeiras\+\_\+inscrito\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a3f211b7d1b0aac05976bf25912b66c6b}{}\label{class_aluno_a3f211b7d1b0aac05976bf25912b66c6b} 
+\index{Aluno@{Aluno}!email@{email}}
+\index{email@{email}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{email}{email}}
+{\footnotesize\ttfamily string Aluno\+::email\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a9c848f698de935f301a0e5becd087cc1}{}\label{class_aluno_a9c848f698de935f301a0e5becd087cc1} 
+\index{Aluno@{Aluno}!estado@{estado}}
+\index{estado@{estado}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{estado}{estado}}
+{\footnotesize\ttfamily \hyperlink{aluno_8h_a9d4630b1e0c310d9b8c562abd8114c49}{Estado} Aluno\+::estado\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_ae0609c8c3939eee522aee8e7c68a2eac}{}\label{class_aluno_ae0609c8c3939eee522aee8e7c68a2eac} 
+\index{Aluno@{Aluno}!estatuto@{estatuto}}
+\index{estatuto@{estatuto}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{estatuto}{estatuto}}
+{\footnotesize\ttfamily string Aluno\+::estatuto\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a5824ede0b7b791dcbe13aeeba1c26372}{}\label{class_aluno_a5824ede0b7b791dcbe13aeeba1c26372} 
+\index{Aluno@{Aluno}!morada@{morada}}
+\index{morada@{morada}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{morada}{morada}}
+{\footnotesize\ttfamily string Aluno\+::morada\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a22e26cb85066e4dfdc144c502819a7b4}{}\label{class_aluno_a22e26cb85066e4dfdc144c502819a7b4} 
+\index{Aluno@{Aluno}!nome@{nome}}
+\index{nome@{nome}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily string Aluno\+::nome\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a49ba5929b875d3f502c48245775b834c}{}\label{class_aluno_a49ba5929b875d3f502c48245775b834c} 
+\index{Aluno@{Aluno}!numero@{numero}}
+\index{numero@{numero}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{numero}{numero}}
+{\footnotesize\ttfamily int Aluno\+::numero\hspace{0.3cm}{\ttfamily [private]}}
+
+\hypertarget{class_aluno_a0569ac677617ba6b9fc420830bc21bf6}{}\label{class_aluno_a0569ac677617ba6b9fc420830bc21bf6} 
+\index{Aluno@{Aluno}!tutor@{tutor}}
+\index{tutor@{tutor}!Aluno@{Aluno}}
+\subsubsection{\texorpdfstring{tutor}{tutor}}
+{\footnotesize\ttfamily const \hyperlink{class_docente}{Docente}$\ast$ Aluno\+::tutor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{aluno_8h}{aluno.\+h}\item 
+\hyperlink{aluno_8cpp}{aluno.\+cpp}\end{DoxyCompactItemize}

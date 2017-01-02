@@ -1,0 +1,125 @@
+\hypertarget{class_turma}{}\section{Turma Class Reference}
+\label{class_turma}\index{Turma@{Turma}}
+
+
+{\ttfamily \#include $<$turma.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_turma_a5ec97571b81ca3fb4664105c277792b3}{Turma} (string turma\+ID, vector$<$ pair$<$ int, Uc $\ast$$>$ $>$ vagas\+Cadeiras)
+\item 
+string \hyperlink{class_turma_ac2c81d5b5bf756a4a8c779566cc208e6}{get\+Turma\+ID} () const
+\item 
+vector$<$ pair$<$ int, Uc $\ast$ $>$ $>$ \hyperlink{class_turma_ac70cc3ddd76633aad166753d9a14a42e}{get\+Vagas\+Cadeiras} () const
+\item 
+bool \hyperlink{class_turma_a4d80e915fa31fbe3ad70de1919641e5e}{operator$<$} (const \hyperlink{class_turma}{Turma} \&t1) const
+\item 
+bool \hyperlink{class_turma_aa501aa0b3e7aa254a670d1bf35e4ee81}{operator==} (const \hyperlink{class_turma}{Turma} \&t1) const
+\item 
+void \hyperlink{class_turma_a798f323ec0cdc01337dbdc0499a129cc}{alocar\+Aluno} (int aluno\+ID)
+\item 
+void \hyperlink{class_turma_a651127027bbf5ef0c86585fc4569f7da}{save\+Turmas} (ofstream $\ast$output)
+\item 
+const void \hyperlink{class_turma_ad295f90f4a29569b2a01de0acdb16d94}{print\+Info} () const
+\item 
+bool \hyperlink{class_turma_a08da4cef2b3125047044ea6ce7f65e1f}{cadeiras\+Tem\+Vagas} (vector$<$ Uc $\ast$$>$ ucs)
+\item 
+void \hyperlink{class_turma_ae717553d232237f5779b3f5c83b0abcb}{inscrever\+Aluno} (vector$<$ Uc $\ast$$>$ ucs, Aluno $\ast$aluno)
+\item 
+vector$<$ Aluno $\ast$ $>$ \hyperlink{class_turma_ae184df49282ba96f9621d20d6cf0ed40}{disband\+Turma} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class turma que, como o nome indica, faz uma turma de varios alunos e varias cadeiras. 
+\begin{DoxyParams}{Parameters}
+{\em turma\+ID} & -\/ id da turma no formato \mbox{[}ano\mbox{]}M\+I\+E\+IC\mbox{[}numero da turma\mbox{]} \\
+\hline
+{\em vagas\+Cadeiras} & -\/ vector que guarda as vagas na turma da cadeira correspondente \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_turma_a5ec97571b81ca3fb4664105c277792b3}{}\label{class_turma_a5ec97571b81ca3fb4664105c277792b3} 
+\index{Turma@{Turma}!Turma@{Turma}}
+\index{Turma@{Turma}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{Turma()}{Turma()}}
+{\footnotesize\ttfamily Turma\+::\+Turma (\begin{DoxyParamCaption}\item[{string}]{turma\+ID,  }\item[{vector$<$ pair$<$ int, Uc $\ast$$>$ $>$}]{vagas\+Cadeiras }\end{DoxyParamCaption})}
+
+Simples construtor da Class \hyperlink{class_turma}{Turma} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_turma_a798f323ec0cdc01337dbdc0499a129cc}{}\label{class_turma_a798f323ec0cdc01337dbdc0499a129cc} 
+\index{Turma@{Turma}!alocar\+Aluno@{alocar\+Aluno}}
+\index{alocar\+Aluno@{alocar\+Aluno}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{alocar\+Aluno()}{alocarAluno()}}
+{\footnotesize\ttfamily void Turma\+::alocar\+Aluno (\begin{DoxyParamCaption}\item[{int}]{aluno\+ID }\end{DoxyParamCaption})}
+
+Introduz um aluno numa turma \hypertarget{class_turma_a08da4cef2b3125047044ea6ce7f65e1f}{}\label{class_turma_a08da4cef2b3125047044ea6ce7f65e1f} 
+\index{Turma@{Turma}!cadeiras\+Tem\+Vagas@{cadeiras\+Tem\+Vagas}}
+\index{cadeiras\+Tem\+Vagas@{cadeiras\+Tem\+Vagas}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{cadeiras\+Tem\+Vagas()}{cadeirasTemVagas()}}
+{\footnotesize\ttfamily bool Turma\+::cadeiras\+Tem\+Vagas (\begin{DoxyParamCaption}\item[{vector$<$ Uc $\ast$$>$}]{ucs }\end{DoxyParamCaption})}
+
+Retorna verdadeiro se tem vagas nas cadeiras ucs \hypertarget{class_turma_ae184df49282ba96f9621d20d6cf0ed40}{}\label{class_turma_ae184df49282ba96f9621d20d6cf0ed40} 
+\index{Turma@{Turma}!disband\+Turma@{disband\+Turma}}
+\index{disband\+Turma@{disband\+Turma}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{disband\+Turma()}{disbandTurma()}}
+{\footnotesize\ttfamily vector$<$ Aluno $\ast$ $>$ Turma\+::disband\+Turma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+manda tirar os alunos desta turma nas respectivas U\+Cs \hypertarget{class_turma_ac2c81d5b5bf756a4a8c779566cc208e6}{}\label{class_turma_ac2c81d5b5bf756a4a8c779566cc208e6} 
+\index{Turma@{Turma}!get\+Turma\+ID@{get\+Turma\+ID}}
+\index{get\+Turma\+ID@{get\+Turma\+ID}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{get\+Turma\+I\+D()}{getTurmaID()}}
+{\footnotesize\ttfamily string Turma\+::get\+Turma\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+getter simples \begin{DoxyReturn}{Returns}
+turma\+ID 
+\end{DoxyReturn}
+\hypertarget{class_turma_ac70cc3ddd76633aad166753d9a14a42e}{}\label{class_turma_ac70cc3ddd76633aad166753d9a14a42e} 
+\index{Turma@{Turma}!get\+Vagas\+Cadeiras@{get\+Vagas\+Cadeiras}}
+\index{get\+Vagas\+Cadeiras@{get\+Vagas\+Cadeiras}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{get\+Vagas\+Cadeiras()}{getVagasCadeiras()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, Uc $\ast$ $>$ $>$ Turma\+::get\+Vagas\+Cadeiras (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+getter simples \begin{DoxyReturn}{Returns}
+vagas\+Cadeiras 
+\end{DoxyReturn}
+\hypertarget{class_turma_ae717553d232237f5779b3f5c83b0abcb}{}\label{class_turma_ae717553d232237f5779b3f5c83b0abcb} 
+\index{Turma@{Turma}!inscrever\+Aluno@{inscrever\+Aluno}}
+\index{inscrever\+Aluno@{inscrever\+Aluno}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{inscrever\+Aluno()}{inscreverAluno()}}
+{\footnotesize\ttfamily void Turma\+::inscrever\+Aluno (\begin{DoxyParamCaption}\item[{vector$<$ Uc $\ast$$>$}]{ucs,  }\item[{Aluno $\ast$}]{aluno }\end{DoxyParamCaption})}
+
+Inscreve aluno nas ucs introduzidas \hypertarget{class_turma_a4d80e915fa31fbe3ad70de1919641e5e}{}\label{class_turma_a4d80e915fa31fbe3ad70de1919641e5e} 
+\index{Turma@{Turma}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Turma\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class_turma}{Turma} \&}]{t1 }\end{DoxyParamCaption}) const}
+
+Operator $<$ overloading O termo de comparacao e\textquotesingle{} o numero de vagas \hypertarget{class_turma_aa501aa0b3e7aa254a670d1bf35e4ee81}{}\label{class_turma_aa501aa0b3e7aa254a670d1bf35e4ee81} 
+\index{Turma@{Turma}!operator==@{operator==}}
+\index{operator==@{operator==}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Turma\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_turma}{Turma} \&}]{t1 }\end{DoxyParamCaption}) const}
+
+Operator == overloading Compara os parametros turma\+ID e uc\+ID \hypertarget{class_turma_ad295f90f4a29569b2a01de0acdb16d94}{}\label{class_turma_ad295f90f4a29569b2a01de0acdb16d94} 
+\index{Turma@{Turma}!print\+Info@{print\+Info}}
+\index{print\+Info@{print\+Info}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{print\+Info()}{printInfo()}}
+{\footnotesize\ttfamily const void Turma\+::print\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Imprime toda a informacao das ucs e das vagas de uma maneira curta \hypertarget{class_turma_a651127027bbf5ef0c86585fc4569f7da}{}\label{class_turma_a651127027bbf5ef0c86585fc4569f7da} 
+\index{Turma@{Turma}!save\+Turmas@{save\+Turmas}}
+\index{save\+Turmas@{save\+Turmas}!Turma@{Turma}}
+\subsubsection{\texorpdfstring{save\+Turmas()}{saveTurmas()}}
+{\footnotesize\ttfamily void Turma\+::save\+Turmas (\begin{DoxyParamCaption}\item[{ofstream $\ast$}]{output }\end{DoxyParamCaption})}
+
+Guarda os dados da turma numa ofstream 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+turma.\+h\item 
+turma.\+cpp\end{DoxyCompactItemize}

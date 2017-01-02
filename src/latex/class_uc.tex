@@ -1,0 +1,356 @@
+\hypertarget{class_uc}{}\section{Uc Class Reference}
+\label{class_uc}\index{Uc@{Uc}}
+
+
+{\ttfamily \#include $<$uc.\+h$>$}
+
+Inheritance diagram for Uc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_uc}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_uc_aca20c83c3003e9279c141afed4a63d29}{Uc} (string \hyperlink{class_uc_af2971baa3ea283ba5fec29170de3fbe9}{nome}, string \hyperlink{class_uc_a5d6fb389c3634d6c4f4b92877e4e0e39}{sigla}, int \hyperlink{class_uc_a5e91075b035d68f536d35683c50c9bae}{semestre}, int \hyperlink{class_uc_aefaa6dc015733603451294d3e2efaa83}{ano}, float \hyperlink{class_uc_a0d64adeb7bc81560097dc7c6e9e2dff1}{creditos})
+\item 
+virtual \hyperlink{class_uc_a3990e03dc5dd679cfadd02514b318d42}{$\sim$\+Uc} ()
+\item 
+int \hyperlink{class_uc_a8208b7eed44e19a08d92442ad8202dd0}{get\+Ano} () const
+\item 
+void \hyperlink{class_uc_a4c6b722e1abbeab671c84d9b8fb4937b}{set\+Ano} (int \hyperlink{class_uc_aefaa6dc015733603451294d3e2efaa83}{ano})
+\item 
+float \hyperlink{class_uc_aab235a5055e1a3801df9032d8e73225a}{get\+Creditos} () const
+\item 
+void \hyperlink{class_uc_a40f0de8ac22eac7b670d715cd242587f}{set\+Creditos} (float \hyperlink{class_uc_a0d64adeb7bc81560097dc7c6e9e2dff1}{creditos})
+\item 
+const string \& \hyperlink{class_uc_a27188d9339641df1be60e14afbead17e}{get\+Nome} () const
+\item 
+void \hyperlink{class_uc_a278e8288a1aa28daea1fc851348edc88}{set\+Nome} (const string \&\hyperlink{class_uc_af2971baa3ea283ba5fec29170de3fbe9}{nome})
+\item 
+int \hyperlink{class_uc_a68a645144f76f245b73bdaaa2575ea7c}{get\+Semestre} () const
+\item 
+void \hyperlink{class_uc_a4185161e311af207eb39ce8ae8070f91}{set\+Semestre} (int \hyperlink{class_uc_a5e91075b035d68f536d35683c50c9bae}{semestre})
+\item 
+const string \& \hyperlink{class_uc_a16ccd7563b4be5ef6d15d28ea2293d50}{get\+Sigla} () const
+\item 
+void \hyperlink{class_uc_aed13eb6a728b836ea6f50d9963220f8d}{set\+Sigla} (const string \&\hyperlink{class_uc_a5d6fb389c3634d6c4f4b92877e4e0e39}{sigla})
+\item 
+vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_uc_aed4df59cb5431e64486d6ac45efad4fc}{get\+Alunos} () const
+\item 
+void \hyperlink{class_uc_a1bddbeaf97c10e45e2587b1c378f8be6}{set\+Alunos} (vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$$>$ \hyperlink{class_uc_a058e545b7e0dbbf16f6af64bb47361eb}{alunos})
+\item 
+void \hyperlink{class_uc_a89ed45830454cdf2f4a7528237db2c7d}{add\+Aluno} (\hyperlink{class_aluno}{Aluno} $\ast$aluno)
+\item 
+void \hyperlink{class_uc_a528b6f919358f6ab1ffaf6f6542343b3}{remove\+Aluno} (int numero)
+\item 
+virtual void \hyperlink{class_uc_a9a64416600c67469a285d97a20050dd4}{display\+UC} ()=0
+\item 
+virtual string \hyperlink{class_uc_a5820a4fc8672679329f72467aa1599da}{get\+Faculdade} ()
+\item 
+virtual string \hyperlink{class_uc_a30c8b684d775a3d8304fcafefea2b951}{get\+Curso} ()
+\item 
+virtual string \hyperlink{class_uc_a98e8e68278a1cfb628662ab3d613410f}{get\+Area} ()
+\item 
+virtual int \hyperlink{class_uc_aabb7272709731972c4bc574cfde28772}{get\+Vagas} ()
+\item 
+virtual void \hyperlink{class_uc_a41b665e518e252eead3d8425696cddf3}{set\+Vagas} (int vagas)
+\item 
+virtual void \hyperlink{class_uc_a32e7d62a706731268ef22f5d0c76793f}{display\+\_\+incomplete} ()
+\item 
+virtual void \hyperlink{class_uc_a6d5fafb63b88b75408dab0911276ce3f}{save} (ofstream $\ast$output)=0
+\item 
+vector$<$ pair$<$ string, \hyperlink{class_aluno}{Aluno} $\ast$ $>$ $>$ \hyperlink{class_uc_ac2a824827d686ee674bb8c2e9af70882}{get\+Turmas} ()
+\item 
+void \hyperlink{class_uc_a02b0eae5f450580e7d20cb8c10205c3a}{assign\+Aluno\+Turma} (string turma\+ID, \hyperlink{class_aluno}{Aluno} $\ast$aluno)
+\item 
+vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_uc_a2b4ec2b2eee6d846de5553d02f75e062}{get\+Alunos\+Sem\+Turma} ()
+\item 
+vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_uc_acab5ac7d43c6733925b4a0127b41a5cf}{apagar\+Turma} (string turma\+ID)
+\item 
+bool \hyperlink{class_uc_a1c290a83c5948f6f494e28d21d4c3e2c}{aluno\+Tem\+Turma} (\hyperlink{class_aluno}{Aluno} $\ast$aluno)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_uc_af2971baa3ea283ba5fec29170de3fbe9}{nome}
+\item 
+string \hyperlink{class_uc_a5d6fb389c3634d6c4f4b92877e4e0e39}{sigla}
+\item 
+int \hyperlink{class_uc_a5e91075b035d68f536d35683c50c9bae}{semestre}
+\item 
+int \hyperlink{class_uc_aefaa6dc015733603451294d3e2efaa83}{ano}
+\item 
+float \hyperlink{class_uc_a0d64adeb7bc81560097dc7c6e9e2dff1}{creditos}
+\item 
+vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_uc_a058e545b7e0dbbf16f6af64bb47361eb}{alunos}
+\item 
+vector$<$ pair$<$ string, \hyperlink{class_aluno}{Aluno} $\ast$ $>$ $>$ \hyperlink{class_uc_af83cbf0a6dd978ff629bfc34d5255754}{turmas}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_uc_aca20c83c3003e9279c141afed4a63d29}{}\label{class_uc_aca20c83c3003e9279c141afed4a63d29} 
+\index{Uc@{Uc}!Uc@{Uc}}
+\index{Uc@{Uc}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{Uc()}{Uc()}}
+{\footnotesize\ttfamily Uc\+::\+Uc (\begin{DoxyParamCaption}\item[{string}]{nome,  }\item[{string}]{sigla,  }\item[{int}]{semestre,  }\item[{int}]{ano,  }\item[{float}]{creditos }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a3990e03dc5dd679cfadd02514b318d42}{}\label{class_uc_a3990e03dc5dd679cfadd02514b318d42} 
+\index{Uc@{Uc}!````~Uc@{$\sim$\+Uc}}
+\index{````~Uc@{$\sim$\+Uc}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{$\sim$\+Uc()}{~Uc()}}
+{\footnotesize\ttfamily virtual Uc\+::$\sim$\+Uc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_uc_a89ed45830454cdf2f4a7528237db2c7d}{}\label{class_uc_a89ed45830454cdf2f4a7528237db2c7d} 
+\index{Uc@{Uc}!add\+Aluno@{add\+Aluno}}
+\index{add\+Aluno@{add\+Aluno}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{add\+Aluno()}{addAluno()}}
+{\footnotesize\ttfamily void Uc\+::add\+Aluno (\begin{DoxyParamCaption}\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
+
+dado um aluno, este e adicionado ao vetor de alunos que frequentam a cadeira \hypertarget{class_uc_a1c290a83c5948f6f494e28d21d4c3e2c}{}\label{class_uc_a1c290a83c5948f6f494e28d21d4c3e2c} 
+\index{Uc@{Uc}!aluno\+Tem\+Turma@{aluno\+Tem\+Turma}}
+\index{aluno\+Tem\+Turma@{aluno\+Tem\+Turma}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{aluno\+Tem\+Turma()}{alunoTemTurma()}}
+{\footnotesize\ttfamily bool Uc\+::aluno\+Tem\+Turma (\begin{DoxyParamCaption}\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
+
+retorna true se o aluno tiver turma nesta UC \hypertarget{class_uc_acab5ac7d43c6733925b4a0127b41a5cf}{}\label{class_uc_acab5ac7d43c6733925b4a0127b41a5cf} 
+\index{Uc@{Uc}!apagar\+Turma@{apagar\+Turma}}
+\index{apagar\+Turma@{apagar\+Turma}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{apagar\+Turma()}{apagarTurma()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ Uc\+::apagar\+Turma (\begin{DoxyParamCaption}\item[{string}]{turma\+ID }\end{DoxyParamCaption})}
+
+desassocia todos os alunos de uma turma e retorna os alunos que ficaram sem turma \hypertarget{class_uc_a02b0eae5f450580e7d20cb8c10205c3a}{}\label{class_uc_a02b0eae5f450580e7d20cb8c10205c3a} 
+\index{Uc@{Uc}!assign\+Aluno\+Turma@{assign\+Aluno\+Turma}}
+\index{assign\+Aluno\+Turma@{assign\+Aluno\+Turma}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{assign\+Aluno\+Turma()}{assignAlunoTurma()}}
+{\footnotesize\ttfamily void Uc\+::assign\+Aluno\+Turma (\begin{DoxyParamCaption}\item[{string}]{turma\+ID,  }\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
+
+associar aluno a uma turma \hypertarget{class_uc_a32e7d62a706731268ef22f5d0c76793f}{}\label{class_uc_a32e7d62a706731268ef22f5d0c76793f} 
+\index{Uc@{Uc}!display\+\_\+incomplete@{display\+\_\+incomplete}}
+\index{display\+\_\+incomplete@{display\+\_\+incomplete}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{display\+\_\+incomplete()}{display\_incomplete()}}
+{\footnotesize\ttfamily void Uc\+::display\+\_\+incomplete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n___optativa_a11190901ff62b2d09903e81886d4cdd4}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a6e8cf85b9ccacb15ad7a217f55120b9f}{Optativa}.
+
+\hypertarget{class_uc_a9a64416600c67469a285d97a20050dd4}{}\label{class_uc_a9a64416600c67469a285d97a20050dd4} 
+\index{Uc@{Uc}!display\+UC@{display\+UC}}
+\index{display\+UC@{display\+UC}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{display\+U\+C()}{displayUC()}}
+{\footnotesize\ttfamily virtual void Uc\+::display\+UC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_n___optativa_a91df0bfdec2f9fd86ccf3f83d23dff4d}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a48019eb60424bdad456c22c7c7656082}{Optativa}.
+
+\hypertarget{class_uc_aed4df59cb5431e64486d6ac45efad4fc}{}\label{class_uc_aed4df59cb5431e64486d6ac45efad4fc} 
+\index{Uc@{Uc}!get\+Alunos@{get\+Alunos}}
+\index{get\+Alunos@{get\+Alunos}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Alunos()}{getAlunos()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ Uc\+::get\+Alunos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_uc_a2b4ec2b2eee6d846de5553d02f75e062}{}\label{class_uc_a2b4ec2b2eee6d846de5553d02f75e062} 
+\index{Uc@{Uc}!get\+Alunos\+Sem\+Turma@{get\+Alunos\+Sem\+Turma}}
+\index{get\+Alunos\+Sem\+Turma@{get\+Alunos\+Sem\+Turma}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Alunos\+Sem\+Turma()}{getAlunosSemTurma()}}
+{\footnotesize\ttfamily vector$<$\hyperlink{class_aluno}{Aluno}$\ast$$>$ Uc\+::get\+Alunos\+Sem\+Turma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a8208b7eed44e19a08d92442ad8202dd0}{}\label{class_uc_a8208b7eed44e19a08d92442ad8202dd0} 
+\index{Uc@{Uc}!get\+Ano@{get\+Ano}}
+\index{get\+Ano@{get\+Ano}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Ano()}{getAno()}}
+{\footnotesize\ttfamily int Uc\+::get\+Ano (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_uc_a98e8e68278a1cfb628662ab3d613410f}{}\label{class_uc_a98e8e68278a1cfb628662ab3d613410f} 
+\index{Uc@{Uc}!get\+Area@{get\+Area}}
+\index{get\+Area@{get\+Area}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Area()}{getArea()}}
+{\footnotesize\ttfamily string Uc\+::get\+Area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n___optativa_a43cdb1dcc1c9ec42dd29497c6b4b0dd0}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a3f02a824fbfaf7ad5f395b9bd9037ef3}{Optativa}.
+
+\hypertarget{class_uc_aab235a5055e1a3801df9032d8e73225a}{}\label{class_uc_aab235a5055e1a3801df9032d8e73225a} 
+\index{Uc@{Uc}!get\+Creditos@{get\+Creditos}}
+\index{get\+Creditos@{get\+Creditos}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Creditos()}{getCreditos()}}
+{\footnotesize\ttfamily float Uc\+::get\+Creditos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_uc_a30c8b684d775a3d8304fcafefea2b951}{}\label{class_uc_a30c8b684d775a3d8304fcafefea2b951} 
+\index{Uc@{Uc}!get\+Curso@{get\+Curso}}
+\index{get\+Curso@{get\+Curso}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Curso()}{getCurso()}}
+{\footnotesize\ttfamily string Uc\+::get\+Curso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n___optativa_a94546c2209c4ff22d055084dc77477cd}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a79d38d1290190327c812c3eb16f310f6}{Optativa}.
+
+\hypertarget{class_uc_a5820a4fc8672679329f72467aa1599da}{}\label{class_uc_a5820a4fc8672679329f72467aa1599da} 
+\index{Uc@{Uc}!get\+Faculdade@{get\+Faculdade}}
+\index{get\+Faculdade@{get\+Faculdade}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Faculdade()}{getFaculdade()}}
+{\footnotesize\ttfamily string Uc\+::get\+Faculdade (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n___optativa_a596634b068f013adb820683ff1f50566}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a647029a53dd8c9c5b997730e57981a05}{Optativa}.
+
+\hypertarget{class_uc_a27188d9339641df1be60e14afbead17e}{}\label{class_uc_a27188d9339641df1be60e14afbead17e} 
+\index{Uc@{Uc}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Nome()}{getNome()}}
+{\footnotesize\ttfamily const string \& Uc\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_uc_a68a645144f76f245b73bdaaa2575ea7c}{}\label{class_uc_a68a645144f76f245b73bdaaa2575ea7c} 
+\index{Uc@{Uc}!get\+Semestre@{get\+Semestre}}
+\index{get\+Semestre@{get\+Semestre}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Semestre()}{getSemestre()}}
+{\footnotesize\ttfamily int Uc\+::get\+Semestre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_uc_a16ccd7563b4be5ef6d15d28ea2293d50}{}\label{class_uc_a16ccd7563b4be5ef6d15d28ea2293d50} 
+\index{Uc@{Uc}!get\+Sigla@{get\+Sigla}}
+\index{get\+Sigla@{get\+Sigla}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Sigla()}{getSigla()}}
+{\footnotesize\ttfamily const string \& Uc\+::get\+Sigla (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\hypertarget{class_uc_ac2a824827d686ee674bb8c2e9af70882}{}\label{class_uc_ac2a824827d686ee674bb8c2e9af70882} 
+\index{Uc@{Uc}!get\+Turmas@{get\+Turmas}}
+\index{get\+Turmas@{get\+Turmas}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Turmas()}{getTurmas()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ string, \hyperlink{class_aluno}{Aluno} $\ast$ $>$ $>$ Uc\+::get\+Turmas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+simples getter \begin{DoxyReturn}{Returns}
+turmas 
+\end{DoxyReturn}
+\hypertarget{class_uc_aabb7272709731972c4bc574cfde28772}{}\label{class_uc_aabb7272709731972c4bc574cfde28772} 
+\index{Uc@{Uc}!get\+Vagas@{get\+Vagas}}
+\index{get\+Vagas@{get\+Vagas}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{get\+Vagas()}{getVagas()}}
+{\footnotesize\ttfamily int Uc\+::get\+Vagas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n___optativa_a8eb826eecb5447077d8906eb5a687193}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a675d4750bbe112a1b3d2c0b6bf64a94b}{Optativa}.
+
+\hypertarget{class_uc_a528b6f919358f6ab1ffaf6f6542343b3}{}\label{class_uc_a528b6f919358f6ab1ffaf6f6542343b3} 
+\index{Uc@{Uc}!remove\+Aluno@{remove\+Aluno}}
+\index{remove\+Aluno@{remove\+Aluno}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{remove\+Aluno()}{removeAluno()}}
+{\footnotesize\ttfamily void Uc\+::remove\+Aluno (\begin{DoxyParamCaption}\item[{int}]{numero }\end{DoxyParamCaption})}
+
+dado um aluno, este e adicionado ao vetor de alunos que frequentam a cadeira \hypertarget{class_uc_a6d5fafb63b88b75408dab0911276ce3f}{}\label{class_uc_a6d5fafb63b88b75408dab0911276ce3f} 
+\index{Uc@{Uc}!save@{save}}
+\index{save@{save}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily virtual void Uc\+::save (\begin{DoxyParamCaption}\item[{ofstream $\ast$}]{output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_n___optativa_aeb26db4a13ec5c11afa10b7e39bba66d}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_afcfc090c02bffe03c1316d1f00b0dca3}{Optativa}.
+
+\hypertarget{class_uc_a1bddbeaf97c10e45e2587b1c378f8be6}{}\label{class_uc_a1bddbeaf97c10e45e2587b1c378f8be6} 
+\index{Uc@{Uc}!set\+Alunos@{set\+Alunos}}
+\index{set\+Alunos@{set\+Alunos}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Alunos()}{setAlunos()}}
+{\footnotesize\ttfamily void Uc\+::set\+Alunos (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$$>$}]{alunos }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a4c6b722e1abbeab671c84d9b8fb4937b}{}\label{class_uc_a4c6b722e1abbeab671c84d9b8fb4937b} 
+\index{Uc@{Uc}!set\+Ano@{set\+Ano}}
+\index{set\+Ano@{set\+Ano}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Ano()}{setAno()}}
+{\footnotesize\ttfamily void Uc\+::set\+Ano (\begin{DoxyParamCaption}\item[{int}]{ano }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a40f0de8ac22eac7b670d715cd242587f}{}\label{class_uc_a40f0de8ac22eac7b670d715cd242587f} 
+\index{Uc@{Uc}!set\+Creditos@{set\+Creditos}}
+\index{set\+Creditos@{set\+Creditos}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Creditos()}{setCreditos()}}
+{\footnotesize\ttfamily void Uc\+::set\+Creditos (\begin{DoxyParamCaption}\item[{float}]{creditos }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a278e8288a1aa28daea1fc851348edc88}{}\label{class_uc_a278e8288a1aa28daea1fc851348edc88} 
+\index{Uc@{Uc}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Nome()}{setNome()}}
+{\footnotesize\ttfamily void Uc\+::set\+Nome (\begin{DoxyParamCaption}\item[{const string \&}]{nome }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a4185161e311af207eb39ce8ae8070f91}{}\label{class_uc_a4185161e311af207eb39ce8ae8070f91} 
+\index{Uc@{Uc}!set\+Semestre@{set\+Semestre}}
+\index{set\+Semestre@{set\+Semestre}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Semestre()}{setSemestre()}}
+{\footnotesize\ttfamily void Uc\+::set\+Semestre (\begin{DoxyParamCaption}\item[{int}]{semestre }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_aed13eb6a728b836ea6f50d9963220f8d}{}\label{class_uc_aed13eb6a728b836ea6f50d9963220f8d} 
+\index{Uc@{Uc}!set\+Sigla@{set\+Sigla}}
+\index{set\+Sigla@{set\+Sigla}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Sigla()}{setSigla()}}
+{\footnotesize\ttfamily void Uc\+::set\+Sigla (\begin{DoxyParamCaption}\item[{const string \&}]{sigla }\end{DoxyParamCaption})}
+
+\hypertarget{class_uc_a41b665e518e252eead3d8425696cddf3}{}\label{class_uc_a41b665e518e252eead3d8425696cddf3} 
+\index{Uc@{Uc}!set\+Vagas@{set\+Vagas}}
+\index{set\+Vagas@{set\+Vagas}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{set\+Vagas()}{setVagas()}}
+{\footnotesize\ttfamily void Uc\+::set\+Vagas (\begin{DoxyParamCaption}\item[{int}]{vagas }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_n___optativa_a07d95cc8ffddb4e5b6109dceb4647d0c}{N\+\_\+\+Optativa}, and \hyperlink{class_optativa_a5b123e4f96894d9ff8fb4e6f500ce40d}{Optativa}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_uc_a058e545b7e0dbbf16f6af64bb47361eb}{}\label{class_uc_a058e545b7e0dbbf16f6af64bb47361eb} 
+\index{Uc@{Uc}!alunos@{alunos}}
+\index{alunos@{alunos}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{alunos}{alunos}}
+{\footnotesize\ttfamily vector$<$\hyperlink{class_aluno}{Aluno}$\ast$$>$ Uc\+::alunos\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_uc_aefaa6dc015733603451294d3e2efaa83}{}\label{class_uc_aefaa6dc015733603451294d3e2efaa83} 
+\index{Uc@{Uc}!ano@{ano}}
+\index{ano@{ano}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{ano}{ano}}
+{\footnotesize\ttfamily int Uc\+::ano\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_uc_a0d64adeb7bc81560097dc7c6e9e2dff1}{}\label{class_uc_a0d64adeb7bc81560097dc7c6e9e2dff1} 
+\index{Uc@{Uc}!creditos@{creditos}}
+\index{creditos@{creditos}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{creditos}{creditos}}
+{\footnotesize\ttfamily float Uc\+::creditos\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_uc_af2971baa3ea283ba5fec29170de3fbe9}{}\label{class_uc_af2971baa3ea283ba5fec29170de3fbe9} 
+\index{Uc@{Uc}!nome@{nome}}
+\index{nome@{nome}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily string Uc\+::nome\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_uc_a5e91075b035d68f536d35683c50c9bae}{}\label{class_uc_a5e91075b035d68f536d35683c50c9bae} 
+\index{Uc@{Uc}!semestre@{semestre}}
+\index{semestre@{semestre}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{semestre}{semestre}}
+{\footnotesize\ttfamily int Uc\+::semestre\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_uc_a5d6fb389c3634d6c4f4b92877e4e0e39}{}\label{class_uc_a5d6fb389c3634d6c4f4b92877e4e0e39} 
+\index{Uc@{Uc}!sigla@{sigla}}
+\index{sigla@{sigla}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{sigla}{sigla}}
+{\footnotesize\ttfamily string Uc\+::sigla\hspace{0.3cm}{\ttfamily [protected]}}
+
+\hypertarget{class_uc_af83cbf0a6dd978ff629bfc34d5255754}{}\label{class_uc_af83cbf0a6dd978ff629bfc34d5255754} 
+\index{Uc@{Uc}!turmas@{turmas}}
+\index{turmas@{turmas}!Uc@{Uc}}
+\subsubsection{\texorpdfstring{turmas}{turmas}}
+{\footnotesize\ttfamily vector$<$ pair$<$string,\hyperlink{class_aluno}{Aluno}$\ast$$>$ $>$ Uc\+::turmas\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{uc_8h}{uc.\+h}\item 
+\hyperlink{uc_8cpp}{uc.\+cpp}\end{DoxyCompactItemize}

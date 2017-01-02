@@ -1,0 +1,153 @@
+\hypertarget{class_reuniao}{}\section{Reuniao Class Reference}
+\label{class_reuniao}\index{Reuniao@{Reuniao}}
+
+
+{\ttfamily \#include $<$reuniao.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_reuniao_ad0fe5ba861f36f1a89cd25352c894a8b}{Reuniao} (vector$<$ int $>$ data, int id, string agenda, string desc)
+\item 
+vector$<$ int $>$ \hyperlink{class_reuniao_af88fe0e1665a47c34e72ed90b84f785e}{get\+Data} () const
+\item 
+void \hyperlink{class_reuniao_a36323d2065772e005fe9609e84289fd5}{set\+Data} (const vector$<$ int $>$ data)
+\item 
+int \hyperlink{class_reuniao_a8baeb122e48d0f90cba40407f97e278e}{get\+ID} () const
+\item 
+const string \& \hyperlink{class_reuniao_ac74333d543eb7ef5f9042b9111e3eac1}{get\+Agenda} () const
+\item 
+void \hyperlink{class_reuniao_abbd435487bf4dcec1d5b030bebe92528}{set\+Agenda} (const string \&agenda)
+\item 
+const string \& \hyperlink{class_reuniao_a2d373c8189382b2eeafbecbdb8f5e0d0}{get\+Descricao} () const
+\item 
+void \hyperlink{class_reuniao_aa67dc8030f5c5df36396127bb25a369e}{set\+Descricao} (const string \&descricao)
+\item 
+bool \hyperlink{class_reuniao_a132c677f5296fc9024ef99c811d27101}{compare\+Date} (vector$<$ int $>$ data) const
+\item 
+bool \hyperlink{class_reuniao_a66853a7c1b5d70e529b1b0964f21fc62}{operator$<$} (const \hyperlink{class_reuniao}{Reuniao} \&r1) const
+\item 
+bool \hyperlink{class_reuniao_a0ee9805621e0e6d0f28fa14a7a623eab}{operator==} (const \hyperlink{class_reuniao}{Reuniao} \&r1) const
+\item 
+void \hyperlink{class_reuniao_aaebc1a93242f44e618292f2e946cd9ff}{print\+Reuniao\+Short} () const
+\item 
+void \hyperlink{class_reuniao_a0eb3204ecc596f02362fec03d414f940}{print\+Reuniao} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{class_reuniao}{Reuniao} Classe usada pelo Docente para marcar reunioes com os estudantes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Data da reuniao\\
+\hline
+{\em estudante\+ID} & ID do estudante que participa na reuniao\\
+\hline
+{\em agenda} & Titulo da \hyperlink{class_reuniao}{Reuniao}\\
+\hline
+{\em descricao} & Breve descricao dos topicos da \hyperlink{class_reuniao}{Reuniao} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_reuniao_ad0fe5ba861f36f1a89cd25352c894a8b}{}\label{class_reuniao_ad0fe5ba861f36f1a89cd25352c894a8b} 
+\index{Reuniao@{Reuniao}!Reuniao@{Reuniao}}
+\index{Reuniao@{Reuniao}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{Reuniao()}{Reuniao()}}
+{\footnotesize\ttfamily Reuniao\+::\+Reuniao (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{data,  }\item[{int}]{id,  }\item[{string}]{agenda,  }\item[{string}]{desc }\end{DoxyParamCaption})}
+
+Simples construtor da class \hyperlink{class_reuniao}{Reuniao} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_reuniao_a132c677f5296fc9024ef99c811d27101}{}\label{class_reuniao_a132c677f5296fc9024ef99c811d27101} 
+\index{Reuniao@{Reuniao}!compare\+Date@{compare\+Date}}
+\index{compare\+Date@{compare\+Date}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{compare\+Date()}{compareDate()}}
+{\footnotesize\ttfamily bool Reuniao\+::compare\+Date (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{data }\end{DoxyParamCaption}) const}
+
+Compara se duas datas sao iguais \hypertarget{class_reuniao_ac74333d543eb7ef5f9042b9111e3eac1}{}\label{class_reuniao_ac74333d543eb7ef5f9042b9111e3eac1} 
+\index{Reuniao@{Reuniao}!get\+Agenda@{get\+Agenda}}
+\index{get\+Agenda@{get\+Agenda}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{get\+Agenda()}{getAgenda()}}
+{\footnotesize\ttfamily const string \& Reuniao\+::get\+Agenda (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+getter simples \begin{DoxyReturn}{Returns}
+Agenda 
+\end{DoxyReturn}
+\hypertarget{class_reuniao_af88fe0e1665a47c34e72ed90b84f785e}{}\label{class_reuniao_af88fe0e1665a47c34e72ed90b84f785e} 
+\index{Reuniao@{Reuniao}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{get\+Data()}{getData()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Reuniao\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+getter simples \begin{DoxyReturn}{Returns}
+Data da \hyperlink{class_reuniao}{Reuniao} 
+\end{DoxyReturn}
+\hypertarget{class_reuniao_a2d373c8189382b2eeafbecbdb8f5e0d0}{}\label{class_reuniao_a2d373c8189382b2eeafbecbdb8f5e0d0} 
+\index{Reuniao@{Reuniao}!get\+Descricao@{get\+Descricao}}
+\index{get\+Descricao@{get\+Descricao}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{get\+Descricao()}{getDescricao()}}
+{\footnotesize\ttfamily const string \& Reuniao\+::get\+Descricao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+getter simples \begin{DoxyReturn}{Returns}
+Descricao 
+\end{DoxyReturn}
+\hypertarget{class_reuniao_a8baeb122e48d0f90cba40407f97e278e}{}\label{class_reuniao_a8baeb122e48d0f90cba40407f97e278e} 
+\index{Reuniao@{Reuniao}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily int Reuniao\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+getter simples \begin{DoxyReturn}{Returns}
+ID do Estudante 
+\end{DoxyReturn}
+\hypertarget{class_reuniao_a66853a7c1b5d70e529b1b0964f21fc62}{}\label{class_reuniao_a66853a7c1b5d70e529b1b0964f21fc62} 
+\index{Reuniao@{Reuniao}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Reuniao\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class_reuniao}{Reuniao} \&}]{r1 }\end{DoxyParamCaption}) const}
+
+Operator $<$ overloading O termo de comparacao e\textquotesingle{} agenda \hypertarget{class_reuniao_a0ee9805621e0e6d0f28fa14a7a623eab}{}\label{class_reuniao_a0ee9805621e0e6d0f28fa14a7a623eab} 
+\index{Reuniao@{Reuniao}!operator==@{operator==}}
+\index{operator==@{operator==}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Reuniao\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_reuniao}{Reuniao} \&}]{r1 }\end{DoxyParamCaption}) const}
+
+Operator == overloading Compara todos os parametros \hypertarget{class_reuniao_a0eb3204ecc596f02362fec03d414f940}{}\label{class_reuniao_a0eb3204ecc596f02362fec03d414f940} 
+\index{Reuniao@{Reuniao}!print\+Reuniao@{print\+Reuniao}}
+\index{print\+Reuniao@{print\+Reuniao}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{print\+Reuniao()}{printReuniao()}}
+{\footnotesize\ttfamily void Reuniao\+::print\+Reuniao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Imprime todos detalhes de uma reuniao \hypertarget{class_reuniao_aaebc1a93242f44e618292f2e946cd9ff}{}\label{class_reuniao_aaebc1a93242f44e618292f2e946cd9ff} 
+\index{Reuniao@{Reuniao}!print\+Reuniao\+Short@{print\+Reuniao\+Short}}
+\index{print\+Reuniao\+Short@{print\+Reuniao\+Short}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{print\+Reuniao\+Short()}{printReuniaoShort()}}
+{\footnotesize\ttfamily void Reuniao\+::print\+Reuniao\+Short (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Imprime alguns detalhes de uma reuniao \hypertarget{class_reuniao_abbd435487bf4dcec1d5b030bebe92528}{}\label{class_reuniao_abbd435487bf4dcec1d5b030bebe92528} 
+\index{Reuniao@{Reuniao}!set\+Agenda@{set\+Agenda}}
+\index{set\+Agenda@{set\+Agenda}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{set\+Agenda()}{setAgenda()}}
+{\footnotesize\ttfamily void Reuniao\+::set\+Agenda (\begin{DoxyParamCaption}\item[{const string \&}]{agenda }\end{DoxyParamCaption})}
+
+setter simples sets Agenda \hypertarget{class_reuniao_a36323d2065772e005fe9609e84289fd5}{}\label{class_reuniao_a36323d2065772e005fe9609e84289fd5} 
+\index{Reuniao@{Reuniao}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{set\+Data()}{setData()}}
+{\footnotesize\ttfamily void Reuniao\+::set\+Data (\begin{DoxyParamCaption}\item[{const vector$<$ int $>$}]{data }\end{DoxyParamCaption})}
+
+setter simples sets Data da \hyperlink{class_reuniao}{Reuniao} \hypertarget{class_reuniao_aa67dc8030f5c5df36396127bb25a369e}{}\label{class_reuniao_aa67dc8030f5c5df36396127bb25a369e} 
+\index{Reuniao@{Reuniao}!set\+Descricao@{set\+Descricao}}
+\index{set\+Descricao@{set\+Descricao}!Reuniao@{Reuniao}}
+\subsubsection{\texorpdfstring{set\+Descricao()}{setDescricao()}}
+{\footnotesize\ttfamily void Reuniao\+::set\+Descricao (\begin{DoxyParamCaption}\item[{const string \&}]{descricao }\end{DoxyParamCaption})}
+
+setter simples sets Descricao 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+reuniao.\+h\item 
+reuniao.\+cpp\end{DoxyCompactItemize}
