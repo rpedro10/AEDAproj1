@@ -28,7 +28,10 @@
 #define ANO5 5
 
 
-
+/**
+ * Hash table
+ *
+ */
 struct eqalunos {
 	bool operator() (const Aluno &c1, const Aluno &c2) const {
 		return c1.getNumero() == c2.getNumero();
@@ -47,7 +50,10 @@ struct halunos {
 typedef tr1::unordered_set<Aluno, halunos, eqalunos> tabHInativos;
 
 using namespace std;
-
+/**
+ *
+ * Class Mieic
+ */
 class Mieic{
 
 	tabHInativos alunos_inativos;
@@ -76,7 +82,6 @@ public:
 	void display_alunos_inativos();
 	void addAluno_inativo();
 	void deleteAluno_inativo(); // atualizar morada e contactos
-	void deleteAluno(int num);
 
 ///////////////////////////////////////////
 	int inscreverAluno();

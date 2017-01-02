@@ -7,7 +7,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_mieic_ad42e035c1e9be5fd8d526761c7bb8418}{Mieic} (vector$<$ \hyperlink{class_uc}{Uc} $\ast$$>$ \hyperlink{class_mieic_afc2464f50b64724c74c369a252d10a0f}{cadeiras}, vector$<$ \hyperlink{class_docente}{Docente} $\ast$$>$ \hyperlink{class_mieic_a7adb63b4146994f9a4a83eab412d2cae}{docentes}, vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$$>$ \hyperlink{class_mieic_a3840d1d5343ac6ac8b42e698e6cfde3e}{alunos})
+\hyperlink{class_mieic_ad42e035c1e9be5fd8d526761c7bb8418}{Mieic} (vector$<$ Uc $\ast$$>$ cadeiras, vector$<$ Docente $\ast$$>$ docentes, vector$<$ Aluno $\ast$$>$ alunos)
 \item 
 int \hyperlink{class_mieic_a0aed4ed8f9ba31122b083f018954fdf7}{run\+Program} ()
 \item 
@@ -37,7 +37,7 @@ int \hyperlink{class_mieic_a6c7736575c7cd99d0f8e246bdb50f6fd}{get\+Aluno\+\_\+by
 \item 
 int \hyperlink{class_mieic_a75e517af6d5c97dc20d250bd774cc9df}{get\+Uc\+\_\+by\+Sigla} (string s)
 \item 
-\hyperlink{class_docente}{Docente} $\ast$ \hyperlink{class_mieic_a24eb52b1a22b82785b6194d134a00e54}{assign\+Tutor} ()
+Docente $\ast$ \hyperlink{class_mieic_a24eb52b1a22b82785b6194d134a00e54}{assign\+Tutor} ()
 \item 
 string \hyperlink{class_mieic_a51b5c1ef83e7afb53ef57a392e8a39a4}{get\+Current\+Date} ()
 \item 
@@ -55,66 +55,25 @@ void \hyperlink{class_mieic_a83e1a70ed09ad32ad02acea39186365f}{turmas\+Menu} ()
 \item 
 void \hyperlink{class_mieic_a1d2dd57caef2bd1c8e7ec6a6d692ede1}{init\+Turmas} (int semestre)
 \item 
-vector$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_aeaf54232a10821d3fe70d0c33e787d50}{procurar\+Turma\+Paluno} (priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ trms, vector$<$ \hyperlink{class_uc}{Uc} $\ast$$>$ ucs, \hyperlink{class_aluno}{Aluno} $\ast$aluno)
+vector$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_aeaf54232a10821d3fe70d0c33e787d50}{procurar\+Turma\+Paluno} (priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ trms, vector$<$ Uc $\ast$$>$ ucs, Aluno $\ast$aluno)
 \item 
 void \hyperlink{class_mieic_abce67fb5c236e47b7f0fb415c57c21b4}{nova\+Turma} ()
 \item 
-int \hyperlink{class_mieic_ad51b450054f0b07069a40c1d1b0235b0}{aluno\+Tem\+Turma} (\hyperlink{class_aluno}{Aluno} $\ast$aluno)
-\item 
 string \hyperlink{class_mieic_a43ccd6a808c81df87ba2eeee034d53db}{get\+Name\+For\+Turma} (int ano)
-\item 
-void \hyperlink{class_mieic_a67e9f290c1945a0ee0bfed87f30329a8}{shuffle\+Turmas} ()
-\item 
-vector$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_adfcc246f9e983b482e1340778a3b7aec}{elaborate\+Procurar\+Turmas} (priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ trms, vector$<$ \hyperlink{class_uc}{Uc} $\ast$$>$ ucs, \hyperlink{class_aluno}{Aluno} $\ast$aluno)
 \item 
 void \hyperlink{class_mieic_a9b02affd45121b5898e17094d36a4337}{apagar\+Turma} ()
 \end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static bool \hyperlink{class_mieic_a1ce5f95cf69f36daaf22320cc9d64ffb}{comp\+Aluno\+Alf} (const \hyperlink{class_aluno}{Aluno} $\ast$aluno1, const \hyperlink{class_aluno}{Aluno} $\ast$aluno2)
-\item 
-static bool \hyperlink{class_mieic_a284e1568bcfd6993ac8fe88f40a6c545}{comp\+Aluno\+Num} (const \hyperlink{class_aluno}{Aluno} $\ast$aluno1, const \hyperlink{class_aluno}{Aluno} $\ast$aluno2)
-\item 
-static bool \hyperlink{class_mieic_a86b5216f30fe64974fc61cd2dd240169}{comp\+U\+Calf} (const \hyperlink{class_uc}{Uc} $\ast$uc1, const \hyperlink{class_uc}{Uc} $\ast$uc2)
-\item 
-static bool \hyperlink{class_mieic_ac14d5a81f95fff4d2b5ecb796e61ce15}{comp\+U\+Cano} (const \hyperlink{class_uc}{Uc} $\ast$uc1, const \hyperlink{class_uc}{Uc} $\ast$uc2)
-\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{mieic_8h_a48894bb701fe596264988f4453ff8f3f}{tab\+H\+Inativos} \hyperlink{class_mieic_adffe68e30feb27ccb73a39cfee4fbb78}{alunos\+\_\+inativos}
-\item 
-bool \hyperlink{class_mieic_a5083c06ef88abf95375f127dbc0829dc}{can\+Turmas}
-\item 
-vector$<$ \hyperlink{class_uc}{Uc} $\ast$ $>$ \hyperlink{class_mieic_afc2464f50b64724c74c369a252d10a0f}{cadeiras}
-\item 
-vector$<$ \hyperlink{class_docente}{Docente} $\ast$ $>$ \hyperlink{class_mieic_a7adb63b4146994f9a4a83eab412d2cae}{docentes}
-\item 
-vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_mieic_a3840d1d5343ac6ac8b42e698e6cfde3e}{alunos}
-\item 
-vector$<$ \hyperlink{class_turma}{Turma} $\ast$ $>$ \hyperlink{class_mieic_a1066a7642990c43e6409a5bd0e93ebc6}{turmas}
-\item 
-priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_afcc92dc760be8d7dcaa8ff9241351917}{turmas\+Ano1}
-\item 
-priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_adf5ce928562665eb89260ba4a6093c62}{turmas\+Ano2}
-\item 
-priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_a8e4588349a5992556fec1d1d51772675}{turmas\+Ano3}
-\item 
-priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_a9de15327b80934561f2bf18538d0da99}{turmas\+Ano4}
-\item 
-priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$ \hyperlink{class_mieic_afb0cd6587411458b5e281b1862c86b69}{turmas\+Ano5}
-\item 
-vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$ $>$ \hyperlink{class_mieic_a807d4f744ae0543caeec3f9c04e714f7}{alunos\+Sem\+Turma}
-\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Class \hyperlink{class_mieic}{Mieic} 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_mieic_ad42e035c1e9be5fd8d526761c7bb8418}{}\label{class_mieic_ad42e035c1e9be5fd8d526761c7bb8418} 
 \index{Mieic@{Mieic}!Mieic@{Mieic}}
 \index{Mieic@{Mieic}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{Mieic()}{Mieic()}}
-{\footnotesize\ttfamily Mieic\+::\+Mieic (\begin{DoxyParamCaption}\item[{vector$<$ \hyperlink{class_uc}{Uc} $\ast$$>$}]{cadeiras,  }\item[{vector$<$ \hyperlink{class_docente}{Docente} $\ast$$>$}]{docentes,  }\item[{vector$<$ \hyperlink{class_aluno}{Aluno} $\ast$$>$}]{alunos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Mieic\+::\+Mieic (\begin{DoxyParamCaption}\item[{vector$<$ Uc $\ast$$>$}]{cadeiras,  }\item[{vector$<$ Docente $\ast$$>$}]{docentes,  }\item[{vector$<$ Aluno $\ast$$>$}]{alunos }\end{DoxyParamCaption})}
 
 construtor do M\+I\+E\+IC 
 
@@ -125,13 +84,7 @@ construtor do M\+I\+E\+IC
 \subsubsection{\texorpdfstring{add\+Aluno\+\_\+inativo()}{addAluno\_inativo()}}
 {\footnotesize\ttfamily void Mieic\+::add\+Aluno\+\_\+inativo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\hypertarget{class_mieic_ad51b450054f0b07069a40c1d1b0235b0}{}\label{class_mieic_ad51b450054f0b07069a40c1d1b0235b0} 
-\index{Mieic@{Mieic}!aluno\+Tem\+Turma@{aluno\+Tem\+Turma}}
-\index{aluno\+Tem\+Turma@{aluno\+Tem\+Turma}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{aluno\+Tem\+Turma()}{alunoTemTurma()}}
-{\footnotesize\ttfamily int Mieic\+::aluno\+Tem\+Turma (\begin{DoxyParamCaption}\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
-
-\hypertarget{class_mieic_a9b02affd45121b5898e17094d36a4337}{}\label{class_mieic_a9b02affd45121b5898e17094d36a4337} 
+Adiciona um aluno à tabela de dispersao dos alunos que interromperam ou acabaram o curso e retira-\/o do sistema \hypertarget{class_mieic_a9b02affd45121b5898e17094d36a4337}{}\label{class_mieic_a9b02affd45121b5898e17094d36a4337} 
 \index{Mieic@{Mieic}!apagar\+Turma@{apagar\+Turma}}
 \index{apagar\+Turma@{apagar\+Turma}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{apagar\+Turma()}{apagarTurma()}}
@@ -141,7 +94,7 @@ Apaga uma turma e tira os alunos pertencentes \textquotesingle{}a mesma \hyperta
 \index{Mieic@{Mieic}!assign\+Tutor@{assign\+Tutor}}
 \index{assign\+Tutor@{assign\+Tutor}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{assign\+Tutor()}{assignTutor()}}
-{\footnotesize\ttfamily \hyperlink{class_docente}{Docente} $\ast$ Mieic\+::assign\+Tutor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Docente $\ast$ Mieic\+::assign\+Tutor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Atribui um tutor ao aluno \hypertarget{class_mieic_a6f7e179dcb9cb355c86020b65a550a83}{}\label{class_mieic_a6f7e179dcb9cb355c86020b65a550a83} 
 \index{Mieic@{Mieic}!buscar\+Aluno@{buscar\+Aluno}}
@@ -155,31 +108,7 @@ Menu Pesquisa de alunos \hypertarget{class_mieic_ac63c0ee6a6edbbf7aaebdea5689949
 \subsubsection{\texorpdfstring{buscar\+Cadeira()}{buscarCadeira()}}
 {\footnotesize\ttfamily int Mieic\+::buscar\+Cadeira (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Menu de pesquisa de Ucs \hypertarget{class_mieic_a1ce5f95cf69f36daaf22320cc9d64ffb}{}\label{class_mieic_a1ce5f95cf69f36daaf22320cc9d64ffb} 
-\index{Mieic@{Mieic}!comp\+Aluno\+Alf@{comp\+Aluno\+Alf}}
-\index{comp\+Aluno\+Alf@{comp\+Aluno\+Alf}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{comp\+Aluno\+Alf()}{compAlunoAlf()}}
-{\footnotesize\ttfamily static bool Mieic\+::comp\+Aluno\+Alf (\begin{DoxyParamCaption}\item[{const \hyperlink{class_aluno}{Aluno} $\ast$}]{aluno1,  }\item[{const \hyperlink{class_aluno}{Aluno} $\ast$}]{aluno2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-\hypertarget{class_mieic_a284e1568bcfd6993ac8fe88f40a6c545}{}\label{class_mieic_a284e1568bcfd6993ac8fe88f40a6c545} 
-\index{Mieic@{Mieic}!comp\+Aluno\+Num@{comp\+Aluno\+Num}}
-\index{comp\+Aluno\+Num@{comp\+Aluno\+Num}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{comp\+Aluno\+Num()}{compAlunoNum()}}
-{\footnotesize\ttfamily static bool Mieic\+::comp\+Aluno\+Num (\begin{DoxyParamCaption}\item[{const \hyperlink{class_aluno}{Aluno} $\ast$}]{aluno1,  }\item[{const \hyperlink{class_aluno}{Aluno} $\ast$}]{aluno2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-\hypertarget{class_mieic_a86b5216f30fe64974fc61cd2dd240169}{}\label{class_mieic_a86b5216f30fe64974fc61cd2dd240169} 
-\index{Mieic@{Mieic}!comp\+U\+Calf@{comp\+U\+Calf}}
-\index{comp\+U\+Calf@{comp\+U\+Calf}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{comp\+U\+Calf()}{compUCalf()}}
-{\footnotesize\ttfamily static bool Mieic\+::comp\+U\+Calf (\begin{DoxyParamCaption}\item[{const \hyperlink{class_uc}{Uc} $\ast$}]{uc1,  }\item[{const \hyperlink{class_uc}{Uc} $\ast$}]{uc2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-\hypertarget{class_mieic_ac14d5a81f95fff4d2b5ecb796e61ce15}{}\label{class_mieic_ac14d5a81f95fff4d2b5ecb796e61ce15} 
-\index{Mieic@{Mieic}!comp\+U\+Cano@{comp\+U\+Cano}}
-\index{comp\+U\+Cano@{comp\+U\+Cano}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{comp\+U\+Cano()}{compUCano()}}
-{\footnotesize\ttfamily static bool Mieic\+::comp\+U\+Cano (\begin{DoxyParamCaption}\item[{const \hyperlink{class_uc}{Uc} $\ast$}]{uc1,  }\item[{const \hyperlink{class_uc}{Uc} $\ast$}]{uc2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-\hypertarget{class_mieic_a07578c2654ea5c90b4b5951c9c5767a5}{}\label{class_mieic_a07578c2654ea5c90b4b5951c9c5767a5} 
+Menu de pesquisa de Ucs \hypertarget{class_mieic_a07578c2654ea5c90b4b5951c9c5767a5}{}\label{class_mieic_a07578c2654ea5c90b4b5951c9c5767a5} 
 \index{Mieic@{Mieic}!Consultar\+All\+Alunos@{Consultar\+All\+Alunos}}
 \index{Consultar\+All\+Alunos@{Consultar\+All\+Alunos}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{Consultar\+All\+Alunos()}{ConsultarAllAlunos()}}
@@ -227,19 +156,13 @@ alunos\mbox{[}index\mbox{]}-\/$>$get\+Nome(); \hypertarget{class_mieic_a50f58ffa
 \subsubsection{\texorpdfstring{delete\+Aluno\+\_\+inativo()}{deleteAluno\_inativo()}}
 {\footnotesize\ttfamily void Mieic\+::delete\+Aluno\+\_\+inativo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\hypertarget{class_mieic_ae92698b870074dccf12fd789e772a813}{}\label{class_mieic_ae92698b870074dccf12fd789e772a813} 
+Elimina um aluno inativo da tabela de dispersao devolvendo-\/o ao sistema, atualiza a morada e email so os alunos que interromperam podem voltar \hypertarget{class_mieic_ae92698b870074dccf12fd789e772a813}{}\label{class_mieic_ae92698b870074dccf12fd789e772a813} 
 \index{Mieic@{Mieic}!display\+\_\+alunos\+\_\+inativos@{display\+\_\+alunos\+\_\+inativos}}
 \index{display\+\_\+alunos\+\_\+inativos@{display\+\_\+alunos\+\_\+inativos}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{display\+\_\+alunos\+\_\+inativos()}{display\_alunos\_inativos()}}
 {\footnotesize\ttfamily void Mieic\+::display\+\_\+alunos\+\_\+inativos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\hypertarget{class_mieic_adfcc246f9e983b482e1340778a3b7aec}{}\label{class_mieic_adfcc246f9e983b482e1340778a3b7aec} 
-\index{Mieic@{Mieic}!elaborate\+Procurar\+Turmas@{elaborate\+Procurar\+Turmas}}
-\index{elaborate\+Procurar\+Turmas@{elaborate\+Procurar\+Turmas}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{elaborate\+Procurar\+Turmas()}{elaborateProcurarTurmas()}}
-{\footnotesize\ttfamily vector$<$\hyperlink{class_turma}{Turma}$>$ Mieic\+::elaborate\+Procurar\+Turmas (\begin{DoxyParamCaption}\item[{priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$}]{trms,  }\item[{vector$<$ \hyperlink{class_uc}{Uc} $\ast$$>$}]{ucs,  }\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
-
-\hypertarget{class_mieic_a6c7736575c7cd99d0f8e246bdb50f6fd}{}\label{class_mieic_a6c7736575c7cd99d0f8e246bdb50f6fd} 
+Mostra todos os alunos presentes na tabela de dispersao \hypertarget{class_mieic_a6c7736575c7cd99d0f8e246bdb50f6fd}{}\label{class_mieic_a6c7736575c7cd99d0f8e246bdb50f6fd} 
 \index{Mieic@{Mieic}!get\+Aluno\+\_\+by\+Nome@{get\+Aluno\+\_\+by\+Nome}}
 \index{get\+Aluno\+\_\+by\+Nome@{get\+Aluno\+\_\+by\+Nome}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{get\+Aluno\+\_\+by\+Nome()}{getAluno\_byNome()}}
@@ -299,7 +222,7 @@ Cria uma nova turma com todas as cadeiras que pertencem ao mesmo ano e semestre 
 \index{Mieic@{Mieic}!procurar\+Turma\+Paluno@{procurar\+Turma\+Paluno}}
 \index{procurar\+Turma\+Paluno@{procurar\+Turma\+Paluno}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{procurar\+Turma\+Paluno()}{procurarTurmaPaluno()}}
-{\footnotesize\ttfamily vector$<$ \hyperlink{class_turma}{Turma} $>$ Mieic\+::procurar\+Turma\+Paluno (\begin{DoxyParamCaption}\item[{priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$}]{trms,  }\item[{vector$<$ \hyperlink{class_uc}{Uc} $\ast$$>$}]{ucs,  }\item[{\hyperlink{class_aluno}{Aluno} $\ast$}]{aluno }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_turma}{Turma} $>$ Mieic\+::procurar\+Turma\+Paluno (\begin{DoxyParamCaption}\item[{priority\+\_\+queue$<$ \hyperlink{class_turma}{Turma} $>$}]{trms,  }\item[{vector$<$ Uc $\ast$$>$}]{ucs,  }\item[{Aluno $\ast$}]{aluno }\end{DoxyParamCaption})}
 
 procura e aloca uma turma do ano base para aluno, retorna false se nao encontrou \hypertarget{class_mieic_a0aed4ed8f9ba31122b083f018954fdf7}{}\label{class_mieic_a0aed4ed8f9ba31122b083f018954fdf7} 
 \index{Mieic@{Mieic}!run\+Program@{run\+Program}}
@@ -317,13 +240,7 @@ output para ficheiro de toda a info do mieic S\+A\+V\+I\+NG UC\textquotesingle{}
 
 S\+A\+V\+I\+NG D\+O\+C\+E\+N\+T\+ES
 
-S\+A\+V\+I\+NG A\+L\+U\+N\+OS \hypertarget{class_mieic_a67e9f290c1945a0ee0bfed87f30329a8}{}\label{class_mieic_a67e9f290c1945a0ee0bfed87f30329a8} 
-\index{Mieic@{Mieic}!shuffle\+Turmas@{shuffle\+Turmas}}
-\index{shuffle\+Turmas@{shuffle\+Turmas}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{shuffle\+Turmas()}{shuffleTurmas()}}
-{\footnotesize\ttfamily void Mieic\+::shuffle\+Turmas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\hypertarget{class_mieic_a83e1a70ed09ad32ad02acea39186365f}{}\label{class_mieic_a83e1a70ed09ad32ad02acea39186365f} 
+S\+A\+V\+I\+NG A\+L\+U\+N\+OS \hypertarget{class_mieic_a83e1a70ed09ad32ad02acea39186365f}{}\label{class_mieic_a83e1a70ed09ad32ad02acea39186365f} 
 \index{Mieic@{Mieic}!turmas\+Menu@{turmas\+Menu}}
 \index{turmas\+Menu@{turmas\+Menu}!Mieic@{Mieic}}
 \subsubsection{\texorpdfstring{turmas\+Menu()}{turmasMenu()}}
@@ -331,82 +248,7 @@ S\+A\+V\+I\+NG A\+L\+U\+N\+OS \hypertarget{class_mieic_a67e9f290c1945a0ee0bfed87
 
 Funcao que apresenta o menu de accoes das turmas 
 
-\subsection{Member Data Documentation}
-\hypertarget{class_mieic_a3840d1d5343ac6ac8b42e698e6cfde3e}{}\label{class_mieic_a3840d1d5343ac6ac8b42e698e6cfde3e} 
-\index{Mieic@{Mieic}!alunos@{alunos}}
-\index{alunos@{alunos}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{alunos}{alunos}}
-{\footnotesize\ttfamily vector$<$\hyperlink{class_aluno}{Aluno}$\ast$$>$ Mieic\+::alunos\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_adffe68e30feb27ccb73a39cfee4fbb78}{}\label{class_mieic_adffe68e30feb27ccb73a39cfee4fbb78} 
-\index{Mieic@{Mieic}!alunos\+\_\+inativos@{alunos\+\_\+inativos}}
-\index{alunos\+\_\+inativos@{alunos\+\_\+inativos}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{alunos\+\_\+inativos}{alunos\_inativos}}
-{\footnotesize\ttfamily \hyperlink{mieic_8h_a48894bb701fe596264988f4453ff8f3f}{tab\+H\+Inativos} Mieic\+::alunos\+\_\+inativos\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_a807d4f744ae0543caeec3f9c04e714f7}{}\label{class_mieic_a807d4f744ae0543caeec3f9c04e714f7} 
-\index{Mieic@{Mieic}!alunos\+Sem\+Turma@{alunos\+Sem\+Turma}}
-\index{alunos\+Sem\+Turma@{alunos\+Sem\+Turma}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{alunos\+Sem\+Turma}{alunosSemTurma}}
-{\footnotesize\ttfamily vector$<$\hyperlink{class_aluno}{Aluno}$\ast$$>$ Mieic\+::alunos\+Sem\+Turma\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_afc2464f50b64724c74c369a252d10a0f}{}\label{class_mieic_afc2464f50b64724c74c369a252d10a0f} 
-\index{Mieic@{Mieic}!cadeiras@{cadeiras}}
-\index{cadeiras@{cadeiras}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{cadeiras}{cadeiras}}
-{\footnotesize\ttfamily vector$<$\hyperlink{class_uc}{Uc}$\ast$$>$ Mieic\+::cadeiras\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_a5083c06ef88abf95375f127dbc0829dc}{}\label{class_mieic_a5083c06ef88abf95375f127dbc0829dc} 
-\index{Mieic@{Mieic}!can\+Turmas@{can\+Turmas}}
-\index{can\+Turmas@{can\+Turmas}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{can\+Turmas}{canTurmas}}
-{\footnotesize\ttfamily bool Mieic\+::can\+Turmas\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_a7adb63b4146994f9a4a83eab412d2cae}{}\label{class_mieic_a7adb63b4146994f9a4a83eab412d2cae} 
-\index{Mieic@{Mieic}!docentes@{docentes}}
-\index{docentes@{docentes}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{docentes}{docentes}}
-{\footnotesize\ttfamily vector$<$\hyperlink{class_docente}{Docente}$\ast$$>$ Mieic\+::docentes\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_a1066a7642990c43e6409a5bd0e93ebc6}{}\label{class_mieic_a1066a7642990c43e6409a5bd0e93ebc6} 
-\index{Mieic@{Mieic}!turmas@{turmas}}
-\index{turmas@{turmas}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{turmas}{turmas}}
-{\footnotesize\ttfamily vector$<$\hyperlink{class_turma}{Turma}$\ast$$>$ Mieic\+::turmas\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_afcc92dc760be8d7dcaa8ff9241351917}{}\label{class_mieic_afcc92dc760be8d7dcaa8ff9241351917} 
-\index{Mieic@{Mieic}!turmas\+Ano1@{turmas\+Ano1}}
-\index{turmas\+Ano1@{turmas\+Ano1}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{turmas\+Ano1}{turmasAno1}}
-{\footnotesize\ttfamily priority\+\_\+queue$<$\hyperlink{class_turma}{Turma}$>$ Mieic\+::turmas\+Ano1\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_adf5ce928562665eb89260ba4a6093c62}{}\label{class_mieic_adf5ce928562665eb89260ba4a6093c62} 
-\index{Mieic@{Mieic}!turmas\+Ano2@{turmas\+Ano2}}
-\index{turmas\+Ano2@{turmas\+Ano2}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{turmas\+Ano2}{turmasAno2}}
-{\footnotesize\ttfamily priority\+\_\+queue$<$\hyperlink{class_turma}{Turma}$>$ Mieic\+::turmas\+Ano2\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_a8e4588349a5992556fec1d1d51772675}{}\label{class_mieic_a8e4588349a5992556fec1d1d51772675} 
-\index{Mieic@{Mieic}!turmas\+Ano3@{turmas\+Ano3}}
-\index{turmas\+Ano3@{turmas\+Ano3}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{turmas\+Ano3}{turmasAno3}}
-{\footnotesize\ttfamily priority\+\_\+queue$<$\hyperlink{class_turma}{Turma}$>$ Mieic\+::turmas\+Ano3\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_a9de15327b80934561f2bf18538d0da99}{}\label{class_mieic_a9de15327b80934561f2bf18538d0da99} 
-\index{Mieic@{Mieic}!turmas\+Ano4@{turmas\+Ano4}}
-\index{turmas\+Ano4@{turmas\+Ano4}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{turmas\+Ano4}{turmasAno4}}
-{\footnotesize\ttfamily priority\+\_\+queue$<$\hyperlink{class_turma}{Turma}$>$ Mieic\+::turmas\+Ano4\hspace{0.3cm}{\ttfamily [private]}}
-
-\hypertarget{class_mieic_afb0cd6587411458b5e281b1862c86b69}{}\label{class_mieic_afb0cd6587411458b5e281b1862c86b69} 
-\index{Mieic@{Mieic}!turmas\+Ano5@{turmas\+Ano5}}
-\index{turmas\+Ano5@{turmas\+Ano5}!Mieic@{Mieic}}
-\subsubsection{\texorpdfstring{turmas\+Ano5}{turmasAno5}}
-{\footnotesize\ttfamily priority\+\_\+queue$<$\hyperlink{class_turma}{Turma}$>$ Mieic\+::turmas\+Ano5\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{mieic_8h}{mieic.\+h}\item 
-\hyperlink{mieic_8cpp}{mieic.\+cpp}\end{DoxyCompactItemize}
+mieic.\+h\item 
+mieic.\+cpp\end{DoxyCompactItemize}

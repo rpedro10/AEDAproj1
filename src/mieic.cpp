@@ -136,7 +136,9 @@ int Mieic::runProgram(){
 
 
 
-
+/**
+ * Mostra todos os alunos presentes na tabela de dispersao
+ */
 void Mieic::display_alunos_inativos()const{
 
 	// unordered_set<Aluno, halunos, eqalunos>::iterator it = alunos_inativos.begin();
@@ -153,10 +155,10 @@ void Mieic::display_alunos_inativos()const{
 
 }
 
-
-
-
-
+/**
+ * Adiciona um aluno à tabela de dispersao dos alunos que interromperam ou acabaram o curso
+ * e retira-o do sistema
+ */
 void Mieic::addAluno_inativo(){
 
 		int numero,nnn;
@@ -187,7 +189,10 @@ void Mieic::addAluno_inativo(){
 			}
 }
 
-
+/**
+ * Elimina um aluno inativo da tabela de dispersao devolvendo-o ao sistema, atualiza a morada e email
+ * so os alunos que interromperam podem voltar
+ */
 void Mieic::deleteAluno_inativo(){
 
 	string new_email,new_address;
@@ -224,17 +229,6 @@ void Mieic::deleteAluno_inativo(){
 }
 
 
-void Mieic::deleteAluno(int num){
-		int index= getAluno_byNumero(num);
-		//cout<<index<<endl;
-
-		if(index>=0){
-			///alunos[index]->getNome();
-			alunos.erase(alunos.begin()+index);
-		}
-		else
-			cout<<" nao existe aluno"<<endl;
-}
 
 /**
  * inscreve aluno que ja existe no Mieic, dado o seu nome

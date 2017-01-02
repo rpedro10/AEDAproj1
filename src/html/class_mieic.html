@@ -60,8 +60,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_mieic-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Mieic Class Reference</div>  </div>
@@ -72,7 +70,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad42e035c1e9be5fd8d526761c7bb8418"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#ad42e035c1e9be5fd8d526761c7bb8418">Mieic</a> (vector&lt; <a class="el" href="class_uc.html">Uc</a> *&gt; <a class="el" href="class_mieic.html#afc2464f50b64724c74c369a252d10a0f">cadeiras</a>, vector&lt; <a class="el" href="class_docente.html">Docente</a> *&gt; <a class="el" href="class_mieic.html#a7adb63b4146994f9a4a83eab412d2cae">docentes</a>, vector&lt; <a class="el" href="class_aluno.html">Aluno</a> *&gt; <a class="el" href="class_mieic.html#a3840d1d5343ac6ac8b42e698e6cfde3e">alunos</a>)</td></tr>
+<tr class="memitem:ad42e035c1e9be5fd8d526761c7bb8418"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#ad42e035c1e9be5fd8d526761c7bb8418">Mieic</a> (vector&lt; Uc *&gt; cadeiras, vector&lt; Docente *&gt; docentes, vector&lt; Aluno *&gt; alunos)</td></tr>
 <tr class="separator:ad42e035c1e9be5fd8d526761c7bb8418"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aed4ed8f9ba31122b083f018954fdf7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a0aed4ed8f9ba31122b083f018954fdf7">runProgram</a> ()</td></tr>
 <tr class="separator:a0aed4ed8f9ba31122b083f018954fdf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,7 +100,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6c7736575c7cd99d0f8e246bdb50f6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75e517af6d5c97dc20d250bd774cc9df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a75e517af6d5c97dc20d250bd774cc9df">getUc_bySigla</a> (string s)</td></tr>
 <tr class="separator:a75e517af6d5c97dc20d250bd774cc9df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24eb52b1a22b82785b6194d134a00e54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_docente.html">Docente</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a24eb52b1a22b82785b6194d134a00e54">assignTutor</a> ()</td></tr>
+<tr class="memitem:a24eb52b1a22b82785b6194d134a00e54"><td class="memItemLeft" align="right" valign="top">Docente *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a24eb52b1a22b82785b6194d134a00e54">assignTutor</a> ()</td></tr>
 <tr class="separator:a24eb52b1a22b82785b6194d134a00e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51b5c1ef83e7afb53ef57a392e8a39a4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a51b5c1ef83e7afb53ef57a392e8a39a4">getCurrentDate</a> ()</td></tr>
 <tr class="separator:a51b5c1ef83e7afb53ef57a392e8a39a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -120,60 +118,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a83e1a70ed09ad32ad02acea39186365f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d2dd57caef2bd1c8e7ec6a6d692ede1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a1d2dd57caef2bd1c8e7ec6a6d692ede1">initTurmas</a> (int semestre)</td></tr>
 <tr class="separator:a1d2dd57caef2bd1c8e7ec6a6d692ede1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf54232a10821d3fe70d0c33e787d50"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#aeaf54232a10821d3fe70d0c33e787d50">procurarTurmaPaluno</a> (priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt; trms, vector&lt; <a class="el" href="class_uc.html">Uc</a> *&gt; ucs, <a class="el" href="class_aluno.html">Aluno</a> *aluno)</td></tr>
+<tr class="memitem:aeaf54232a10821d3fe70d0c33e787d50"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#aeaf54232a10821d3fe70d0c33e787d50">procurarTurmaPaluno</a> (priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt; trms, vector&lt; Uc *&gt; ucs, Aluno *aluno)</td></tr>
 <tr class="separator:aeaf54232a10821d3fe70d0c33e787d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abce67fb5c236e47b7f0fb415c57c21b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#abce67fb5c236e47b7f0fb415c57c21b4">novaTurma</a> ()</td></tr>
 <tr class="separator:abce67fb5c236e47b7f0fb415c57c21b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad51b450054f0b07069a40c1d1b0235b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#ad51b450054f0b07069a40c1d1b0235b0">alunoTemTurma</a> (<a class="el" href="class_aluno.html">Aluno</a> *aluno)</td></tr>
-<tr class="separator:ad51b450054f0b07069a40c1d1b0235b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43ccd6a808c81df87ba2eeee034d53db"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a43ccd6a808c81df87ba2eeee034d53db">getNameForTurma</a> (int ano)</td></tr>
 <tr class="separator:a43ccd6a808c81df87ba2eeee034d53db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e9f290c1945a0ee0bfed87f30329a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a67e9f290c1945a0ee0bfed87f30329a8">shuffleTurmas</a> ()</td></tr>
-<tr class="separator:a67e9f290c1945a0ee0bfed87f30329a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfcc246f9e983b482e1340778a3b7aec"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#adfcc246f9e983b482e1340778a3b7aec">elaborateProcurarTurmas</a> (priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt; trms, vector&lt; <a class="el" href="class_uc.html">Uc</a> *&gt; ucs, <a class="el" href="class_aluno.html">Aluno</a> *aluno)</td></tr>
-<tr class="separator:adfcc246f9e983b482e1340778a3b7aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b02affd45121b5898e17094d36a4337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a9b02affd45121b5898e17094d36a4337">apagarTurma</a> ()</td></tr>
 <tr class="separator:a9b02affd45121b5898e17094d36a4337"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1ce5f95cf69f36daaf22320cc9d64ffb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a1ce5f95cf69f36daaf22320cc9d64ffb">compAlunoAlf</a> (const <a class="el" href="class_aluno.html">Aluno</a> *aluno1, const <a class="el" href="class_aluno.html">Aluno</a> *aluno2)</td></tr>
-<tr class="separator:a1ce5f95cf69f36daaf22320cc9d64ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a284e1568bcfd6993ac8fe88f40a6c545"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a284e1568bcfd6993ac8fe88f40a6c545">compAlunoNum</a> (const <a class="el" href="class_aluno.html">Aluno</a> *aluno1, const <a class="el" href="class_aluno.html">Aluno</a> *aluno2)</td></tr>
-<tr class="separator:a284e1568bcfd6993ac8fe88f40a6c545"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b5216f30fe64974fc61cd2dd240169"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a86b5216f30fe64974fc61cd2dd240169">compUCalf</a> (const <a class="el" href="class_uc.html">Uc</a> *uc1, const <a class="el" href="class_uc.html">Uc</a> *uc2)</td></tr>
-<tr class="separator:a86b5216f30fe64974fc61cd2dd240169"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac14d5a81f95fff4d2b5ecb796e61ce15"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#ac14d5a81f95fff4d2b5ecb796e61ce15">compUCano</a> (const <a class="el" href="class_uc.html">Uc</a> *uc1, const <a class="el" href="class_uc.html">Uc</a> *uc2)</td></tr>
-<tr class="separator:ac14d5a81f95fff4d2b5ecb796e61ce15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:adffe68e30feb27ccb73a39cfee4fbb78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mieic_8h.html#a48894bb701fe596264988f4453ff8f3f">tabHInativos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#adffe68e30feb27ccb73a39cfee4fbb78">alunos_inativos</a></td></tr>
-<tr class="separator:adffe68e30feb27ccb73a39cfee4fbb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5083c06ef88abf95375f127dbc0829dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a5083c06ef88abf95375f127dbc0829dc">canTurmas</a></td></tr>
-<tr class="separator:a5083c06ef88abf95375f127dbc0829dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc2464f50b64724c74c369a252d10a0f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_uc.html">Uc</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#afc2464f50b64724c74c369a252d10a0f">cadeiras</a></td></tr>
-<tr class="separator:afc2464f50b64724c74c369a252d10a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7adb63b4146994f9a4a83eab412d2cae"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_docente.html">Docente</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a7adb63b4146994f9a4a83eab412d2cae">docentes</a></td></tr>
-<tr class="separator:a7adb63b4146994f9a4a83eab412d2cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3840d1d5343ac6ac8b42e698e6cfde3e"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_aluno.html">Aluno</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a3840d1d5343ac6ac8b42e698e6cfde3e">alunos</a></td></tr>
-<tr class="separator:a3840d1d5343ac6ac8b42e698e6cfde3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1066a7642990c43e6409a5bd0e93ebc6"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_turma.html">Turma</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a1066a7642990c43e6409a5bd0e93ebc6">turmas</a></td></tr>
-<tr class="separator:a1066a7642990c43e6409a5bd0e93ebc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcc92dc760be8d7dcaa8ff9241351917"><td class="memItemLeft" align="right" valign="top">priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#afcc92dc760be8d7dcaa8ff9241351917">turmasAno1</a></td></tr>
-<tr class="separator:afcc92dc760be8d7dcaa8ff9241351917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf5ce928562665eb89260ba4a6093c62"><td class="memItemLeft" align="right" valign="top">priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#adf5ce928562665eb89260ba4a6093c62">turmasAno2</a></td></tr>
-<tr class="separator:adf5ce928562665eb89260ba4a6093c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e4588349a5992556fec1d1d51772675"><td class="memItemLeft" align="right" valign="top">priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a8e4588349a5992556fec1d1d51772675">turmasAno3</a></td></tr>
-<tr class="separator:a8e4588349a5992556fec1d1d51772675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de15327b80934561f2bf18538d0da99"><td class="memItemLeft" align="right" valign="top">priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a9de15327b80934561f2bf18538d0da99">turmasAno4</a></td></tr>
-<tr class="separator:a9de15327b80934561f2bf18538d0da99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb0cd6587411458b5e281b1862c86b69"><td class="memItemLeft" align="right" valign="top">priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#afb0cd6587411458b5e281b1862c86b69">turmasAno5</a></td></tr>
-<tr class="separator:afb0cd6587411458b5e281b1862c86b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a807d4f744ae0543caeec3f9c04e714f7"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_aluno.html">Aluno</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mieic.html#a807d4f744ae0543caeec3f9c04e714f7">alunosSemTurma</a></td></tr>
-<tr class="separator:a807d4f744ae0543caeec3f9c04e714f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class <a class="el" href="class_mieic.html">Mieic</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad42e035c1e9be5fd8d526761c7bb8418"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad42e035c1e9be5fd8d526761c7bb8418">&sect;&nbsp;</a></span>Mieic()</h2>
 
@@ -183,19 +139,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Mieic::Mieic </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_uc.html">Uc</a> *&gt;&#160;</td>
+          <td class="paramtype">vector&lt; Uc *&gt;&#160;</td>
           <td class="paramname"><em>cadeiras</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_docente.html">Docente</a> *&gt;&#160;</td>
+          <td class="paramtype">vector&lt; Docente *&gt;&#160;</td>
           <td class="paramname"><em>docentes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_aluno.html">Aluno</a> *&gt;&#160;</td>
+          <td class="paramtype">vector&lt; Aluno *&gt;&#160;</td>
           <td class="paramname"><em>alunos</em>&#160;</td>
         </tr>
         <tr>
@@ -224,24 +180,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad51b450054f0b07069a40c1d1b0235b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad51b450054f0b07069a40c1d1b0235b0">&sect;&nbsp;</a></span>alunoTemTurma()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Mieic::alunoTemTurma </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
-          <td class="paramname"><em>aluno</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Adiciona um aluno à tabela de dispersao dos alunos que interromperam ou acabaram o curso e retira-o do sistema </p>
 
 </div>
 </div>
@@ -270,7 +209,7 @@ Private Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_docente.html">Docente</a> * Mieic::assignTutor </td>
+          <td class="memname">Docente * Mieic::assignTutor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -314,150 +253,6 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Menu de pesquisa de Ucs </p>
-
-</div>
-</div>
-<a id="a1ce5f95cf69f36daaf22320cc9d64ffb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ce5f95cf69f36daaf22320cc9d64ffb">&sect;&nbsp;</a></span>compAlunoAlf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool Mieic::compAlunoAlf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
-          <td class="paramname"><em>aluno1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
-          <td class="paramname"><em>aluno2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a284e1568bcfd6993ac8fe88f40a6c545"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a284e1568bcfd6993ac8fe88f40a6c545">&sect;&nbsp;</a></span>compAlunoNum()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool Mieic::compAlunoNum </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
-          <td class="paramname"><em>aluno1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
-          <td class="paramname"><em>aluno2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a86b5216f30fe64974fc61cd2dd240169"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86b5216f30fe64974fc61cd2dd240169">&sect;&nbsp;</a></span>compUCalf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool Mieic::compUCalf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_uc.html">Uc</a> *&#160;</td>
-          <td class="paramname"><em>uc1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_uc.html">Uc</a> *&#160;</td>
-          <td class="paramname"><em>uc2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac14d5a81f95fff4d2b5ecb796e61ce15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac14d5a81f95fff4d2b5ecb796e61ce15">&sect;&nbsp;</a></span>compUCano()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool Mieic::compUCano </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_uc.html">Uc</a> *&#160;</td>
-          <td class="paramname"><em>uc1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_uc.html">Uc</a> *&#160;</td>
-          <td class="paramname"><em>uc2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -602,6 +397,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Elimina um aluno inativo da tabela de dispersao devolvendo-o ao sistema, atualiza a morada e email so os alunos que interromperam podem voltar </p>
 
 </div>
 </div>
@@ -619,40 +415,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="adfcc246f9e983b482e1340778a3b7aec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfcc246f9e983b482e1340778a3b7aec">&sect;&nbsp;</a></span>elaborateProcurarTurmas()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_turma.html">Turma</a>&gt; Mieic::elaborateProcurarTurmas </td>
-          <td>(</td>
-          <td class="paramtype">priority_queue&lt; <a class="el" href="class_turma.html">Turma</a> &gt;&#160;</td>
-          <td class="paramname"><em>trms</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_uc.html">Uc</a> *&gt;&#160;</td>
-          <td class="paramname"><em>ucs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
-          <td class="paramname"><em>aluno</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Mostra todos os alunos presentes na tabela de dispersao </p>
 
 </div>
 </div>
@@ -841,13 +604,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_uc.html">Uc</a> *&gt;&#160;</td>
+          <td class="paramtype">vector&lt; Uc *&gt;&#160;</td>
           <td class="paramname"><em>ucs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_aluno.html">Aluno</a> *&#160;</td>
+          <td class="paramtype">Aluno *&#160;</td>
           <td class="paramname"><em>aluno</em>&#160;</td>
         </tr>
         <tr>
@@ -900,23 +663,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a67e9f290c1945a0ee0bfed87f30329a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67e9f290c1945a0ee0bfed87f30329a8">&sect;&nbsp;</a></span>shuffleTurmas()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Mieic::shuffleTurmas </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a83e1a70ed09ad32ad02acea39186365f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83e1a70ed09ad32ad02acea39186365f">&sect;&nbsp;</a></span>turmasMenu()</h2>
 
@@ -935,274 +681,9 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3840d1d5343ac6ac8b42e698e6cfde3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3840d1d5343ac6ac8b42e698e6cfde3e">&sect;&nbsp;</a></span>alunos</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_aluno.html">Aluno</a>*&gt; Mieic::alunos</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adffe68e30feb27ccb73a39cfee4fbb78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adffe68e30feb27ccb73a39cfee4fbb78">&sect;&nbsp;</a></span>alunos_inativos</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="mieic_8h.html#a48894bb701fe596264988f4453ff8f3f">tabHInativos</a> Mieic::alunos_inativos</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a807d4f744ae0543caeec3f9c04e714f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a807d4f744ae0543caeec3f9c04e714f7">&sect;&nbsp;</a></span>alunosSemTurma</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_aluno.html">Aluno</a>*&gt; Mieic::alunosSemTurma</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afc2464f50b64724c74c369a252d10a0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc2464f50b64724c74c369a252d10a0f">&sect;&nbsp;</a></span>cadeiras</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_uc.html">Uc</a>*&gt; Mieic::cadeiras</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5083c06ef88abf95375f127dbc0829dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5083c06ef88abf95375f127dbc0829dc">&sect;&nbsp;</a></span>canTurmas</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Mieic::canTurmas</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7adb63b4146994f9a4a83eab412d2cae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7adb63b4146994f9a4a83eab412d2cae">&sect;&nbsp;</a></span>docentes</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_docente.html">Docente</a>*&gt; Mieic::docentes</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1066a7642990c43e6409a5bd0e93ebc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1066a7642990c43e6409a5bd0e93ebc6">&sect;&nbsp;</a></span>turmas</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_turma.html">Turma</a>*&gt; Mieic::turmas</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afcc92dc760be8d7dcaa8ff9241351917"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcc92dc760be8d7dcaa8ff9241351917">&sect;&nbsp;</a></span>turmasAno1</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">priority_queue&lt;<a class="el" href="class_turma.html">Turma</a>&gt; Mieic::turmasAno1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adf5ce928562665eb89260ba4a6093c62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf5ce928562665eb89260ba4a6093c62">&sect;&nbsp;</a></span>turmasAno2</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">priority_queue&lt;<a class="el" href="class_turma.html">Turma</a>&gt; Mieic::turmasAno2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8e4588349a5992556fec1d1d51772675"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e4588349a5992556fec1d1d51772675">&sect;&nbsp;</a></span>turmasAno3</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">priority_queue&lt;<a class="el" href="class_turma.html">Turma</a>&gt; Mieic::turmasAno3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9de15327b80934561f2bf18538d0da99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9de15327b80934561f2bf18538d0da99">&sect;&nbsp;</a></span>turmasAno4</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">priority_queue&lt;<a class="el" href="class_turma.html">Turma</a>&gt; Mieic::turmasAno4</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afb0cd6587411458b5e281b1862c86b69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb0cd6587411458b5e281b1862c86b69">&sect;&nbsp;</a></span>turmasAno5</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">priority_queue&lt;<a class="el" href="class_turma.html">Turma</a>&gt; Mieic::turmasAno5</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="mieic_8h_source.html">mieic.h</a></li>
-<li><a class="el" href="mieic_8cpp.html">mieic.cpp</a></li>
+<li>mieic.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
