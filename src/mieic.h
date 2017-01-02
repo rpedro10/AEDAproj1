@@ -8,6 +8,15 @@
 #include <fstream>
 #include <sstream>
 #include <queue>
+#include <unordered_set>
+
+#include "sequentialSearch.h"
+#include <algorithm>
+#include <iterator>
+#include <exception>
+#include <stdexcept>
+
+
 
 #include "aluno.h"
 #include "uc.h"
@@ -18,7 +27,30 @@
 #define ANO1 1
 #define ANO5 5
 
+
+
+struct eqalunos {
+	bool operator() (const Aluno &c1, const Aluno &c2) const {
+		return c1.getNumero() == c2.getNumero();
+	}
+};
+
+struct halunos {
+	int operator() (const Aluno &c1) const {
+		int v = 0;
+		for (unsigned int i = 0; i < c1.getNome().size(); i++)
+			v = 37 * v + c1.getNome()[i];
+		return v;
+	}
+};
+
+
+typedef tr1::unordered_set<Aluno, halunos, eqalunos> tabHInativos;
+
 using namespace std;
+
+
+
 
 class Mieic{
 	bool canTurmas;
@@ -26,6 +58,7 @@ class Mieic{
 	vector<Docente*> docentes;
 	vector<Aluno*> alunos;
 
+	tabHInativos alunos_inativos;
 
 	vector<Turma*> turmas;
 	priority_queue<Turma> turmasAno1;
@@ -38,6 +71,16 @@ class Mieic{
 public:
 	Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alunos);
 	int runProgram();
+
+	////////////////////////////////////////////////
+
+	void display_alunos_inativos()const;
+	void addAluno_inativo();
+	tabHInativos getAlunos_inativos() const;
+	void deleteAluno_inativo(); // atualizar morada e contactos
+	void deleteAluno(int num);
+
+///////////////////////////////////////////
 	int inscreverAluno();
 	int inscreverNovoAluno();
 	int buscarAluno();

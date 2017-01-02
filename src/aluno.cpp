@@ -210,6 +210,22 @@ void Aluno::terminarAno(){
 
 }
 
+Estado Aluno::getEstado() const {
+	return estado;
+}
+
+const string& Aluno::getMorada() const {
+	return morada;
+}
+
+void Aluno::setMorada(const string& morada) {
+	this->morada = morada;
+}
+
+void Aluno::setEstado(Estado estado) {
+	this->estado = estado;
+}
+
 vector<Uc*> Aluno::getUCsAnoBase(int semestre){
 	vector<Uc*> ucs;
 	for(unsigned int i=0; i<this->cadeiras_inscrito.size(); i++){

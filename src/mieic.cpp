@@ -1,12 +1,5 @@
 #include "mieic.h"
-#include <ctime>
-#include <stdio.h>
-#include <stdlib.h>
-#include "sequentialSearch.h"
-#include <algorithm>
-#include <iterator>
-#include <exception>
-#include <stdexcept>
+
 
 /**
  * construtor do MIEIC
@@ -16,6 +9,7 @@ Mieic::Mieic(vector<Uc*> cadeiras, vector<Docente*> docentes, vector<Aluno*> alu
 	this->docentes = docentes;
 	this->alunos = alunos;
 	this->canTurmas = true;
+	// this->graduados_interrompidos
 }
 /**
  * funcao de ciclo do programa, navegacao entre menus
@@ -125,6 +119,94 @@ int Mieic::runProgram(){
 	}
 
 	return 1;
+}
+
+
+
+
+
+tabHInativos Mieic::getAlunos_inativos() const{
+	return 	alunos_inativos;
+}
+
+void Mieic::display_alunos_inativos()const{
+
+	// unordered_set<Aluno, halunos, eqalunos>::iterator it = alunos_inativos.begin();
+
+	tabHInativos::const_iterator it= alunos_inativos.begin();
+
+		while (it != alunos_inativos.end()) {
+
+			cout << it->getNome()<< "       "
+				 << it->getEstado()
+				 <<endl;
+			it++;
+		}
+
+}
+
+
+
+
+
+void Mieic::addAluno_inativo(){
+
+		int numero;
+		cout<<"Numero? ";
+		cin >> numero;
+
+			int index= getAluno_byNumero(numero);
+			if(index>0){
+				Aluno al=alunos[index];
+				alunos_inativos.insert(al);
+				alunos.erase(alunos.begin()+index);
+			}
+}
+
+
+void Mieic::deleteAluno_inativo(){
+
+	string new_email,new_address;
+
+	int numero;
+			cout<<"Numero? ";
+			cin >> numero;
+
+	tabHInativos::const_iterator it;
+
+	for(it=alunos_inativos.begin();it!=alunos_inativos.end();it++){
+		if(numero== it->getNumero())
+		{
+			cout<<"Novo email?";
+				getline(cin,new_email);
+				cout<<"Nova morada?";
+				getline(cin,new_address);
+				it->setEmail(new_email);
+				it->setMorada(new_address);
+
+				Aluno* aluno_ptr = &it;
+
+				alunos.push_back(aluno_ptr);    // volta a colocar no sistema
+
+				alunos_inativos.erase(it);
+
+		}
+
+	}
+
+}
+
+
+void Mieic::deleteAluno(int num){
+		int index= getAluno_byNumero(num);
+		//cout<<index<<endl;
+
+		if(index>=0){
+			///alunos[index]->getNome();
+			alunos.erase(alunos.begin()+index);
+		}
+		else
+			cout<<" nao existe aluno"<<endl;
 }
 
 /**

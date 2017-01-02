@@ -10,6 +10,10 @@
 #include "uc.h"
 #include "docente.h"
 
+
+ enum Estado { estudar, terminou, interrompeu };
+
+
 using namespace std;
 
 class Aluno {
@@ -18,6 +22,10 @@ class Aluno {
 	string nome;
 	string estatuto;
 	string email;
+	string morada;
+
+	Estado estado;
+
 	const Docente* tutor;
 	vector< pair<string, Uc *> > cadeiras_inscrito;
 	vector< pair<string, Uc *> > cadeiras_completadas;
@@ -37,6 +45,8 @@ public:
 	int getNumero() const;
 	void setNumero(int numero);
 	const Docente* getTutor() const;
+	//Estado getEstado();
+	//void setEstado(Estado estado);
 
 	vector< pair<string, Uc *> > getCadeirasInscrito() const;
 	void setCadeirasInscrito(vector< pair<string, Uc *> > cadeirasInscrito);
@@ -57,7 +67,10 @@ public:
 	void terminarAno();
 
 	vector<Uc*> getUCsAnoBase(int semestre);
-
+	Estado getEstado() const;
+	void setEstado(Estado estado);
+	const string& getMorada() const;
+	void setMorada(const string& morada);
 };
 
 
