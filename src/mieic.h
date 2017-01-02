@@ -28,11 +28,11 @@ class Mieic{
 
 
 	vector<Turma*> turmas;
-	priority_queue<Turma*> turmasAno1;
-	priority_queue<Turma*> turmasAno2;
-	priority_queue<Turma*> turmasAno3;
-	priority_queue<Turma*> turmasAno4;
-	priority_queue<Turma*> turmasAno5;
+	priority_queue<Turma> turmasAno1;
+	priority_queue<Turma> turmasAno2;
+	priority_queue<Turma> turmasAno3;
+	priority_queue<Turma> turmasAno4;
+	priority_queue<Turma> turmasAno5;
 	vector<Aluno*> alunosSemTurma; //alunos sem turmas a todas as cadeiras
 
 public:
@@ -82,13 +82,13 @@ public:
 
 	void turmasMenu();
 	void initTurmas(int semestre);
-	bool procurarTurmaPaluno(priority_queue<Turma*> trms, vector<Uc*> ucs, Aluno* aluno);
-	bool elaborateProcurarTurmas(priority_queue<Turma*> trms, vector<Uc*> ucs, Aluno* aluno);
+	vector<Turma> procurarTurmaPaluno(priority_queue<Turma> trms, vector<Uc*> ucs, Aluno* aluno);
 	void novaTurma();
 	int alunoTemTurma(Aluno* aluno);
 	string getNameForTurma(int ano);
+	void shuffleTurmas();
 
-
+	vector<Turma> elaborateProcurarTurmas(priority_queue<Turma> trms, vector<Uc*> ucs, Aluno* aluno);
 	void apagarTurma();
 };
 

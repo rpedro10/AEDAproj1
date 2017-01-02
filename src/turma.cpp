@@ -7,7 +7,7 @@ string Turma::getTurmaID() const{
 	return this->turmaID;
 }
 
-vector< pair<int,Uc*> > Turma::getVagasCadeiras(){
+vector< pair<int,Uc*> > Turma::getVagasCadeiras() const{
 	return this->vagasCadeiras;
 }
 
@@ -15,29 +15,42 @@ bool Turma::operator <(const Turma &t1) const {/*
 	if(this->vagasCadeiras.size() < t1.vagasCadeiras.size())
 		return true;
 */
-	int thisTotalVagasT;
+	int thisTotalVagasT=0;
 	for(unsigned int i = 0; i < this->vagasCadeiras.size(); i++){
-		thisTotalVagasT += this->vagasCadeiras[i].first;
+		thisTotalVagasT = thisTotalVagasT + this->vagasCadeiras[i].first;
 	}
 
-	int t1totalVagas;
+	int t1totalVagas=0;
 	for(unsigned int i = 0; i < t1.vagasCadeiras.size(); i++){
-		t1totalVagas += t1.vagasCadeiras[i].first;
+		t1totalVagas = t1totalVagas + t1.vagasCadeiras[i].first;
 	}
 
-	if(thisTotalVagasT < t1totalVagas)
+	if(thisTotalVagasT < t1totalVagas){
 		return true;
-	return false;
+	} else {
+		return false;
+	}
 }
 
 bool Turma::operator ==(const Turma &t1) const {
-	if(this->turmaID.compare(t1.turmaID) == 0)
+	int thisTotalVagasT=0;
+	for(unsigned int i = 0; i < this->vagasCadeiras.size(); i++){
+		thisTotalVagasT = thisTotalVagasT + this->vagasCadeiras[i].first;
+	}
+
+	int t1totalVagas=0;
+	for(unsigned int i = 0; i < t1.vagasCadeiras.size(); i++){
+		t1totalVagas = t1totalVagas + t1.vagasCadeiras[i].first;
+	}
+
+
+	if(this->turmaID.compare(t1.turmaID) == 0 && t1totalVagas == thisTotalVagasT)
 		return true;
 	else return false;
 }
 
-void Turma::printInfo(){
-	cout << this->turmaID << "	" << this->vagasCadeiras.size() << "	";
+const void Turma::printInfo() const{
+	cout << this->turmaID << "	" /*<< this->vagasCadeiras.size() << "	"*/;
 	for(unsigned int i=0; i<this->vagasCadeiras.size(); i++){
 		cout << "|" << this->vagasCadeiras[i].first << " "
 				<< this->vagasCadeiras[i].second->getSigla();
@@ -63,7 +76,7 @@ void Turma::inscreverAluno(vector<Uc*> ucs, Aluno* aluno){
 	for(unsigned int i=0; i<this->vagasCadeiras.size(); i++){
 		for(unsigned int j=0; j<ucs.size(); j++){
 			if(vagasCadeiras[i].second->getSigla().compare(ucs[j]->getSigla()) == 0){
-				vagasCadeiras[i].first--;
+				vagasCadeiras[i].first = vagasCadeiras[i].first -1;
 				ucs[j]->assignAlunoTurma(this->turmaID, aluno);
 			}
 		}

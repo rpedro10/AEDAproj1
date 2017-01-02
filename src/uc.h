@@ -52,6 +52,7 @@ public:
 	void assignAlunoTurma(string turmaID, Aluno* aluno);
 	vector<Aluno*> getAlunosSemTurma();
 	vector<Aluno*> apagarTurma(string turmaID);
+	bool alunoTemTurma(Aluno* aluno);
 };
 
 class Optativa: public Uc {

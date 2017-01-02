@@ -299,6 +299,17 @@ vector<Aluno*> Uc::apagarTurma(string turmaID){
 	return alns;
 }
 
+/**
+ * retorna true se o aluno tiver turma nesta UC
+ */
+bool Uc::alunoTemTurma(Aluno* aluno){
+	for(unsigned int i=0; i<this->turmas.size();i++){
+		if(aluno->getNumero() == this->turmas[i].second->getNumero())
+			return true;
+	}
+	return false;
+}
+
 
 //_____________________________________________________________________________
 

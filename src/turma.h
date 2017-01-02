@@ -37,7 +37,7 @@ public:
 	 * getter simples
 	 * @return vagasCadeiras
 	 */
-	vector< pair<int,Uc*> > getVagasCadeiras();
+	vector< pair<int,Uc*> > getVagasCadeiras() const;
 
 	/**
 	 * Operator < overloading
@@ -65,7 +65,7 @@ public:
 	 * Imprime toda a informacao das ucs e das
 	 * vagas de uma maneira curta
 	 */
-	void printInfo();
+	const void printInfo() const;
 
 	/**
 	 * Retorna verdadeiro se tem vagas nas cadeiras ucs

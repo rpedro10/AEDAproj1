@@ -742,6 +742,15 @@ void Mieic::turmasMenu(){
 				break;
 			case 3:
 				//TODO consultar 3 turmas
+				for(unsigned int i=0; i<turmas.size(); i++){
+					turmas[i]->printInfo();
+				}
+				cout << ".top" << endl;
+				turmasAno1.top().printInfo();
+				turmasAno2.top().printInfo();
+				turmasAno3.top().printInfo();
+				turmasAno4.top().printInfo();
+				turmasAno5.top().printInfo();
 				break;
 			case 4:{
 				char r;
@@ -800,7 +809,7 @@ void Mieic::apagarTurma(){
 		} else break;
 	}
 
-	vector<Turma*> trms;
+	vector<Turma> trms;
 	switch(ano){
 	case 1:{
 		unsigned int aux = turmasAno1.size();
@@ -842,7 +851,7 @@ void Mieic::apagarTurma(){
 	cout << "Escolha a turma a eliminar: " << endl;
 	for(unsigned int i=0; i<trms.size(); i++){
 		cout << i+1 << ".	";
-		trms[i]->printInfo();
+		trms[i].printInfo();
 	}
 
 	cout << "Introduza um numero: (0 para voltar) ";
@@ -858,10 +867,10 @@ void Mieic::apagarTurma(){
 		}
 	}
 
-	string turmaID = trms[ind-1]->getTurmaID();
+	string turmaID = trms[ind-1].getTurmaID();
 
 	vector<Aluno*> alns;
-	alns = trms[ind-1]->disbandTurma();
+	alns = trms[ind-1].disbandTurma();
 	for(unsigned int i=0; i<alns.size(); i++){
 		int aux = alunoTemTurma(alns[i]);
 		if(aux < 0){
@@ -870,7 +879,7 @@ void Mieic::apagarTurma(){
 	}
 
 	for(unsigned int i=0; i<turmas.size(); i++){
-		if(turmas[i] == trms[ind]){
+		if(turmas[i] == &trms[ind]){
 			turmas.erase(turmas.begin()+i);
 			trms.erase(trms.begin()+ind);
 			break;
@@ -985,19 +994,19 @@ void Mieic::novaTurma(){
 	this->turmas.push_back(turma);
 	switch(a){
 	case 1:
-		this->turmasAno1.push(turma);
+		this->turmasAno1.push((*turma));
 		break;
 	case 2:
-		this->turmasAno2.push(turma);
+		this->turmasAno2.push((*turma));
 		break;
 	case 3:
-		this->turmasAno3.push(turma);
+		this->turmasAno3.push((*turma));
 		break;
 	case 4:
-		this->turmasAno4.push(turma);
+		this->turmasAno4.push((*turma));
 		break;
 	case 5:
-		this->turmasAno5.push(turma);
+		this->turmasAno5.push((*turma));
 		break;
 	default:
 		cout << "Erro: Estado impossivel." << endl;
@@ -1113,7 +1122,7 @@ struct TurmasOpt{
 	string uc;
 };
 
-/** TODO finish
+/**
  * Funcao que introduz o numero minimo de turmas para a quantidade de
  * alunos e vagas que existem, no sistema e inscreve-os automaticamente
  * numa turma do seu ano base.
@@ -1258,19 +1267,19 @@ void Mieic::initTurmas(int semestre){
 				this->turmas.push_back(turma);
 				switch(l){
 				case 1:
-					this->turmasAno1.push(turma);
+					this->turmasAno1.push((*turma));
 					break;
 				case 2:
-					this->turmasAno2.push(turma);
+					this->turmasAno2.push((*turma));
 					break;
 				case 3:
-					this->turmasAno3.push(turma);
+					this->turmasAno3.push((*turma));
 					break;
 				case 4:
-					this->turmasAno4.push(turma);
+					this->turmasAno4.push((*turma));
 					break;
 				case 5:
-					this->turmasAno5.push(turma);
+					this->turmasAno5.push((*turma));
 					break;
 				default:
 					cout << "Erro: Estado impossivel." << endl;
@@ -1317,46 +1326,86 @@ void Mieic::initTurmas(int semestre){
 		cout << "Criadas turmas para o Ano " << l << endl;
 	}
 
-	/*
-	for(unsigned int i=0; i<turmas.size(); i++){
-		turmas[i]->printInfo();
-	}
-
-	cout << ".top" << endl;
-	turmasAno1.top()->printInfo();
-	turmasAno2.top()->printInfo();
-	turmasAno3.top()->printInfo();
-	turmasAno4.top()->printInfo();
-	turmasAno5.top()->printInfo();
-	 */
-
 	/* Alocacao dos alunos nas turmas */
 	for(unsigned int i=0; i<alunos.size(); i++){
 		bool temTurma = true;
 		vector<Uc*> ucs = alunos[i]->getUCsAnoBase(semestre);
+
 		if(alunos[i]->getCadeirasInscrito().size()> ucs.size())
 			temTurma = false;
 
+		vector<Turma> result;
 		switch(alunos[i]->getAno()){
 		case 1:
-			if(!procurarTurmaPaluno(this->turmasAno1, ucs, alunos[i]))
+			result = procurarTurmaPaluno(this->turmasAno1, ucs, alunos[i]);
+			if(result.size() < 1)
 				temTurma = false;
+			else{
+
+				while(!this->turmasAno1.empty()){
+					this->turmasAno1.pop();
+				}
+				for(unsigned int j=0;j<result.size();j++){
+					//result[j].printInfo();
+					this->turmasAno1.push(result[j]);
+				}
+			}
 			break;
 		case 2:
-			if(!procurarTurmaPaluno(this->turmasAno2, ucs, alunos[i]))
+			result = procurarTurmaPaluno(this->turmasAno2, ucs, alunos[i]);
+			if(result.size() < 1)
 				temTurma = false;
+			else{
+				while(!this->turmasAno2.empty()){
+					this->turmasAno2.pop();
+				}
+				for(unsigned int j=0;j<result.size();j++){
+					//result[j].printInfo();
+					this->turmasAno2.push(result[j]);
+				}
+			}
 			break;
 		case 3:
-			if(!procurarTurmaPaluno(this->turmasAno3, ucs, alunos[i]))
+			result = procurarTurmaPaluno(this->turmasAno3, ucs, alunos[i]);
+			if(result.size() < 1)
 				temTurma = false;
+			else{
+				while(!this->turmasAno3.empty()){
+					this->turmasAno3.pop();
+				}
+				for(unsigned int j=0;j<result.size();j++){
+					//result[j].printInfo();
+					this->turmasAno3.push(result[j]);
+				}
+			}
 			break;
 		case 4:
-			if(!procurarTurmaPaluno(this->turmasAno4, ucs, alunos[i]))
+			result = procurarTurmaPaluno(this->turmasAno4, ucs, alunos[i]);
+			if(result.size() < 1)
 				temTurma = false;
+			else{
+				while(!this->turmasAno4.empty()){
+					this->turmasAno4.pop();
+				}
+				for(unsigned int j=0;j<result.size();j++){
+					//result[j].printInfo();
+					this->turmasAno4.push(result[j]);
+				}
+			}
 			break;
 		case 5:
-			if(!procurarTurmaPaluno(this->turmasAno5, ucs, alunos[i]))
+			result = procurarTurmaPaluno(this->turmasAno5, ucs, alunos[i]);
+			if(result.size() < 1)
 				temTurma = false;
+			else{
+				while(!this->turmasAno5.empty()){
+					this->turmasAno5.pop();
+				}
+				for(unsigned int j=0;j<result.size();j++){
+					//result[j].printInfo();
+					this->turmasAno5.push(result[j]);
+				}
+			}
 			break;
 		default:
 			cout << "Erro: Estado impossivel." << endl;
@@ -1366,60 +1415,144 @@ void Mieic::initTurmas(int semestre){
 
 		if(!temTurma)
 			this->alunosSemTurma.push_back(alunos[i]);
+
 	}
 
 	cout << "Assigned alunos to turmas" << endl;
 
-	/*
-	for(unsigned int i=0; i<turmas.size(); i++){
-		turmas[i]->printInfo();
+	/* Update vector turmas*/
+	while(!turmas.empty()){
+		turmas.erase(turmas.begin());
+	}
+	vector<Turma> auxiliar;
+	while(!turmasAno1.empty()){
+		Turma* tr = new Turma(turmasAno1.top().getTurmaID(), turmasAno1.top().getVagasCadeiras());
+		turmas.push_back(tr);
+		auxiliar.push_back(turmasAno1.top());
+		turmasAno1.pop();
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno1.push(tr);
 	}
 
-	cout << ".top" << endl;
-	turmasAno1.top()->printInfo();
-	turmasAno2.top()->printInfo();
-	turmasAno3.top()->printInfo();
-	turmasAno4.top()->printInfo();
-	turmasAno5.top()->printInfo();
-	 */
-}
+	while(!turmasAno2.empty()){
+		Turma* tr = new Turma(turmasAno2.top().getTurmaID(), turmasAno2.top().getVagasCadeiras());
+		turmas.push_back(tr);
+		auxiliar.push_back(turmasAno2.top());
+		turmasAno2.pop();
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno2.push(tr);
+	}
 
-/**
- * procura e aloca uma turma para aluno, retorna false se nao encontrou
- */
-bool Mieic::procurarTurmaPaluno(priority_queue<Turma*> trms, vector<Uc*> ucs, Aluno* aluno){
-	vector<Turma*> aux;
-	bool inscreveu = false;
-	while(!trms.empty()){
-		if(trms.top()->cadeirasTemVagas(ucs)){
-			trms.top()->inscreverAluno(ucs,aluno);
-			inscreveu = true;
-			break;
-		} else {
-			aux.push_back(trms.top());
-			trms.pop();
+	while(!turmasAno3.empty()){
+		Turma* tr = new Turma(turmasAno3.top().getTurmaID(), turmasAno3.top().getVagasCadeiras());
+		turmas.push_back(tr);
+		auxiliar.push_back(turmasAno3.top());
+		turmasAno3.pop();
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno3.push(tr);
+	}
+
+	while(!turmasAno4.empty()){
+		Turma* tr = new Turma(turmasAno4.top().getTurmaID(), turmasAno4.top().getVagasCadeiras());
+		turmas.push_back(tr);
+		auxiliar.push_back(turmasAno4.top());
+		turmasAno4.pop();
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno4.push(tr);
+	}
+
+	while(!turmasAno5.empty()){
+		Turma* tr = new Turma(turmasAno5.top().getTurmaID(), turmasAno5.top().getVagasCadeiras());
+		turmas.push_back(tr);
+		auxiliar.push_back(turmasAno5.top());
+		turmasAno5.pop();
+	}
+	while(!auxiliar.empty()){
+		const Turma tr = auxiliar[0];
+		auxiliar.erase(auxiliar.begin());
+		turmasAno5.push(tr);
+	}
+
+
+	cout << "Assigned alunos to turmas" << endl;
+/*
+	//todo elaborate procurar turma
+	for(unsigned int i=0; i<this->alunosSemTurma; i++){
+		vector<Uc*> ucsSemTurma;
+		vector< pair<string, Uc *> > ucsAluno = this->alunosSemTurma[i]->getCadeirasInscrito();
+		for(unsigned int j=0; j<ucsAluno.size(); j++){
+			if(ucsAluno[j].second->alunoTemTurma(this->alunosSemTurma[i])){
+				ucsSemTurma.push_back(ucsAluno[j].second);
+			}
 		}
-	}
 
-	if(!inscreveu){
-		cout << "O aluno " << aluno->getNome() << " nao tem turma par todas as cadeiras do ano base." << endl;
-		return false;
-	}
+		for(unsigned int j=0; j<ucsSemTurma.size(); j++){
 
-	for(unsigned int j=0; j<aux.size(); j++){
-		trms.push(aux[j]);
-	}
-
-	return inscreveu;
+		}
+	}*/
 }
 
 /**
  *
  */
-bool Mieic::elaborateProcurarTurmas(priority_queue<Turma*> trms, vector<Uc*> ucs, Aluno* aluno){
 
-	return false;
+/**
+ * procura e aloca uma turma do ano base para aluno, retorna false se nao encontrou
+ */
+vector<Turma> Mieic::procurarTurmaPaluno(priority_queue<Turma> trms, vector<Uc*> ucs, Aluno* aluno){
+	vector<Turma> aux;
+	bool inscreveu = false;
+	//int cena = 0;
+	while(!trms.empty()){
+		vector< pair<int,Uc*> > vagasCadeiras = trms.top().getVagasCadeiras();
+		Turma turma = Turma(trms.top().getTurmaID(), trms.top().getVagasCadeiras());
+		trms.pop();
+
+		if(turma.cadeirasTemVagas(ucs) && !inscreveu){
+			//cout << "antes de mudar vagas: " << endl;
+			//turma.printInfo();
+			turma.inscreverAluno(ucs,aluno);
+			inscreveu = true;
+			//cout << "depois de mudar vagas: " << endl;
+			//turma.printInfo();
+		}
+
+		aux.push_back(turma);
+		/*
+		cena++;
+		cout << "aux size devia ser " << cena << " mas e' " << aux.size() << endl;
+		*/
+	}
+
+	//cout << "turmas do ano X depois de mudar as vagas " << aux.size() << endl;
+
+	if(!inscreveu){
+		cout << "O aluno " << aluno->getNome() << " nao tem turma par todas as cadeiras do ano base." << endl;
+		while(!aux.empty()){
+			aux.erase(aux.begin());
+		}
+	}
+/*
+	cout << "turmas do ano X depois de mudar as vagas " << aux.size() << endl;
+	for(unsigned int i=0; i<aux.size();i++){
+		aux[i].printInfo();
+	}
+*/
+	return aux;
 }
+
 /**
  * output para ficheiro de toda a info do mieic
  */
